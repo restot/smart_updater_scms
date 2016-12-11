@@ -17,7 +17,15 @@ class LoaderController < ApplicationController
       end
       
    end
+    
+   def update
+      @myfile = MyFile.find(params[:id])
+	   @myfile.update(myfile_params)
+   end
    
+   def edit
+	   @myfile = MyFile.find(params[:id])
+   end
    def destroy
       @myfile = MyFile.find(params[:id])
       @myfile.destroy

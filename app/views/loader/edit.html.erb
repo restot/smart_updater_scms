@@ -1,0 +1,20 @@
+<h1>Edit page </h1> 
+<%= link_to 'Back', root_path, class: "btn btn-primary" %>
+	<table class = "table table-bordered table-striped">
+   <thead>.
+      <tr>
+         <th>Name</th>
+         <th>Action</th> 
+      </tr>
+   </thead>
+
+<tbody>
+   <tr>
+	  <%= form_for(@myfile) do |f| %>
+		   <td><%= f.text_field :name%></td>
+		   <td><%= f.submit %></td>
+	   </tr>
+   </tbody>
+   <%end%>
+   </table>
+
