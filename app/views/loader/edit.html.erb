@@ -1,3 +1,15 @@
+	  <%= form_for(@myfile) do |f| %>
+<% if @myfile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@myfile.errors.count, "error") %> prohibited this @myfile from being saved:</h2>
+
+      <ul>
+      <% @myfile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <h1>Edit page </h1> 
 <%= link_to 'Back', root_path, class: "btn btn-primary" %>
 	<table class = "table table-bordered table-striped">
@@ -10,11 +22,10 @@
 
 <tbody>
    <tr>
-	  <%= form_for(@myfile) do |f| %>
 		   <td><%= f.text_field :name%></td>
 		   <td><%= f.submit %></td>
 	   </tr>
    </tbody>
-   <%end%>
    </table>
+   <%end%>
 

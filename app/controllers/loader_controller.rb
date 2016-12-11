@@ -20,12 +20,20 @@ class LoaderController < ApplicationController
     
    def update
       @myfile = MyFile.find(params[:id])
-	   @myfile.update(myfile_params)
-   end
+	   #@myfile.update(myfile_params)
+	   respond_to do |format|
+ if @myfile.update(myfile_params)
+        format.html { redirect_to my_files_path, notice: "File #{@myfile.name} was successfully updated." }
+      else
+        format.html {  redirect_to my_files_path }
+      end
+    end
+  end
    
    def edit
 	   @myfile = MyFile.find(params[:id])
    end
+
    def destroy
       @myfile = MyFile.find(params[:id])
       @myfile.destroy
