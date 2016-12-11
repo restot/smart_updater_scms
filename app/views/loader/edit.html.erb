@@ -1,4 +1,4 @@
-	  <%= form_for(@myfile) do |f| %>
+	  <%= form_for @myfile do |f| %>
 <% if @myfile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@myfile.errors.count, "error") %> prohibited this @myfile from being saved:</h2>
