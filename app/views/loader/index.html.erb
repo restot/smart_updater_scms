@@ -8,11 +8,12 @@
 
 <%= link_to "New Resume", new_my_file_path, class: "btn btn-primary" %>
 <%= link_to "Reader", reader_index_path, class: "btn btn-success" %>
+<%= link_to "models", my_models_path, class: "btn btn-info" %>
 <br />
 <br />
 
 <table class = "table table-bordered table-striped">
-   <thead>.
+   <thead>
       <tr>
          <th>Name</th>
          <th>Download Link</th>
@@ -27,7 +28,7 @@
             <td><%= myfile.name %></td>
             <td><%= link_to "Download Resume", myfile.attachment_url %></td>
             <td><%= button_to "Delete",  myfile,id: "inline-this", method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{myfile.name}?" %>
-            <%= link_to "Edit", edit_my_file_path(myfile),remote: false, class: "btn btn-warning" %></td>
+            <%= link_to "Edit", edit_my_file_path(myfile), class: "btn btn-warning" %></td>
          </tr>
          
       <% end %>

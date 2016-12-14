@@ -2,3 +2,23 @@
 <%= link_to "Home", root_path, class: "btn btn-primary" %>
 <%= link_to "test", reader_my_path,remote: true, class: "btn btn-primary" %>
 
+<table class = "table table-bordered table-striped">
+   <thead>
+      <tr>
+         <th>Name</th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @myfiles.each do |myfile| %>
+         
+         <tr>
+            <td><%= myfile.name %></td>
+            <td><%= link_to "Read this", reader_read_path(myfile), class: "btn btn-success" %></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
