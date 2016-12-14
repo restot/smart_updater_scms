@@ -7,9 +7,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+<ul class="nav nav-tabs container">
+		  <li id="home" role="presentation" class="active"><a href="<%= root_path%>">Home</a></li>
+		  <li id="reader" role="presentation"><a href="<%= reader_index_path%>">Reader</a></li>
+</ul>
 
   <body>
   <div class = "container" style = "padding-top:20px;">
+
     <%= yield %>
     </div>
   </body>

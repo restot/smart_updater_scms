@@ -1,7 +1,6 @@
 <h1>Reader#index</h1>
-<%= link_to "Home", root_path, class: "btn btn-primary" %>
 <%= link_to "test", reader_my_path,remote: true, class: "btn btn-primary" %>
-
+<hr>
 <table class = "table table-bordered table-striped">
    <thead>
       <tr>
@@ -22,3 +21,7 @@
    </tbody>
    
 </table>
+<script>
+$('.active').removeClass("active");
+$('#reader').addClass("active");
+</script>

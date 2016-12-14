@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :my_models
   get 'reader/index'
 
   get 'reader/read'
