@@ -16,8 +16,7 @@ class ReaderController < ApplicationController
   end
 
   def req
-	  @file = MyFile.find(params[:reader_id])
-	  @link = root_url + @file.attachment_url
+	  @id = params[:reader_id]
 	  respond_to :html, :js
   end
 

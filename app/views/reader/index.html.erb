@@ -14,13 +14,16 @@
          
          <tr>
             <td><%= myfile.name %></td>
-	    <td><%= link_to "Read this", reader_req_path(myfile) + ".js",remote:true, class: "btn btn-success" %></td>
+	    <td><%= link_to "Read this", reader_req_path(reader_id:myfile, format: "js"), remote: true, class: "btn btn-success" %></td>
          </tr>
          
       <% end %>
    </tbody>
    
 </table>
+<div id="status" style="background-color: red;padding: 30px;visible: false;display: none;
+">
+	</div>
 <script>
 $('.active').removeClass("active");
 $('#reader').addClass("active");

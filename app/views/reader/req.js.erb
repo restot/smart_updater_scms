@@ -1,1 +1,37 @@
-$('body').append("<%= @link%> <br>");
+var jqxhr = $.ajax( {url: "<%= url_for(controller: "reader", action:"read",reader_id: @id,format: "json", only_path: false ) %>",
+	dataType: "json",
+    beforeSend: function(){
+	    $('#status').show();
+    }
+})
+  .done(function(data) {	  
+	  var items = [];
+	  $('#status').hide();
+  $.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+
+  })
+  .fail(function() {
+    alert( "error" );
+  })
+.always(function() {
+	/*$('#status').show();*/	
+    /*alert( "complete" );*/
+}); 
+/*$.getJSON( "<%= url_for(controller: "reader", action:"read",reader_id: @id,format: "json", only_path: false ) %>", function( data ) {
+  var items = [];
+  $.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+});*/ 
