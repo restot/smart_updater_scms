@@ -20,7 +20,7 @@ class LoaderController < ApplicationController
     
    def update
       @myfile = MyFile.find(params[:id])
-	   #@myfile.update(myfile_params)
+	   #@myfile.update(params)
 	   respond_to do |format|
  if @myfile.update(myfile_params)
         format.html { redirect_to my_files_path, notice: "File #{@myfile.name} was successfully updated." }
@@ -42,6 +42,6 @@ class LoaderController < ApplicationController
    
    private
       def myfile_params
-      params.require(:my_file).permit(:name, :attachment)
+      params.require(:my_file).permit(:name, :attachment, :vendor_id)
    end
 end

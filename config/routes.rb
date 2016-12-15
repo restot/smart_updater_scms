@@ -4,7 +4,7 @@ Rails.application.routes.draw do
  # get 'reader/read', to: 'reader#read'
 
 	resources :my_files, controller: 'loader'
-	
+	resources :vendor_1, controller: 'reader'	
 	root 'loader#index'
 	get 'reader/my', to: 'reader#my'
 
