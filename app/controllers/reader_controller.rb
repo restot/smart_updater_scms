@@ -11,6 +11,7 @@ class ReaderController < ApplicationController
   end
 
   def my
+	  @foo = "foo"
 	  respond_to do |f|
 		  f.html { redirect_to reader_index_url}
 		  f.js

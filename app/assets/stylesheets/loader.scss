@@ -2,3 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
+.nav-tabs > li > a {
+  border: 1px solid #777777;
+}
+.nav-tabs {
+  border-bottom: 1px solid #777777;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  border: 1px solid #a94442;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: #e61b1b;
+}
+
