@@ -6,8 +6,13 @@ class ReaderController < ApplicationController
 
   def read
 	  @params = params
-	  @file = MyFile.find(params[:format])
-	  @xlsx = Roo::Spreadsheet.open("#{root_url}#{@file.attachment_url}", extention: "xlsx")	# optional metods
+	  @file = MyFile.find(params[:reader_id])
+	  @xlsx = Roo::Spreadsheet.open(root_url + @file.attachment_url, extention: "xlsx")	# optional metods 
+	  
+	  respond_to do |f|
+		  f.html
+		  f.json
+	  end
   end
 
   def my

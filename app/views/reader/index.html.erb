@@ -14,7 +14,7 @@
          
          <tr>
             <td><%= myfile.name %></td>
-            <td><%= link_to "Read this", reader_read_path(myfile), class: "btn btn-success" %></td>
+	    <td><%= link_to "Read this", reader_read_path(myfile) + ".json", remote:true, class: "btn btn-success" %></td>
          </tr>
          
       <% end %>
