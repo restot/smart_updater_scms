@@ -16,13 +16,14 @@ class ReaderController < ApplicationController
 		   
 		   @hash["col_#{i.to_s}"] = cell
 		   i += 1
+
 		 end
         	@ie = Vendor1.create(@hash)
 	        @ie.save
 
 	 end
-	@e = Vendor1.all
-	@cols = Vendor1.column_names
+	#@e = Vendor1.all
+	#@cols = Vendor1.column_names
 	 	  respond_to do |f|
 		  f.html
 		  f.json

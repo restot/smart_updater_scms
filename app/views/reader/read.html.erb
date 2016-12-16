@@ -5,16 +5,16 @@
 <hr>
 <table style=" border: 1px solid #ddd;">
 	<tr>
-	<% @cols.each do |r| %>
-		<th><%= r %></th>
-        <% end %>
+	<%# @cols.each do |r| %>
+		<th><%#= r %></th>
+        <%#end %>
 		</tr>
-<% @e.each do |e| %>
+<%# @e.each do |e| %>
 	<tr>
 	
-	<% @cols.each do |r| %>
-		<td><%= e.send(r) %></td>
-        <% end %>
+	<%# @cols.each do |r| %>
+		<td><%#= e.send(r) %></td>
+        <%# end %>
 </tr>
-<% end %>
+<%# end %>
 </table>
