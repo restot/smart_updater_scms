@@ -4,11 +4,18 @@ class ReaderController < ApplicationController
 	  @myfiles = MyFile.all 
   end
 
+  def show
+	  @data= Vendor1.all
+	  @cols = Vendor1.column_names
+  end
+
   def read
 	  @file = MyFile.find(params[:reader_id])
 	  @xlsx = Roo::Spreadsheet.open(root_url + @file.attachment_url, extention: "xlsx")	# optional metods
 	
-	Vendor1.destroy_all
+	#Vendor1.destroy_all
+	  query = execute_statement("DELETE FROM vendor#{@file.vendor_id.to_s}s")
+	  query1 = execute_statement("delete from sqlite_sequence where name='vendor1s'")
 	 @xlsx.sheet(0).each do |row|
                    @hash = Hash.new 
 	 	   i=0
@@ -26,7 +33,7 @@ class ReaderController < ApplicationController
 	#@cols = Vendor1.column_names
 	 	  respond_to do |f|
 		  f.html
-		  f.json
+		  f.json {render json: "123",status: :ok}
 	  end
   end
 
@@ -42,4 +49,13 @@ class ReaderController < ApplicationController
 		  f.js
 	  end
   end
+
+  def execute_statement(sql)
+        results = ActiveRecord::Base.connection.execute(sql)
+        if results.present?
+            return results
+        else
+            return nil
+        end
+    end
 end

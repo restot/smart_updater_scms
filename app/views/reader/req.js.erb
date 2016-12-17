@@ -3,8 +3,8 @@ var jqxhr = $.ajax( {url: "<%= url_for(controller: "reader", action:"read",reade
     beforeSend: function(){
     }
 })
-  .done(function(data) {	  
-	  var items = [];
+  .done(function() {	  
+	 /** var items = [];
   $.each( data, function( key, val ) {
     items.push( "<li id='" + key + "'>" + val + "</li>" );
   });
@@ -12,8 +12,9 @@ var jqxhr = $.ajax( {url: "<%= url_for(controller: "reader", action:"read",reade
   $( "<ul/>", {
     "class": "my-new-list",
     html: items.join( "" )
-  }).appendTo( "body" );
-
+  }).appendTo( "body" ); **/
+	  
+$('#modal').modal('show');  
   })
   .fail(function() {
     alert( "error" );

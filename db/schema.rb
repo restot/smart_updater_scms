@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215101442) do
+ActiveRecord::Schema.define(version: 20161217102801) do
 
   create_table "my_files", force: :cascade do |t|
     t.string   "name"
@@ -253,8 +253,8 @@ ActiveRecord::Schema.define(version: 20161215101442) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -275,6 +275,7 @@ ActiveRecord::Schema.define(version: 20161215101442) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
+    t.         "visible",    default: "t"
   end
 
   create_table "vendor2s", force: :cascade do |t|

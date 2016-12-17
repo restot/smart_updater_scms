@@ -1,5 +1,6 @@
 <h1>Reader#index</h1>
 <%= link_to "test", reader_my_path,remote: true, class: "btn btn-primary" %>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
 <hr>
 <table class = "table table-bordered table-striped">
    <thead>
@@ -14,13 +15,26 @@
          
          <tr>
             <td><%= myfile.name %></td>
-	    <td><%= link_to "Read this", reader_req_path(reader_id:myfile, format: "js"), remote: true, class: "btn btn-success" %></td>
+	    <td>
+		<%= link_to "Read", reader_req_path(reader_id:myfile, format: "js"), remote: true, class: "btn btn-success" %>
+		<%= link_to "Show", reader_path(myfile), class: "btn btn-warning" %>
+	    </td>
+	    
          </tr>
          
       <% end %>
    </tbody>
    
 </table>
+
+<div class="modal fade bs-example-modal-sm" id="modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      modal content
+    </div>
+  </div>
+</div>
+
 <script>
 $('.active').removeClass("active");
 $('#reader').addClass("active");
