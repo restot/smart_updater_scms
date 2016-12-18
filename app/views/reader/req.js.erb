@@ -14,7 +14,8 @@ var jqxhr = $.ajax( {url: "<%= url_for(controller: "reader", action:"read",reade
     html: items.join( "" )
   }).appendTo( "body" ); **/
 	  
-$('#modal').modal('show');  
+//$('#modal').modal('show'); 
+	  alert("Done \"<%= @name.name%>\" file");
   })
   .fail(function() {
     alert( "error" );

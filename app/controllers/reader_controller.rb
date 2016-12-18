@@ -5,17 +5,19 @@ class ReaderController < ApplicationController
   end
 
   def show
-	  @data= Vendor1.all
-	  @cols = Vendor1.column_names
+	  file = MyFile.find(params[:id])
+	  @data= "Vendor#{file.vendor_id.to_s}".constantize.all
+	  @cols = "Vendor#{file.vendor_id.to_s}".constantize.column_names
   end
 
   def read
 	  @file = MyFile.find(params[:reader_id])
 	  @xlsx = Roo::Spreadsheet.open(root_url + @file.attachment_url, extention: "xlsx")	# optional metods
-	
+	  file = MyFile.find(params[:reader_id])
+	model="Vendor#{file.vendor_id.to_s}".constantize
 	#Vendor1.destroy_all
 	  query = execute_statement("DELETE FROM vendor#{@file.vendor_id.to_s}s")
-	  query1 = execute_statement("delete from sqlite_sequence where name='vendor1s'")
+	  query1 = execute_statement("delete from sqlite_sequence where name='#{model.to_s.downcase}s'")
 	 @xlsx.sheet(0).each do |row|
                    @hash = Hash.new 
 	 	   i=0
@@ -25,7 +27,7 @@ class ReaderController < ApplicationController
 		   i += 1
 
 		 end
-        	@ie = Vendor1.create(@hash)
+        	@ie = model.create(@hash)
 	        @ie.save
 
 	 end
@@ -39,6 +41,7 @@ class ReaderController < ApplicationController
 
   def req
 	  @id = params[:reader_id]
+	  @name = MyFile.find(params[:reader_id])
 	  respond_to :html, :js
   end
 
