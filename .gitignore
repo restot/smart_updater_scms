@@ -30,4 +30,6 @@ doc/
 .secret
 /log/*.log
 /tmp
+*.xls
+*.xlsx
 /.bundle
