@@ -2,6 +2,8 @@ require 'roo'
 class ReaderController < ApplicationController
   def index
 	  @myfiles = MyFile.all 
+	  @statuses = Status.all
+	  
   end
 
   def show
@@ -12,9 +14,10 @@ class ReaderController < ApplicationController
 
   def read
 	  @file = MyFile.find(params[:reader_id])
+	  @status = Status.find_by(model_id: @file.vendor_id.to_s)
+	  @status.update(status: "loading...", time_start: Time.now, time_end: nil)
 	  @xlsx = Roo::Spreadsheet.open(root_url + @file.attachment_url, extention: "xlsx")	# optional metods
-	  file = MyFile.find(params[:reader_id])
-	model="Vendor#{file.vendor_id.to_s}".constantize
+	model="Vendor#{@file.vendor_id.to_s}".constantize
 	#Vendor1.destroy_all
 	  query = execute_statement("DELETE FROM vendor#{@file.vendor_id.to_s}s")
 	  query1 = execute_statement("delete from sqlite_sequence where name='#{model.to_s.downcase}s'")
@@ -31,14 +34,16 @@ class ReaderController < ApplicationController
 	        @ie.save
 
 	 end
+	  @status.update(status: "finish", time_end: Time.now, time_start: nil)
 	#@e = Vendor1.all
 	#@cols = Vendor1.column_names
 	 	  respond_to do |f|
 		  f.html
 		  f.json {render json: "123",status: :ok}
-	  end
-  end
+	  	end
 
+  end
+ 
   def req
 	  @id = params[:reader_id]
 	  @name = MyFile.find(params[:reader_id])
@@ -61,4 +66,8 @@ class ReaderController < ApplicationController
             return nil
         end
     end
+
+
+
+
 end

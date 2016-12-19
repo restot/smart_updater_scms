@@ -5,13 +5,16 @@ class LoaderController < ApplicationController
    
    def new
       @myfile = MyFile.new
+      #@status_model = Status.new
    end
    
    def create
+	   @status_model = Status.new(model_id: params.require(:my_file).permit(:vendor_id)[:vendor_id], status: "created")
+	   
       @myfile = MyFile.new(myfile_params)
       
-      if @myfile.save
-         redirect_to my_files_path, notice: "The resume #{@myfile.name} has been uploaded."
+      if @myfile.save && @status_model.save
+	      redirect_to my_files_path, notice: "The file #{@myfile.name} has been added. Status: #{@status_model.status}, id: #{@status_model.model_id}"
       else
          render "new"
       end
