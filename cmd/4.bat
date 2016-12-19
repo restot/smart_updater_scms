@@ -1,0 +1,2 @@
+rails db:migrate
+pause
