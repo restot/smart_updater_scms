@@ -18,20 +18,19 @@
          <tr>
             <td><%= myfile.name %></td>
 	    <td>
-		<%= link_to "Read", reader_req_path(reader_id:myfile, format: "js"), remote: true, class: "btn btn-success" %>
+		<%= link_to "Read", reader_req_path(reader_id:myfile, format: "js" ), remote: true, class: "btn btn-success" %>
 		<%= link_to "Show", reader_path(myfile), class: "btn btn-warning" %>
 	    </td>
 	    <% status = @statuses.find_by(model_id: myfile.vendor_id) %>
 	    <td class="countdown"><%= status.status %>
 	    <% if status.status != "finish" %>
-		      <script>
- time_<%=myfile.name%> = countdown(<%= status.time_start.strftime('%s%3N')%>,function(ts){$('#<%=myfile.name%>_time').html(ts.toHTML());},countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,3,1);
-	
-    
-		</script>
-	<%else%>
-		<script>if (typeof variable !== 'undefined') {window.clearInterval(time_<%= myfile.name %>);}</script>
-	<%end%>
+		    <script>var time_<%=myfile.name%> = countdown(<%= status.time_start.strftime('%s%3N') if status.time_start != nil %>,function(ts){$('#<%=myfile.name%>_time').html(ts.toHTML());},countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,3,1);</script>
+	    <% end %>
+	<% if status.status == "finish" %>
+	  <script>var time_<%=myfile.name%> = countdown(<%= status.time_start.strftime('%s%3N') if status.time_start != nil %>,<%= status.time_end.strftime('%s%3N') if status.time_end != nil %>,countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,3,1);</script>
+  <% else %>
+	  <script></script>
+	<% end %>
 	    <hr><%= status.time_start %>
     	    <hr><%= status.time_end %></td>
 	    <td class="countdown" id="<%= myfile.name%>_time"></td>

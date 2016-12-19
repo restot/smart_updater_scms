@@ -33,3 +33,4 @@ doc/
 *.xls
 *.xlsx
 /.bundle
+schema.rb

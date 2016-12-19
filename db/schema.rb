@@ -12,7 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20161218133609) do
 
-  create_table "my_files", force: :cascade do |t|
+  create_table "etst", id: false, force: :cascade, options: "ENGINE=MEMORY DEFAULT CHARSET=utf8" do |t|
+    t.string "a", limit: 9999, null: false
+  end
+
+  create_table "my_files", force: :cascade, options: "ENGINE=MEMORY DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "attachment"
     t.datetime "created_at", null: false
@@ -20,7 +24,11 @@ ActiveRecord::Schema.define(version: 20161218133609) do
     t.string   "vendor_id"
   end
 
+<<<<<<< HEAD
   create_table "statuses", force: :cascade do |t|
+=======
+  create_table "statuses", force: :cascade, options: "ENGINE=MEMORY DEFAULT CHARSET=utf8" do |t|
+>>>>>>> e2177834dc11b01a0c6839b308479d99db9baaa7
     t.string   "model_id"
     t.string   "status"
     t.datetime "time_start"
@@ -29,1274 +37,1277 @@ ActiveRecord::Schema.define(version: 20161218133609) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "vendor10s", force: :cascade do |t|
-    t.text     "col_0"
-    t.text     "col_1"
-    t.text     "col_2"
-    t.text     "col_3"
-    t.text     "col_4"
-    t.text     "col_5"
-    t.text     "col_6"
-    t.text     "col_7"
-    t.text     "col_8"
-    t.text     "col_9"
-    t.text     "col_10"
-    t.text     "col_11"
-    t.text     "col_12"
-    t.text     "col_13"
-    t.text     "col_14"
-    t.text     "col_15"
-    t.text     "col_16"
-    t.text     "col_17"
-    t.text     "col_18"
-    t.text     "col_19"
-    t.text     "col_20"
-    t.text     "col_21"
-    t.text     "col_22"
-    t.text     "col_23"
-    t.text     "col_24"
-    t.text     "col_25"
-    t.text     "col_26"
-    t.text     "col_27"
-    t.text     "col_28"
-    t.text     "col_29"
-    t.text     "col_30"
-    t.text     "col_31"
-    t.text     "col_32"
-    t.text     "col_33"
-    t.text     "col_34"
-    t.text     "col_35"
-    t.text     "col_36"
-    t.text     "col_37"
-    t.text     "col_38"
-    t.text     "col_39"
-    t.text     "col_40"
-    t.text     "col_41"
-    t.text     "col_42"
-    t.text     "col_43"
-    t.text     "col_44"
-    t.text     "col_45"
-    t.text     "col_46"
-    t.text     "col_47"
-    t.text     "col_48"
-    t.text     "col_49"
-    t.text     "col_50"
-    t.text     "col_51"
-    t.text     "col_52"
-    t.text     "col_53"
-    t.text     "col_54"
-    t.text     "col_55"
-    t.text     "col_56"
-    t.text     "col_57"
-    t.text     "col_58"
-    t.text     "col_59"
-    t.text     "col_60"
-    t.text     "col_61"
-    t.text     "col_62"
-    t.text     "col_63"
-    t.text     "col_64"
-    t.text     "col_65"
-    t.text     "col_66"
-    t.text     "col_67"
-    t.text     "col_68"
-    t.text     "col_69"
-    t.text     "col_70"
-    t.text     "col_71"
-    t.text     "col_72"
-    t.text     "col_73"
-    t.text     "col_74"
-    t.text     "col_75"
-    t.text     "col_76"
-    t.text     "col_77"
-    t.text     "col_78"
-    t.text     "col_79"
-    t.text     "col_80"
-    t.text     "col_81"
-    t.text     "col_82"
-    t.text     "col_83"
-    t.text     "col_84"
-    t.text     "col_85"
-    t.text     "col_86"
-    t.text     "col_87"
-    t.text     "col_88"
-    t.text     "col_89"
-    t.text     "col_90"
-    t.text     "col_91"
-    t.text     "col_92"
-    t.text     "col_93"
-    t.text     "col_94"
-    t.text     "col_95"
-    t.text     "col_96"
-    t.text     "col_97"
-    t.text     "col_98"
-    t.text     "col_99"
-    t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "col_101"
-    t.text     "col_102"
-    t.text     "col_103"
-    t.text     "col_104"
-    t.text     "col_105"
-    t.text     "col_106"
-    t.text     "col_107"
-    t.text     "col_108"
-    t.text     "col_109"
-    t.text     "col_110"
-    t.text     "col_111"
-    t.text     "col_112"
-    t.text     "col_113"
-    t.text     "col_114"
-    t.text     "col_115"
-    t.text     "col_116"
-    t.text     "col_117"
-    t.text     "col_118"
-    t.text     "col_119"
-    t.text     "col_120"
-    t.         "visible",    default: "t"
+  create_table "vendor10s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "col_0",      limit: 65535
+    t.text     "col_1",      limit: 65535
+    t.text     "col_2",      limit: 65535
+    t.text     "col_3",      limit: 65535
+    t.text     "col_4",      limit: 65535
+    t.text     "col_5",      limit: 65535
+    t.text     "col_6",      limit: 65535
+    t.text     "col_7",      limit: 65535
+    t.text     "col_8",      limit: 65535
+    t.text     "col_9",      limit: 65535
+    t.text     "col_10",     limit: 65535
+    t.text     "col_11",     limit: 65535
+    t.text     "col_12",     limit: 65535
+    t.text     "col_13",     limit: 65535
+    t.text     "col_14",     limit: 65535
+    t.text     "col_15",     limit: 65535
+    t.text     "col_16",     limit: 65535
+    t.text     "col_17",     limit: 65535
+    t.text     "col_18",     limit: 65535
+    t.text     "col_19",     limit: 65535
+    t.text     "col_20",     limit: 65535
+    t.text     "col_21",     limit: 65535
+    t.text     "col_22",     limit: 65535
+    t.text     "col_23",     limit: 65535
+    t.text     "col_24",     limit: 65535
+    t.text     "col_25",     limit: 65535
+    t.text     "col_26",     limit: 65535
+    t.text     "col_27",     limit: 65535
+    t.text     "col_28",     limit: 65535
+    t.text     "col_29",     limit: 65535
+    t.text     "col_30",     limit: 65535
+    t.text     "col_31",     limit: 65535
+    t.text     "col_32",     limit: 65535
+    t.text     "col_33",     limit: 65535
+    t.text     "col_34",     limit: 65535
+    t.text     "col_35",     limit: 65535
+    t.text     "col_36",     limit: 65535
+    t.text     "col_37",     limit: 65535
+    t.text     "col_38",     limit: 65535
+    t.text     "col_39",     limit: 65535
+    t.text     "col_40",     limit: 65535
+    t.text     "col_41",     limit: 65535
+    t.text     "col_42",     limit: 65535
+    t.text     "col_43",     limit: 65535
+    t.text     "col_44",     limit: 65535
+    t.text     "col_45",     limit: 65535
+    t.text     "col_46",     limit: 65535
+    t.text     "col_47",     limit: 65535
+    t.text     "col_48",     limit: 65535
+    t.text     "col_49",     limit: 65535
+    t.text     "col_50",     limit: 65535
+    t.text     "col_51",     limit: 65535
+    t.text     "col_52",     limit: 65535
+    t.text     "col_53",     limit: 65535
+    t.text     "col_54",     limit: 65535
+    t.text     "col_55",     limit: 65535
+    t.text     "col_56",     limit: 65535
+    t.text     "col_57",     limit: 65535
+    t.text     "col_58",     limit: 65535
+    t.text     "col_59",     limit: 65535
+    t.text     "col_60",     limit: 65535
+    t.text     "col_61",     limit: 65535
+    t.text     "col_62",     limit: 65535
+    t.text     "col_63",     limit: 65535
+    t.text     "col_64",     limit: 65535
+    t.text     "col_65",     limit: 65535
+    t.text     "col_66",     limit: 65535
+    t.text     "col_67",     limit: 65535
+    t.text     "col_68",     limit: 65535
+    t.text     "col_69",     limit: 65535
+    t.text     "col_70",     limit: 65535
+    t.text     "col_71",     limit: 65535
+    t.text     "col_72",     limit: 65535
+    t.text     "col_73",     limit: 65535
+    t.text     "col_74",     limit: 65535
+    t.text     "col_75",     limit: 65535
+    t.text     "col_76",     limit: 65535
+    t.text     "col_77",     limit: 65535
+    t.text     "col_78",     limit: 65535
+    t.text     "col_79",     limit: 65535
+    t.text     "col_80",     limit: 65535
+    t.text     "col_81",     limit: 65535
+    t.text     "col_82",     limit: 65535
+    t.text     "col_83",     limit: 65535
+    t.text     "col_84",     limit: 65535
+    t.text     "col_85",     limit: 65535
+    t.text     "col_86",     limit: 65535
+    t.text     "col_87",     limit: 65535
+    t.text     "col_88",     limit: 65535
+    t.text     "col_89",     limit: 65535
+    t.text     "col_90",     limit: 65535
+    t.text     "col_91",     limit: 65535
+    t.text     "col_92",     limit: 65535
+    t.text     "col_93",     limit: 65535
+    t.text     "col_94",     limit: 65535
+    t.text     "col_95",     limit: 65535
+    t.text     "col_96",     limit: 65535
+    t.text     "col_97",     limit: 65535
+    t.text     "col_98",     limit: 65535
+    t.text     "col_99",     limit: 65535
+    t.text     "col_100",    limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.text     "col_101",    limit: 65535
+    t.text     "col_102",    limit: 65535
+    t.text     "col_103",    limit: 65535
+    t.text     "col_104",    limit: 65535
+    t.text     "col_105",    limit: 65535
+    t.text     "col_106",    limit: 65535
+    t.text     "col_107",    limit: 65535
+    t.text     "col_108",    limit: 65535
+    t.text     "col_109",    limit: 65535
+    t.text     "col_110",    limit: 65535
+    t.text     "col_111",    limit: 65535
+    t.text     "col_112",    limit: 65535
+    t.text     "col_113",    limit: 65535
+    t.text     "col_114",    limit: 65535
+    t.text     "col_115",    limit: 65535
+    t.text     "col_116",    limit: 65535
+    t.text     "col_117",    limit: 65535
+    t.text     "col_118",    limit: 65535
+    t.text     "col_119",    limit: 65535
+    t.text     "col_120",    limit: 65535
+    t.boolean  "visible",                  default: true
   end
 
-  create_table "vendor1s", force: :cascade do |t|
-    t.text     "col_0"
-    t.text     "col_1"
-    t.text     "col_2"
-    t.text     "col_3"
-    t.text     "col_4"
-    t.text     "col_5"
-    t.text     "col_6"
-    t.text     "col_7"
-    t.text     "col_8"
-    t.text     "col_9"
-    t.text     "col_10"
-    t.text     "col_11"
-    t.text     "col_12"
-    t.text     "col_13"
-    t.text     "col_14"
-    t.text     "col_15"
-    t.text     "col_16"
-    t.text     "col_17"
-    t.text     "col_18"
-    t.text     "col_19"
-    t.text     "col_20"
-    t.text     "col_21"
-    t.text     "col_22"
-    t.text     "col_23"
-    t.text     "col_24"
-    t.text     "col_25"
-    t.text     "col_26"
-    t.text     "col_27"
-    t.text     "col_28"
-    t.text     "col_29"
-    t.text     "col_30"
-    t.text     "col_31"
-    t.text     "col_32"
-    t.text     "col_33"
-    t.text     "col_34"
-    t.text     "col_35"
-    t.text     "col_36"
-    t.text     "col_37"
-    t.text     "col_38"
-    t.text     "col_39"
-    t.text     "col_40"
-    t.text     "col_41"
-    t.text     "col_42"
-    t.text     "col_43"
-    t.text     "col_44"
-    t.text     "col_45"
-    t.text     "col_46"
-    t.text     "col_47"
-    t.text     "col_48"
-    t.text     "col_49"
-    t.text     "col_50"
-    t.text     "col_51"
-    t.text     "col_52"
-    t.text     "col_53"
-    t.text     "col_54"
-    t.text     "col_55"
-    t.text     "col_56"
-    t.text     "col_57"
-    t.text     "col_58"
-    t.text     "col_59"
-    t.text     "col_60"
-    t.text     "col_61"
-    t.text     "col_62"
-    t.text     "col_63"
-    t.text     "col_64"
-    t.text     "col_65"
-    t.text     "col_66"
-    t.text     "col_67"
-    t.text     "col_68"
-    t.text     "col_69"
-    t.text     "col_70"
-    t.text     "col_71"
-    t.text     "col_72"
-    t.text     "col_73"
-    t.text     "col_74"
-    t.text     "col_75"
-    t.text     "col_76"
-    t.text     "col_77"
-    t.text     "col_78"
-    t.text     "col_79"
-    t.text     "col_80"
-    t.text     "col_81"
-    t.text     "col_82"
-    t.text     "col_83"
-    t.text     "col_84"
-    t.text     "col_85"
-    t.text     "col_86"
-    t.text     "col_87"
-    t.text     "col_88"
-    t.text     "col_89"
-    t.text     "col_90"
-    t.text     "col_91"
-    t.text     "col_92"
-    t.text     "col_93"
-    t.text     "col_94"
-    t.text     "col_95"
-    t.text     "col_96"
-    t.text     "col_97"
-    t.text     "col_98"
-    t.text     "col_99"
-    t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "col_101"
-    t.text     "col_102"
-    t.text     "col_103"
-    t.text     "col_104"
-    t.text     "col_105"
-    t.text     "col_106"
-    t.text     "col_107"
-    t.text     "col_108"
-    t.text     "col_109"
-    t.text     "col_110"
-    t.text     "col_111"
-    t.text     "col_112"
-    t.text     "col_113"
-    t.text     "col_114"
-    t.text     "col_115"
-    t.text     "col_116"
-    t.text     "col_117"
-    t.text     "col_118"
-    t.text     "col_119"
-    t.text     "col_120"
-    t.         "visible",    default: "t"
+<<<<<<< HEAD
+=======
+  create_table "vendor1s", force: :cascade, options: "ENGINE=MyISAM DEFAULT CHARSET=utf8" do |t|
+    t.string   "col_0",      limit: 9999
+    t.string   "col_1",      limit: 9999
+    t.text     "col_2",      limit: 65535
+    t.text     "col_3",      limit: 65535
+    t.text     "col_4",      limit: 65535
+    t.text     "col_5",      limit: 65535
+    t.text     "col_6",      limit: 65535
+    t.text     "col_7",      limit: 65535
+    t.text     "col_8",      limit: 65535
+    t.text     "col_9",      limit: 65535
+    t.text     "col_10",     limit: 65535
+    t.text     "col_11",     limit: 65535
+    t.text     "col_12",     limit: 65535
+    t.text     "col_13",     limit: 65535
+    t.text     "col_14",     limit: 65535
+    t.text     "col_15",     limit: 65535
+    t.text     "col_16",     limit: 65535
+    t.text     "col_17",     limit: 65535
+    t.text     "col_18",     limit: 65535
+    t.text     "col_19",     limit: 65535
+    t.text     "col_20",     limit: 65535
+    t.text     "col_21",     limit: 65535
+    t.text     "col_22",     limit: 65535
+    t.text     "col_23",     limit: 65535
+    t.text     "col_24",     limit: 65535
+    t.text     "col_25",     limit: 65535
+    t.text     "col_26",     limit: 65535
+    t.text     "col_27",     limit: 65535
+    t.text     "col_28",     limit: 65535
+    t.text     "col_29",     limit: 65535
+    t.text     "col_30",     limit: 65535
+    t.text     "col_31",     limit: 65535
+    t.text     "col_32",     limit: 65535
+    t.text     "col_33",     limit: 65535
+    t.text     "col_34",     limit: 65535
+    t.text     "col_35",     limit: 65535
+    t.text     "col_36",     limit: 65535
+    t.text     "col_37",     limit: 65535
+    t.text     "col_38",     limit: 65535
+    t.text     "col_39",     limit: 65535
+    t.text     "col_40",     limit: 65535
+    t.text     "col_41",     limit: 65535
+    t.text     "col_42",     limit: 65535
+    t.text     "col_43",     limit: 65535
+    t.text     "col_44",     limit: 65535
+    t.text     "col_45",     limit: 65535
+    t.text     "col_46",     limit: 65535
+    t.text     "col_47",     limit: 65535
+    t.text     "col_48",     limit: 65535
+    t.text     "col_49",     limit: 65535
+    t.text     "col_50",     limit: 65535
+    t.text     "col_51",     limit: 65535
+    t.text     "col_52",     limit: 65535
+    t.text     "col_53",     limit: 65535
+    t.text     "col_54",     limit: 65535
+    t.text     "col_55",     limit: 65535
+    t.text     "col_56",     limit: 65535
+    t.text     "col_57",     limit: 65535
+    t.text     "col_58",     limit: 65535
+    t.text     "col_59",     limit: 65535
+    t.text     "col_60",     limit: 65535
+    t.text     "col_61",     limit: 65535
+    t.text     "col_62",     limit: 65535
+    t.text     "col_63",     limit: 65535
+    t.text     "col_64",     limit: 65535
+    t.text     "col_65",     limit: 65535
+    t.text     "col_66",     limit: 65535
+    t.text     "col_67",     limit: 65535
+    t.text     "col_68",     limit: 65535
+    t.text     "col_69",     limit: 65535
+    t.text     "col_70",     limit: 65535
+    t.text     "col_71",     limit: 65535
+    t.text     "col_72",     limit: 65535
+    t.text     "col_73",     limit: 65535
+    t.text     "col_74",     limit: 65535
+    t.text     "col_75",     limit: 65535
+    t.text     "col_76",     limit: 65535
+    t.text     "col_77",     limit: 65535
+    t.text     "col_78",     limit: 65535
+    t.text     "col_79",     limit: 65535
+    t.text     "col_80",     limit: 65535
+    t.text     "col_81",     limit: 65535
+    t.text     "col_82",     limit: 65535
+    t.text     "col_83",     limit: 65535
+    t.text     "col_84",     limit: 65535
+    t.text     "col_85",     limit: 65535
+    t.text     "col_86",     limit: 65535
+    t.text     "col_87",     limit: 65535
+    t.text     "col_88",     limit: 65535
+    t.text     "col_89",     limit: 65535
+    t.text     "col_90",     limit: 65535
+    t.text     "col_91",     limit: 65535
+    t.text     "col_92",     limit: 65535
+    t.text     "col_93",     limit: 65535
+    t.text     "col_94",     limit: 65535
+    t.text     "col_95",     limit: 65535
+    t.text     "col_96",     limit: 65535
+    t.text     "col_97",     limit: 65535
+    t.text     "col_98",     limit: 65535
+    t.text     "col_99",     limit: 65535
+    t.text     "col_100",    limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.text     "col_101",    limit: 65535
+    t.text     "col_102",    limit: 65535
+    t.text     "col_103",    limit: 65535
+    t.text     "col_104",    limit: 65535
+    t.text     "col_105",    limit: 65535
+    t.text     "col_106",    limit: 65535
+    t.text     "col_107",    limit: 65535
+    t.text     "col_108",    limit: 65535
+    t.text     "col_109",    limit: 65535
+    t.text     "col_110",    limit: 65535
+    t.text     "col_111",    limit: 65535
+    t.text     "col_112",    limit: 65535
+    t.text     "col_113",    limit: 65535
+    t.text     "col_114",    limit: 65535
+    t.text     "col_115",    limit: 65535
+    t.text     "col_116",    limit: 65535
+    t.text     "col_117",    limit: 65535
+    t.text     "col_118",    limit: 65535
+    t.text     "col_119",    limit: 65535
+    t.text     "col_120",    limit: 65535
+    t.boolean  "visible",                  default: true
   end
 
-  create_table "vendor2s", force: :cascade do |t|
-    t.text     "col_0"
-    t.text     "col_1"
-    t.text     "col_2"
-    t.text     "col_3"
-    t.text     "col_4"
-    t.text     "col_5"
-    t.text     "col_6"
-    t.text     "col_7"
-    t.text     "col_8"
-    t.text     "col_9"
-    t.text     "col_10"
-    t.text     "col_11"
-    t.text     "col_12"
-    t.text     "col_13"
-    t.text     "col_14"
-    t.text     "col_15"
-    t.text     "col_16"
-    t.text     "col_17"
-    t.text     "col_18"
-    t.text     "col_19"
-    t.text     "col_20"
-    t.text     "col_21"
-    t.text     "col_22"
-    t.text     "col_23"
-    t.text     "col_24"
-    t.text     "col_25"
-    t.text     "col_26"
-    t.text     "col_27"
-    t.text     "col_28"
-    t.text     "col_29"
-    t.text     "col_30"
-    t.text     "col_31"
-    t.text     "col_32"
-    t.text     "col_33"
-    t.text     "col_34"
-    t.text     "col_35"
-    t.text     "col_36"
-    t.text     "col_37"
-    t.text     "col_38"
-    t.text     "col_39"
-    t.text     "col_40"
-    t.text     "col_41"
-    t.text     "col_42"
-    t.text     "col_43"
-    t.text     "col_44"
-    t.text     "col_45"
-    t.text     "col_46"
-    t.text     "col_47"
-    t.text     "col_48"
-    t.text     "col_49"
-    t.text     "col_50"
-    t.text     "col_51"
-    t.text     "col_52"
-    t.text     "col_53"
-    t.text     "col_54"
-    t.text     "col_55"
-    t.text     "col_56"
-    t.text     "col_57"
-    t.text     "col_58"
-    t.text     "col_59"
-    t.text     "col_60"
-    t.text     "col_61"
-    t.text     "col_62"
-    t.text     "col_63"
-    t.text     "col_64"
-    t.text     "col_65"
-    t.text     "col_66"
-    t.text     "col_67"
-    t.text     "col_68"
-    t.text     "col_69"
-    t.text     "col_70"
-    t.text     "col_71"
-    t.text     "col_72"
-    t.text     "col_73"
-    t.text     "col_74"
-    t.text     "col_75"
-    t.text     "col_76"
-    t.text     "col_77"
-    t.text     "col_78"
-    t.text     "col_79"
-    t.text     "col_80"
-    t.text     "col_81"
-    t.text     "col_82"
-    t.text     "col_83"
-    t.text     "col_84"
-    t.text     "col_85"
-    t.text     "col_86"
-    t.text     "col_87"
-    t.text     "col_88"
-    t.text     "col_89"
-    t.text     "col_90"
-    t.text     "col_91"
-    t.text     "col_92"
-    t.text     "col_93"
-    t.text     "col_94"
-    t.text     "col_95"
-    t.text     "col_96"
-    t.text     "col_97"
-    t.text     "col_98"
-    t.text     "col_99"
-    t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "col_101"
-    t.text     "col_102"
-    t.text     "col_103"
-    t.text     "col_104"
-    t.text     "col_105"
-    t.text     "col_106"
-    t.text     "col_107"
-    t.text     "col_108"
-    t.text     "col_109"
-    t.text     "col_110"
-    t.text     "col_111"
-    t.text     "col_112"
-    t.text     "col_113"
-    t.text     "col_114"
-    t.text     "col_115"
-    t.text     "col_116"
-    t.text     "col_117"
-    t.text     "col_118"
-    t.text     "col_119"
-    t.text     "col_120"
-    t.         "visible",    default: "t"
+  create_table "vendor2s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "col_0",      limit: 65535
+    t.text     "col_1",      limit: 65535
+    t.text     "col_2",      limit: 65535
+    t.text     "col_3",      limit: 65535
+    t.text     "col_4",      limit: 65535
+    t.text     "col_5",      limit: 65535
+    t.text     "col_6",      limit: 65535
+    t.text     "col_7",      limit: 65535
+    t.text     "col_8",      limit: 65535
+    t.text     "col_9",      limit: 65535
+    t.text     "col_10",     limit: 65535
+    t.text     "col_11",     limit: 65535
+    t.text     "col_12",     limit: 65535
+    t.text     "col_13",     limit: 65535
+    t.text     "col_14",     limit: 65535
+    t.text     "col_15",     limit: 65535
+    t.text     "col_16",     limit: 65535
+    t.text     "col_17",     limit: 65535
+    t.text     "col_18",     limit: 65535
+    t.text     "col_19",     limit: 65535
+    t.text     "col_20",     limit: 65535
+    t.text     "col_21",     limit: 65535
+    t.text     "col_22",     limit: 65535
+    t.text     "col_23",     limit: 65535
+    t.text     "col_24",     limit: 65535
+    t.text     "col_25",     limit: 65535
+    t.text     "col_26",     limit: 65535
+    t.text     "col_27",     limit: 65535
+    t.text     "col_28",     limit: 65535
+    t.text     "col_29",     limit: 65535
+    t.text     "col_30",     limit: 65535
+    t.text     "col_31",     limit: 65535
+    t.text     "col_32",     limit: 65535
+    t.text     "col_33",     limit: 65535
+    t.text     "col_34",     limit: 65535
+    t.text     "col_35",     limit: 65535
+    t.text     "col_36",     limit: 65535
+    t.text     "col_37",     limit: 65535
+    t.text     "col_38",     limit: 65535
+    t.text     "col_39",     limit: 65535
+    t.text     "col_40",     limit: 65535
+    t.text     "col_41",     limit: 65535
+    t.text     "col_42",     limit: 65535
+    t.text     "col_43",     limit: 65535
+    t.text     "col_44",     limit: 65535
+    t.text     "col_45",     limit: 65535
+    t.text     "col_46",     limit: 65535
+    t.text     "col_47",     limit: 65535
+    t.text     "col_48",     limit: 65535
+    t.text     "col_49",     limit: 65535
+    t.text     "col_50",     limit: 65535
+    t.text     "col_51",     limit: 65535
+    t.text     "col_52",     limit: 65535
+    t.text     "col_53",     limit: 65535
+    t.text     "col_54",     limit: 65535
+    t.text     "col_55",     limit: 65535
+    t.text     "col_56",     limit: 65535
+    t.text     "col_57",     limit: 65535
+    t.text     "col_58",     limit: 65535
+    t.text     "col_59",     limit: 65535
+    t.text     "col_60",     limit: 65535
+    t.text     "col_61",     limit: 65535
+    t.text     "col_62",     limit: 65535
+    t.text     "col_63",     limit: 65535
+    t.text     "col_64",     limit: 65535
+    t.text     "col_65",     limit: 65535
+    t.text     "col_66",     limit: 65535
+    t.text     "col_67",     limit: 65535
+    t.text     "col_68",     limit: 65535
+    t.text     "col_69",     limit: 65535
+    t.text     "col_70",     limit: 65535
+    t.text     "col_71",     limit: 65535
+    t.text     "col_72",     limit: 65535
+    t.text     "col_73",     limit: 65535
+    t.text     "col_74",     limit: 65535
+    t.text     "col_75",     limit: 65535
+    t.text     "col_76",     limit: 65535
+    t.text     "col_77",     limit: 65535
+    t.text     "col_78",     limit: 65535
+    t.text     "col_79",     limit: 65535
+    t.text     "col_80",     limit: 65535
+    t.text     "col_81",     limit: 65535
+    t.text     "col_82",     limit: 65535
+    t.text     "col_83",     limit: 65535
+    t.text     "col_84",     limit: 65535
+    t.text     "col_85",     limit: 65535
+    t.text     "col_86",     limit: 65535
+    t.text     "col_87",     limit: 65535
+    t.text     "col_88",     limit: 65535
+    t.text     "col_89",     limit: 65535
+    t.text     "col_90",     limit: 65535
+    t.text     "col_91",     limit: 65535
+    t.text     "col_92",     limit: 65535
+    t.text     "col_93",     limit: 65535
+    t.text     "col_94",     limit: 65535
+    t.text     "col_95",     limit: 65535
+    t.text     "col_96",     limit: 65535
+    t.text     "col_97",     limit: 65535
+    t.text     "col_98",     limit: 65535
+    t.text     "col_99",     limit: 65535
+    t.text     "col_100",    limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.text     "col_101",    limit: 65535
+    t.text     "col_102",    limit: 65535
+    t.text     "col_103",    limit: 65535
+    t.text     "col_104",    limit: 65535
+    t.text     "col_105",    limit: 65535
+    t.text     "col_106",    limit: 65535
+    t.text     "col_107",    limit: 65535
+    t.text     "col_108",    limit: 65535
+    t.text     "col_109",    limit: 65535
+    t.text     "col_110",    limit: 65535
+    t.text     "col_111",    limit: 65535
+    t.text     "col_112",    limit: 65535
+    t.text     "col_113",    limit: 65535
+    t.text     "col_114",    limit: 65535
+    t.text     "col_115",    limit: 65535
+    t.text     "col_116",    limit: 65535
+    t.text     "col_117",    limit: 65535
+    t.text     "col_118",    limit: 65535
+    t.text     "col_119",    limit: 65535
+    t.text     "col_120",    limit: 65535
+    t.boolean  "visible",                  default: true
   end
 
-  create_table "vendor3s", force: :cascade do |t|
-    t.text     "col_0"
-    t.text     "col_1"
-    t.text     "col_2"
-    t.text     "col_3"
-    t.text     "col_4"
-    t.text     "col_5"
-    t.text     "col_6"
-    t.text     "col_7"
-    t.text     "col_8"
-    t.text     "col_9"
-    t.text     "col_10"
-    t.text     "col_11"
-    t.text     "col_12"
-    t.text     "col_13"
-    t.text     "col_14"
-    t.text     "col_15"
-    t.text     "col_16"
-    t.text     "col_17"
-    t.text     "col_18"
-    t.text     "col_19"
-    t.text     "col_20"
-    t.text     "col_21"
-    t.text     "col_22"
-    t.text     "col_23"
-    t.text     "col_24"
-    t.text     "col_25"
-    t.text     "col_26"
-    t.text     "col_27"
-    t.text     "col_28"
-    t.text     "col_29"
-    t.text     "col_30"
-    t.text     "col_31"
-    t.text     "col_32"
-    t.text     "col_33"
-    t.text     "col_34"
-    t.text     "col_35"
-    t.text     "col_36"
-    t.text     "col_37"
-    t.text     "col_38"
-    t.text     "col_39"
-    t.text     "col_40"
-    t.text     "col_41"
-    t.text     "col_42"
-    t.text     "col_43"
-    t.text     "col_44"
-    t.text     "col_45"
-    t.text     "col_46"
-    t.text     "col_47"
-    t.text     "col_48"
-    t.text     "col_49"
-    t.text     "col_50"
-    t.text     "col_51"
-    t.text     "col_52"
-    t.text     "col_53"
-    t.text     "col_54"
-    t.text     "col_55"
-    t.text     "col_56"
-    t.text     "col_57"
-    t.text     "col_58"
-    t.text     "col_59"
-    t.text     "col_60"
-    t.text     "col_61"
-    t.text     "col_62"
-    t.text     "col_63"
-    t.text     "col_64"
-    t.text     "col_65"
-    t.text     "col_66"
-    t.text     "col_67"
-    t.text     "col_68"
-    t.text     "col_69"
-    t.text     "col_70"
-    t.text     "col_71"
-    t.text     "col_72"
-    t.text     "col_73"
-    t.text     "col_74"
-    t.text     "col_75"
-    t.text     "col_76"
-    t.text     "col_77"
-    t.text     "col_78"
-    t.text     "col_79"
-    t.text     "col_80"
-    t.text     "col_81"
-    t.text     "col_82"
-    t.text     "col_83"
-    t.text     "col_84"
-    t.text     "col_85"
-    t.text     "col_86"
-    t.text     "col_87"
-    t.text     "col_88"
-    t.text     "col_89"
-    t.text     "col_90"
-    t.text     "col_91"
-    t.text     "col_92"
-    t.text     "col_93"
-    t.text     "col_94"
-    t.text     "col_95"
-    t.text     "col_96"
-    t.text     "col_97"
-    t.text     "col_98"
-    t.text     "col_99"
-    t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "col_101"
-    t.text     "col_102"
-    t.text     "col_103"
-    t.text     "col_104"
-    t.text     "col_105"
-    t.text     "col_106"
-    t.text     "col_107"
-    t.text     "col_108"
-    t.text     "col_109"
-    t.text     "col_110"
-    t.text     "col_111"
-    t.text     "col_112"
-    t.text     "col_113"
-    t.text     "col_114"
-    t.text     "col_115"
-    t.text     "col_116"
-    t.text     "col_117"
-    t.text     "col_118"
-    t.text     "col_119"
-    t.text     "col_120"
-    t.         "visible",    default: "t"
+  create_table "vendor3s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "col_0",      limit: 65535
+    t.text     "col_1",      limit: 65535
+    t.text     "col_2",      limit: 65535
+    t.text     "col_3",      limit: 65535
+    t.text     "col_4",      limit: 65535
+    t.text     "col_5",      limit: 65535
+    t.text     "col_6",      limit: 65535
+    t.text     "col_7",      limit: 65535
+    t.text     "col_8",      limit: 65535
+    t.text     "col_9",      limit: 65535
+    t.text     "col_10",     limit: 65535
+    t.text     "col_11",     limit: 65535
+    t.text     "col_12",     limit: 65535
+    t.text     "col_13",     limit: 65535
+    t.text     "col_14",     limit: 65535
+    t.text     "col_15",     limit: 65535
+    t.text     "col_16",     limit: 65535
+    t.text     "col_17",     limit: 65535
+    t.text     "col_18",     limit: 65535
+    t.text     "col_19",     limit: 65535
+    t.text     "col_20",     limit: 65535
+    t.text     "col_21",     limit: 65535
+    t.text     "col_22",     limit: 65535
+    t.text     "col_23",     limit: 65535
+    t.text     "col_24",     limit: 65535
+    t.text     "col_25",     limit: 65535
+    t.text     "col_26",     limit: 65535
+    t.text     "col_27",     limit: 65535
+    t.text     "col_28",     limit: 65535
+    t.text     "col_29",     limit: 65535
+    t.text     "col_30",     limit: 65535
+    t.text     "col_31",     limit: 65535
+    t.text     "col_32",     limit: 65535
+    t.text     "col_33",     limit: 65535
+    t.text     "col_34",     limit: 65535
+    t.text     "col_35",     limit: 65535
+    t.text     "col_36",     limit: 65535
+    t.text     "col_37",     limit: 65535
+    t.text     "col_38",     limit: 65535
+    t.text     "col_39",     limit: 65535
+    t.text     "col_40",     limit: 65535
+    t.text     "col_41",     limit: 65535
+    t.text     "col_42",     limit: 65535
+    t.text     "col_43",     limit: 65535
+    t.text     "col_44",     limit: 65535
+    t.text     "col_45",     limit: 65535
+    t.text     "col_46",     limit: 65535
+    t.text     "col_47",     limit: 65535
+    t.text     "col_48",     limit: 65535
+    t.text     "col_49",     limit: 65535
+    t.text     "col_50",     limit: 65535
+    t.text     "col_51",     limit: 65535
+    t.text     "col_52",     limit: 65535
+    t.text     "col_53",     limit: 65535
+    t.text     "col_54",     limit: 65535
+    t.text     "col_55",     limit: 65535
+    t.text     "col_56",     limit: 65535
+    t.text     "col_57",     limit: 65535
+    t.text     "col_58",     limit: 65535
+    t.text     "col_59",     limit: 65535
+    t.text     "col_60",     limit: 65535
+    t.text     "col_61",     limit: 65535
+    t.text     "col_62",     limit: 65535
+    t.text     "col_63",     limit: 65535
+    t.text     "col_64",     limit: 65535
+    t.text     "col_65",     limit: 65535
+    t.text     "col_66",     limit: 65535
+    t.text     "col_67",     limit: 65535
+    t.text     "col_68",     limit: 65535
+    t.text     "col_69",     limit: 65535
+    t.text     "col_70",     limit: 65535
+    t.text     "col_71",     limit: 65535
+    t.text     "col_72",     limit: 65535
+    t.text     "col_73",     limit: 65535
+    t.text     "col_74",     limit: 65535
+    t.text     "col_75",     limit: 65535
+    t.text     "col_76",     limit: 65535
+    t.text     "col_77",     limit: 65535
+    t.text     "col_78",     limit: 65535
+    t.text     "col_79",     limit: 65535
+    t.text     "col_80",     limit: 65535
+    t.text     "col_81",     limit: 65535
+    t.text     "col_82",     limit: 65535
+    t.text     "col_83",     limit: 65535
+    t.text     "col_84",     limit: 65535
+    t.text     "col_85",     limit: 65535
+    t.text     "col_86",     limit: 65535
+    t.text     "col_87",     limit: 65535
+    t.text     "col_88",     limit: 65535
+    t.text     "col_89",     limit: 65535
+    t.text     "col_90",     limit: 65535
+    t.text     "col_91",     limit: 65535
+    t.text     "col_92",     limit: 65535
+    t.text     "col_93",     limit: 65535
+    t.text     "col_94",     limit: 65535
+    t.text     "col_95",     limit: 65535
+    t.text     "col_96",     limit: 65535
+    t.text     "col_97",     limit: 65535
+    t.text     "col_98",     limit: 65535
+    t.text     "col_99",     limit: 65535
+    t.text     "col_100",    limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.text     "col_101",    limit: 65535
+    t.text     "col_102",    limit: 65535
+    t.text     "col_103",    limit: 65535
+    t.text     "col_104",    limit: 65535
+    t.text     "col_105",    limit: 65535
+    t.text     "col_106",    limit: 65535
+    t.text     "col_107",    limit: 65535
+    t.text     "col_108",    limit: 65535
+    t.text     "col_109",    limit: 65535
+    t.text     "col_110",    limit: 65535
+    t.text     "col_111",    limit: 65535
+    t.text     "col_112",    limit: 65535
+    t.text     "col_113",    limit: 65535
+    t.text     "col_114",    limit: 65535
+    t.text     "col_115",    limit: 65535
+    t.text     "col_116",    limit: 65535
+    t.text     "col_117",    limit: 65535
+    t.text     "col_118",    limit: 65535
+    t.text     "col_119",    limit: 65535
+    t.text     "col_120",    limit: 65535
+    t.boolean  "visible",                  default: true
   end
 
-  create_table "vendor4s", force: :cascade do |t|
-    t.text     "col_0"
-    t.text     "col_1"
-    t.text     "col_2"
-    t.text     "col_3"
-    t.text     "col_4"
-    t.text     "col_5"
-    t.text     "col_6"
-    t.text     "col_7"
-    t.text     "col_8"
-    t.text     "col_9"
-    t.text     "col_10"
-    t.text     "col_11"
-    t.text     "col_12"
-    t.text     "col_13"
-    t.text     "col_14"
-    t.text     "col_15"
-    t.text     "col_16"
-    t.text     "col_17"
-    t.text     "col_18"
-    t.text     "col_19"
-    t.text     "col_20"
-    t.text     "col_21"
-    t.text     "col_22"
-    t.text     "col_23"
-    t.text     "col_24"
-    t.text     "col_25"
-    t.text     "col_26"
-    t.text     "col_27"
-    t.text     "col_28"
-    t.text     "col_29"
-    t.text     "col_30"
-    t.text     "col_31"
-    t.text     "col_32"
-    t.text     "col_33"
-    t.text     "col_34"
-    t.text     "col_35"
-    t.text     "col_36"
-    t.text     "col_37"
-    t.text     "col_38"
-    t.text     "col_39"
-    t.text     "col_40"
-    t.text     "col_41"
-    t.text     "col_42"
-    t.text     "col_43"
-    t.text     "col_44"
-    t.text     "col_45"
-    t.text     "col_46"
-    t.text     "col_47"
-    t.text     "col_48"
-    t.text     "col_49"
-    t.text     "col_50"
-    t.text     "col_51"
-    t.text     "col_52"
-    t.text     "col_53"
-    t.text     "col_54"
-    t.text     "col_55"
-    t.text     "col_56"
-    t.text     "col_57"
-    t.text     "col_58"
-    t.text     "col_59"
-    t.text     "col_60"
-    t.text     "col_61"
-    t.text     "col_62"
-    t.text     "col_63"
-    t.text     "col_64"
-    t.text     "col_65"
-    t.text     "col_66"
-    t.text     "col_67"
-    t.text     "col_68"
-    t.text     "col_69"
-    t.text     "col_70"
-    t.text     "col_71"
-    t.text     "col_72"
-    t.text     "col_73"
-    t.text     "col_74"
-    t.text     "col_75"
-    t.text     "col_76"
-    t.text     "col_77"
-    t.text     "col_78"
-    t.text     "col_79"
-    t.text     "col_80"
-    t.text     "col_81"
-    t.text     "col_82"
-    t.text     "col_83"
-    t.text     "col_84"
-    t.text     "col_85"
-    t.text     "col_86"
-    t.text     "col_87"
-    t.text     "col_88"
-    t.text     "col_89"
-    t.text     "col_90"
-    t.text     "col_91"
-    t.text     "col_92"
-    t.text     "col_93"
-    t.text     "col_94"
-    t.text     "col_95"
-    t.text     "col_96"
-    t.text     "col_97"
-    t.text     "col_98"
-    t.text     "col_99"
-    t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "col_101"
-    t.text     "col_102"
-    t.text     "col_103"
-    t.text     "col_104"
-    t.text     "col_105"
-    t.text     "col_106"
-    t.text     "col_107"
-    t.text     "col_108"
-    t.text     "col_109"
-    t.text     "col_110"
-    t.text     "col_111"
-    t.text     "col_112"
-    t.text     "col_113"
-    t.text     "col_114"
-    t.text     "col_115"
-    t.text     "col_116"
-    t.text     "col_117"
-    t.text     "col_118"
-    t.text     "col_119"
-    t.text     "col_120"
-    t.         "visible",    default: "t"
+  create_table "vendor4s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "col_0",      limit: 65535
+    t.text     "col_1",      limit: 65535
+    t.text     "col_2",      limit: 65535
+    t.text     "col_3",      limit: 65535
+    t.text     "col_4",      limit: 65535
+    t.text     "col_5",      limit: 65535
+    t.text     "col_6",      limit: 65535
+    t.text     "col_7",      limit: 65535
+    t.text     "col_8",      limit: 65535
+    t.text     "col_9",      limit: 65535
+    t.text     "col_10",     limit: 65535
+    t.text     "col_11",     limit: 65535
+    t.text     "col_12",     limit: 65535
+    t.text     "col_13",     limit: 65535
+    t.text     "col_14",     limit: 65535
+    t.text     "col_15",     limit: 65535
+    t.text     "col_16",     limit: 65535
+    t.text     "col_17",     limit: 65535
+    t.text     "col_18",     limit: 65535
+    t.text     "col_19",     limit: 65535
+    t.text     "col_20",     limit: 65535
+    t.text     "col_21",     limit: 65535
+    t.text     "col_22",     limit: 65535
+    t.text     "col_23",     limit: 65535
+    t.text     "col_24",     limit: 65535
+    t.text     "col_25",     limit: 65535
+    t.text     "col_26",     limit: 65535
+    t.text     "col_27",     limit: 65535
+    t.text     "col_28",     limit: 65535
+    t.text     "col_29",     limit: 65535
+    t.text     "col_30",     limit: 65535
+    t.text     "col_31",     limit: 65535
+    t.text     "col_32",     limit: 65535
+    t.text     "col_33",     limit: 65535
+    t.text     "col_34",     limit: 65535
+    t.text     "col_35",     limit: 65535
+    t.text     "col_36",     limit: 65535
+    t.text     "col_37",     limit: 65535
+    t.text     "col_38",     limit: 65535
+    t.text     "col_39",     limit: 65535
+    t.text     "col_40",     limit: 65535
+    t.text     "col_41",     limit: 65535
+    t.text     "col_42",     limit: 65535
+    t.text     "col_43",     limit: 65535
+    t.text     "col_44",     limit: 65535
+    t.text     "col_45",     limit: 65535
+    t.text     "col_46",     limit: 65535
+    t.text     "col_47",     limit: 65535
+    t.text     "col_48",     limit: 65535
+    t.text     "col_49",     limit: 65535
+    t.text     "col_50",     limit: 65535
+    t.text     "col_51",     limit: 65535
+    t.text     "col_52",     limit: 65535
+    t.text     "col_53",     limit: 65535
+    t.text     "col_54",     limit: 65535
+    t.text     "col_55",     limit: 65535
+    t.text     "col_56",     limit: 65535
+    t.text     "col_57",     limit: 65535
+    t.text     "col_58",     limit: 65535
+    t.text     "col_59",     limit: 65535
+    t.text     "col_60",     limit: 65535
+    t.text     "col_61",     limit: 65535
+    t.text     "col_62",     limit: 65535
+    t.text     "col_63",     limit: 65535
+    t.text     "col_64",     limit: 65535
+    t.text     "col_65",     limit: 65535
+    t.text     "col_66",     limit: 65535
+    t.text     "col_67",     limit: 65535
+    t.text     "col_68",     limit: 65535
+    t.text     "col_69",     limit: 65535
+    t.text     "col_70",     limit: 65535
+    t.text     "col_71",     limit: 65535
+    t.text     "col_72",     limit: 65535
+    t.text     "col_73",     limit: 65535
+    t.text     "col_74",     limit: 65535
+    t.text     "col_75",     limit: 65535
+    t.text     "col_76",     limit: 65535
+    t.text     "col_77",     limit: 65535
+    t.text     "col_78",     limit: 65535
+    t.text     "col_79",     limit: 65535
+    t.text     "col_80",     limit: 65535
+    t.text     "col_81",     limit: 65535
+    t.text     "col_82",     limit: 65535
+    t.text     "col_83",     limit: 65535
+    t.text     "col_84",     limit: 65535
+    t.text     "col_85",     limit: 65535
+    t.text     "col_86",     limit: 65535
+    t.text     "col_87",     limit: 65535
+    t.text     "col_88",     limit: 65535
+    t.text     "col_89",     limit: 65535
+    t.text     "col_90",     limit: 65535
+    t.text     "col_91",     limit: 65535
+    t.text     "col_92",     limit: 65535
+    t.text     "col_93",     limit: 65535
+    t.text     "col_94",     limit: 65535
+    t.text     "col_95",     limit: 65535
+    t.text     "col_96",     limit: 65535
+    t.text     "col_97",     limit: 65535
+    t.text     "col_98",     limit: 65535
+    t.text     "col_99",     limit: 65535
+    t.text     "col_100",    limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.text     "col_101",    limit: 65535
+    t.text     "col_102",    limit: 65535
+    t.text     "col_103",    limit: 65535
+    t.text     "col_104",    limit: 65535
+    t.text     "col_105",    limit: 65535
+    t.text     "col_106",    limit: 65535
+    t.text     "col_107",    limit: 65535
+    t.text     "col_108",    limit: 65535
+    t.text     "col_109",    limit: 65535
+    t.text     "col_110",    limit: 65535
+    t.text     "col_111",    limit: 65535
+    t.text     "col_112",    limit: 65535
+    t.text     "col_113",    limit: 65535
+    t.text     "col_114",    limit: 65535
+    t.text     "col_115",    limit: 65535
+    t.text     "col_116",    limit: 65535
+    t.text     "col_117",    limit: 65535
+    t.text     "col_118",    limit: 65535
+    t.text     "col_119",    limit: 65535
+    t.text     "col_120",    limit: 65535
+    t.boolean  "visible",                  default: true
   end
 
-  create_table "vendor5s", force: :cascade do |t|
-    t.text     "col_0"
-    t.text     "col_1"
-    t.text     "col_2"
-    t.text     "col_3"
-    t.text     "col_4"
-    t.text     "col_5"
-    t.text     "col_6"
-    t.text     "col_7"
-    t.text     "col_8"
-    t.text     "col_9"
-    t.text     "col_10"
-    t.text     "col_11"
-    t.text     "col_12"
-    t.text     "col_13"
-    t.text     "col_14"
-    t.text     "col_15"
-    t.text     "col_16"
-    t.text     "col_17"
-    t.text     "col_18"
-    t.text     "col_19"
-    t.text     "col_20"
-    t.text     "col_21"
-    t.text     "col_22"
-    t.text     "col_23"
-    t.text     "col_24"
-    t.text     "col_25"
-    t.text     "col_26"
-    t.text     "col_27"
-    t.text     "col_28"
-    t.text     "col_29"
-    t.text     "col_30"
-    t.text     "col_31"
-    t.text     "col_32"
-    t.text     "col_33"
-    t.text     "col_34"
-    t.text     "col_35"
-    t.text     "col_36"
-    t.text     "col_37"
-    t.text     "col_38"
-    t.text     "col_39"
-    t.text     "col_40"
-    t.text     "col_41"
-    t.text     "col_42"
-    t.text     "col_43"
-    t.text     "col_44"
-    t.text     "col_45"
-    t.text     "col_46"
-    t.text     "col_47"
-    t.text     "col_48"
-    t.text     "col_49"
-    t.text     "col_50"
-    t.text     "col_51"
-    t.text     "col_52"
-    t.text     "col_53"
-    t.text     "col_54"
-    t.text     "col_55"
-    t.text     "col_56"
-    t.text     "col_57"
-    t.text     "col_58"
-    t.text     "col_59"
-    t.text     "col_60"
-    t.text     "col_61"
-    t.text     "col_62"
-    t.text     "col_63"
-    t.text     "col_64"
-    t.text     "col_65"
-    t.text     "col_66"
-    t.text     "col_67"
-    t.text     "col_68"
-    t.text     "col_69"
-    t.text     "col_70"
-    t.text     "col_71"
-    t.text     "col_72"
-    t.text     "col_73"
-    t.text     "col_74"
-    t.text     "col_75"
-    t.text     "col_76"
-    t.text     "col_77"
-    t.text     "col_78"
-    t.text     "col_79"
-    t.text     "col_80"
-    t.text     "col_81"
-    t.text     "col_82"
-    t.text     "col_83"
-    t.text     "col_84"
-    t.text     "col_85"
-    t.text     "col_86"
-    t.text     "col_87"
-    t.text     "col_88"
-    t.text     "col_89"
-    t.text     "col_90"
-    t.text     "col_91"
-    t.text     "col_92"
-    t.text     "col_93"
-    t.text     "col_94"
-    t.text     "col_95"
-    t.text     "col_96"
-    t.text     "col_97"
-    t.text     "col_98"
-    t.text     "col_99"
-    t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "col_101"
-    t.text     "col_102"
-    t.text     "col_103"
-    t.text     "col_104"
-    t.text     "col_105"
-    t.text     "col_106"
-    t.text     "col_107"
-    t.text     "col_108"
-    t.text     "col_109"
-    t.text     "col_110"
-    t.text     "col_111"
-    t.text     "col_112"
-    t.text     "col_113"
-    t.text     "col_114"
-    t.text     "col_115"
-    t.text     "col_116"
-    t.text     "col_117"
-    t.text     "col_118"
-    t.text     "col_119"
-    t.text     "col_120"
-    t.         "visible",    default: "t"
+  create_table "vendor5s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "col_0",      limit: 65535
+    t.text     "col_1",      limit: 65535
+    t.text     "col_2",      limit: 65535
+    t.text     "col_3",      limit: 65535
+    t.text     "col_4",      limit: 65535
+    t.text     "col_5",      limit: 65535
+    t.text     "col_6",      limit: 65535
+    t.text     "col_7",      limit: 65535
+    t.text     "col_8",      limit: 65535
+    t.text     "col_9",      limit: 65535
+    t.text     "col_10",     limit: 65535
+    t.text     "col_11",     limit: 65535
+    t.text     "col_12",     limit: 65535
+    t.text     "col_13",     limit: 65535
+    t.text     "col_14",     limit: 65535
+    t.text     "col_15",     limit: 65535
+    t.text     "col_16",     limit: 65535
+    t.text     "col_17",     limit: 65535
+    t.text     "col_18",     limit: 65535
+    t.text     "col_19",     limit: 65535
+    t.text     "col_20",     limit: 65535
+    t.text     "col_21",     limit: 65535
+    t.text     "col_22",     limit: 65535
+    t.text     "col_23",     limit: 65535
+    t.text     "col_24",     limit: 65535
+    t.text     "col_25",     limit: 65535
+    t.text     "col_26",     limit: 65535
+    t.text     "col_27",     limit: 65535
+    t.text     "col_28",     limit: 65535
+    t.text     "col_29",     limit: 65535
+    t.text     "col_30",     limit: 65535
+    t.text     "col_31",     limit: 65535
+    t.text     "col_32",     limit: 65535
+    t.text     "col_33",     limit: 65535
+    t.text     "col_34",     limit: 65535
+    t.text     "col_35",     limit: 65535
+    t.text     "col_36",     limit: 65535
+    t.text     "col_37",     limit: 65535
+    t.text     "col_38",     limit: 65535
+    t.text     "col_39",     limit: 65535
+    t.text     "col_40",     limit: 65535
+    t.text     "col_41",     limit: 65535
+    t.text     "col_42",     limit: 65535
+    t.text     "col_43",     limit: 65535
+    t.text     "col_44",     limit: 65535
+    t.text     "col_45",     limit: 65535
+    t.text     "col_46",     limit: 65535
+    t.text     "col_47",     limit: 65535
+    t.text     "col_48",     limit: 65535
+    t.text     "col_49",     limit: 65535
+    t.text     "col_50",     limit: 65535
+    t.text     "col_51",     limit: 65535
+    t.text     "col_52",     limit: 65535
+    t.text     "col_53",     limit: 65535
+    t.text     "col_54",     limit: 65535
+    t.text     "col_55",     limit: 65535
+    t.text     "col_56",     limit: 65535
+    t.text     "col_57",     limit: 65535
+    t.text     "col_58",     limit: 65535
+    t.text     "col_59",     limit: 65535
+    t.text     "col_60",     limit: 65535
+    t.text     "col_61",     limit: 65535
+    t.text     "col_62",     limit: 65535
+    t.text     "col_63",     limit: 65535
+    t.text     "col_64",     limit: 65535
+    t.text     "col_65",     limit: 65535
+    t.text     "col_66",     limit: 65535
+    t.text     "col_67",     limit: 65535
+    t.text     "col_68",     limit: 65535
+    t.text     "col_69",     limit: 65535
+    t.text     "col_70",     limit: 65535
+    t.text     "col_71",     limit: 65535
+    t.text     "col_72",     limit: 65535
+    t.text     "col_73",     limit: 65535
+    t.text     "col_74",     limit: 65535
+    t.text     "col_75",     limit: 65535
+    t.text     "col_76",     limit: 65535
+    t.text     "col_77",     limit: 65535
+    t.text     "col_78",     limit: 65535
+    t.text     "col_79",     limit: 65535
+    t.text     "col_80",     limit: 65535
+    t.text     "col_81",     limit: 65535
+    t.text     "col_82",     limit: 65535
+    t.text     "col_83",     limit: 65535
+    t.text     "col_84",     limit: 65535
+    t.text     "col_85",     limit: 65535
+    t.text     "col_86",     limit: 65535
+    t.text     "col_87",     limit: 65535
+    t.text     "col_88",     limit: 65535
+    t.text     "col_89",     limit: 65535
+    t.text     "col_90",     limit: 65535
+    t.text     "col_91",     limit: 65535
+    t.text     "col_92",     limit: 65535
+    t.text     "col_93",     limit: 65535
+    t.text     "col_94",     limit: 65535
+    t.text     "col_95",     limit: 65535
+    t.text     "col_96",     limit: 65535
+    t.text     "col_97",     limit: 65535
+    t.text     "col_98",     limit: 65535
+    t.text     "col_99",     limit: 65535
+    t.text     "col_100",    limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.text     "col_101",    limit: 65535
+    t.text     "col_102",    limit: 65535
+    t.text     "col_103",    limit: 65535
+    t.text     "col_104",    limit: 65535
+    t.text     "col_105",    limit: 65535
+    t.text     "col_106",    limit: 65535
+    t.text     "col_107",    limit: 65535
+    t.text     "col_108",    limit: 65535
+    t.text     "col_109",    limit: 65535
+    t.text     "col_110",    limit: 65535
+    t.text     "col_111",    limit: 65535
+    t.text     "col_112",    limit: 65535
+    t.text     "col_113",    limit: 65535
+    t.text     "col_114",    limit: 65535
+    t.text     "col_115",    limit: 65535
+    t.text     "col_116",    limit: 65535
+    t.text     "col_117",    limit: 65535
+    t.text     "col_118",    limit: 65535
+    t.text     "col_119",    limit: 65535
+    t.text     "col_120",    limit: 65535
+    t.boolean  "visible",                  default: true
   end
 
-  create_table "vendor6s", force: :cascade do |t|
-    t.text     "col_0"
-    t.text     "col_1"
-    t.text     "col_2"
-    t.text     "col_3"
-    t.text     "col_4"
-    t.text     "col_5"
-    t.text     "col_6"
-    t.text     "col_7"
-    t.text     "col_8"
-    t.text     "col_9"
-    t.text     "col_10"
-    t.text     "col_11"
-    t.text     "col_12"
-    t.text     "col_13"
-    t.text     "col_14"
-    t.text     "col_15"
-    t.text     "col_16"
-    t.text     "col_17"
-    t.text     "col_18"
-    t.text     "col_19"
-    t.text     "col_20"
-    t.text     "col_21"
-    t.text     "col_22"
-    t.text     "col_23"
-    t.text     "col_24"
-    t.text     "col_25"
-    t.text     "col_26"
-    t.text     "col_27"
-    t.text     "col_28"
-    t.text     "col_29"
-    t.text     "col_30"
-    t.text     "col_31"
-    t.text     "col_32"
-    t.text     "col_33"
-    t.text     "col_34"
-    t.text     "col_35"
-    t.text     "col_36"
-    t.text     "col_37"
-    t.text     "col_38"
-    t.text     "col_39"
-    t.text     "col_40"
-    t.text     "col_41"
-    t.text     "col_42"
-    t.text     "col_43"
-    t.text     "col_44"
-    t.text     "col_45"
-    t.text     "col_46"
-    t.text     "col_47"
-    t.text     "col_48"
-    t.text     "col_49"
-    t.text     "col_50"
-    t.text     "col_51"
-    t.text     "col_52"
-    t.text     "col_53"
-    t.text     "col_54"
-    t.text     "col_55"
-    t.text     "col_56"
-    t.text     "col_57"
-    t.text     "col_58"
-    t.text     "col_59"
-    t.text     "col_60"
-    t.text     "col_61"
-    t.text     "col_62"
-    t.text     "col_63"
-    t.text     "col_64"
-    t.text     "col_65"
-    t.text     "col_66"
-    t.text     "col_67"
-    t.text     "col_68"
-    t.text     "col_69"
-    t.text     "col_70"
-    t.text     "col_71"
-    t.text     "col_72"
-    t.text     "col_73"
-    t.text     "col_74"
-    t.text     "col_75"
-    t.text     "col_76"
-    t.text     "col_77"
-    t.text     "col_78"
-    t.text     "col_79"
-    t.text     "col_80"
-    t.text     "col_81"
-    t.text     "col_82"
-    t.text     "col_83"
-    t.text     "col_84"
-    t.text     "col_85"
-    t.text     "col_86"
-    t.text     "col_87"
-    t.text     "col_88"
-    t.text     "col_89"
-    t.text     "col_90"
-    t.text     "col_91"
-    t.text     "col_92"
-    t.text     "col_93"
-    t.text     "col_94"
-    t.text     "col_95"
-    t.text     "col_96"
-    t.text     "col_97"
-    t.text     "col_98"
-    t.text     "col_99"
-    t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "col_101"
-    t.text     "col_102"
-    t.text     "col_103"
-    t.text     "col_104"
-    t.text     "col_105"
-    t.text     "col_106"
-    t.text     "col_107"
-    t.text     "col_108"
-    t.text     "col_109"
-    t.text     "col_110"
-    t.text     "col_111"
-    t.text     "col_112"
-    t.text     "col_113"
-    t.text     "col_114"
-    t.text     "col_115"
-    t.text     "col_116"
-    t.text     "col_117"
-    t.text     "col_118"
-    t.text     "col_119"
-    t.text     "col_120"
-    t.         "visible",    default: "t"
+  create_table "vendor6s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "col_0",      limit: 65535
+    t.text     "col_1",      limit: 65535
+    t.text     "col_2",      limit: 65535
+    t.text     "col_3",      limit: 65535
+    t.text     "col_4",      limit: 65535
+    t.text     "col_5",      limit: 65535
+    t.text     "col_6",      limit: 65535
+    t.text     "col_7",      limit: 65535
+    t.text     "col_8",      limit: 65535
+    t.text     "col_9",      limit: 65535
+    t.text     "col_10",     limit: 65535
+    t.text     "col_11",     limit: 65535
+    t.text     "col_12",     limit: 65535
+    t.text     "col_13",     limit: 65535
+    t.text     "col_14",     limit: 65535
+    t.text     "col_15",     limit: 65535
+    t.text     "col_16",     limit: 65535
+    t.text     "col_17",     limit: 65535
+    t.text     "col_18",     limit: 65535
+    t.text     "col_19",     limit: 65535
+    t.text     "col_20",     limit: 65535
+    t.text     "col_21",     limit: 65535
+    t.text     "col_22",     limit: 65535
+    t.text     "col_23",     limit: 65535
+    t.text     "col_24",     limit: 65535
+    t.text     "col_25",     limit: 65535
+    t.text     "col_26",     limit: 65535
+    t.text     "col_27",     limit: 65535
+    t.text     "col_28",     limit: 65535
+    t.text     "col_29",     limit: 65535
+    t.text     "col_30",     limit: 65535
+    t.text     "col_31",     limit: 65535
+    t.text     "col_32",     limit: 65535
+    t.text     "col_33",     limit: 65535
+    t.text     "col_34",     limit: 65535
+    t.text     "col_35",     limit: 65535
+    t.text     "col_36",     limit: 65535
+    t.text     "col_37",     limit: 65535
+    t.text     "col_38",     limit: 65535
+    t.text     "col_39",     limit: 65535
+    t.text     "col_40",     limit: 65535
+    t.text     "col_41",     limit: 65535
+    t.text     "col_42",     limit: 65535
+    t.text     "col_43",     limit: 65535
+    t.text     "col_44",     limit: 65535
+    t.text     "col_45",     limit: 65535
+    t.text     "col_46",     limit: 65535
+    t.text     "col_47",     limit: 65535
+    t.text     "col_48",     limit: 65535
+    t.text     "col_49",     limit: 65535
+    t.text     "col_50",     limit: 65535
+    t.text     "col_51",     limit: 65535
+    t.text     "col_52",     limit: 65535
+    t.text     "col_53",     limit: 65535
+    t.text     "col_54",     limit: 65535
+    t.text     "col_55",     limit: 65535
+    t.text     "col_56",     limit: 65535
+    t.text     "col_57",     limit: 65535
+    t.text     "col_58",     limit: 65535
+    t.text     "col_59",     limit: 65535
+    t.text     "col_60",     limit: 65535
+    t.text     "col_61",     limit: 65535
+    t.text     "col_62",     limit: 65535
+    t.text     "col_63",     limit: 65535
+    t.text     "col_64",     limit: 65535
+    t.text     "col_65",     limit: 65535
+    t.text     "col_66",     limit: 65535
+    t.text     "col_67",     limit: 65535
+    t.text     "col_68",     limit: 65535
+    t.text     "col_69",     limit: 65535
+    t.text     "col_70",     limit: 65535
+    t.text     "col_71",     limit: 65535
+    t.text     "col_72",     limit: 65535
+    t.text     "col_73",     limit: 65535
+    t.text     "col_74",     limit: 65535
+    t.text     "col_75",     limit: 65535
+    t.text     "col_76",     limit: 65535
+    t.text     "col_77",     limit: 65535
+    t.text     "col_78",     limit: 65535
+    t.text     "col_79",     limit: 65535
+    t.text     "col_80",     limit: 65535
+    t.text     "col_81",     limit: 65535
+    t.text     "col_82",     limit: 65535
+    t.text     "col_83",     limit: 65535
+    t.text     "col_84",     limit: 65535
+    t.text     "col_85",     limit: 65535
+    t.text     "col_86",     limit: 65535
+    t.text     "col_87",     limit: 65535
+    t.text     "col_88",     limit: 65535
+    t.text     "col_89",     limit: 65535
+    t.text     "col_90",     limit: 65535
+    t.text     "col_91",     limit: 65535
+    t.text     "col_92",     limit: 65535
+    t.text     "col_93",     limit: 65535
+    t.text     "col_94",     limit: 65535
+    t.text     "col_95",     limit: 65535
+    t.text     "col_96",     limit: 65535
+    t.text     "col_97",     limit: 65535
+    t.text     "col_98",     limit: 65535
+    t.text     "col_99",     limit: 65535
+    t.text     "col_100",    limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.text     "col_101",    limit: 65535
+    t.text     "col_102",    limit: 65535
+    t.text     "col_103",    limit: 65535
+    t.text     "col_104",    limit: 65535
+    t.text     "col_105",    limit: 65535
+    t.text     "col_106",    limit: 65535
+    t.text     "col_107",    limit: 65535
+    t.text     "col_108",    limit: 65535
+    t.text     "col_109",    limit: 65535
+    t.text     "col_110",    limit: 65535
+    t.text     "col_111",    limit: 65535
+    t.text     "col_112",    limit: 65535
+    t.text     "col_113",    limit: 65535
+    t.text     "col_114",    limit: 65535
+    t.text     "col_115",    limit: 65535
+    t.text     "col_116",    limit: 65535
+    t.text     "col_117",    limit: 65535
+    t.text     "col_118",    limit: 65535
+    t.text     "col_119",    limit: 65535
+    t.text     "col_120",    limit: 65535
+    t.boolean  "visible",                  default: true
   end
 
-  create_table "vendor7s", force: :cascade do |t|
-    t.text     "col_0"
-    t.text     "col_1"
-    t.text     "col_2"
-    t.text     "col_3"
-    t.text     "col_4"
-    t.text     "col_5"
-    t.text     "col_6"
-    t.text     "col_7"
-    t.text     "col_8"
-    t.text     "col_9"
-    t.text     "col_10"
-    t.text     "col_11"
-    t.text     "col_12"
-    t.text     "col_13"
-    t.text     "col_14"
-    t.text     "col_15"
-    t.text     "col_16"
-    t.text     "col_17"
-    t.text     "col_18"
-    t.text     "col_19"
-    t.text     "col_20"
-    t.text     "col_21"
-    t.text     "col_22"
-    t.text     "col_23"
-    t.text     "col_24"
-    t.text     "col_25"
-    t.text     "col_26"
-    t.text     "col_27"
-    t.text     "col_28"
-    t.text     "col_29"
-    t.text     "col_30"
-    t.text     "col_31"
-    t.text     "col_32"
-    t.text     "col_33"
-    t.text     "col_34"
-    t.text     "col_35"
-    t.text     "col_36"
-    t.text     "col_37"
-    t.text     "col_38"
-    t.text     "col_39"
-    t.text     "col_40"
-    t.text     "col_41"
-    t.text     "col_42"
-    t.text     "col_43"
-    t.text     "col_44"
-    t.text     "col_45"
-    t.text     "col_46"
-    t.text     "col_47"
-    t.text     "col_48"
-    t.text     "col_49"
-    t.text     "col_50"
-    t.text     "col_51"
-    t.text     "col_52"
-    t.text     "col_53"
-    t.text     "col_54"
-    t.text     "col_55"
-    t.text     "col_56"
-    t.text     "col_57"
-    t.text     "col_58"
-    t.text     "col_59"
-    t.text     "col_60"
-    t.text     "col_61"
-    t.text     "col_62"
-    t.text     "col_63"
-    t.text     "col_64"
-    t.text     "col_65"
-    t.text     "col_66"
-    t.text     "col_67"
-    t.text     "col_68"
-    t.text     "col_69"
-    t.text     "col_70"
-    t.text     "col_71"
-    t.text     "col_72"
-    t.text     "col_73"
-    t.text     "col_74"
-    t.text     "col_75"
-    t.text     "col_76"
-    t.text     "col_77"
-    t.text     "col_78"
-    t.text     "col_79"
-    t.text     "col_80"
-    t.text     "col_81"
-    t.text     "col_82"
-    t.text     "col_83"
-    t.text     "col_84"
-    t.text     "col_85"
-    t.text     "col_86"
-    t.text     "col_87"
-    t.text     "col_88"
-    t.text     "col_89"
-    t.text     "col_90"
-    t.text     "col_91"
-    t.text     "col_92"
-    t.text     "col_93"
-    t.text     "col_94"
-    t.text     "col_95"
-    t.text     "col_96"
-    t.text     "col_97"
-    t.text     "col_98"
-    t.text     "col_99"
-    t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "col_101"
-    t.text     "col_102"
-    t.text     "col_103"
-    t.text     "col_104"
-    t.text     "col_105"
-    t.text     "col_106"
-    t.text     "col_107"
-    t.text     "col_108"
-    t.text     "col_109"
-    t.text     "col_110"
-    t.text     "col_111"
-    t.text     "col_112"
-    t.text     "col_113"
-    t.text     "col_114"
-    t.text     "col_115"
-    t.text     "col_116"
-    t.text     "col_117"
-    t.text     "col_118"
-    t.text     "col_119"
-    t.text     "col_120"
-    t.         "visible",    default: "t"
+  create_table "vendor7s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "col_0",      limit: 65535
+    t.text     "col_1",      limit: 65535
+    t.text     "col_2",      limit: 65535
+    t.text     "col_3",      limit: 65535
+    t.text     "col_4",      limit: 65535
+    t.text     "col_5",      limit: 65535
+    t.text     "col_6",      limit: 65535
+    t.text     "col_7",      limit: 65535
+    t.text     "col_8",      limit: 65535
+    t.text     "col_9",      limit: 65535
+    t.text     "col_10",     limit: 65535
+    t.text     "col_11",     limit: 65535
+    t.text     "col_12",     limit: 65535
+    t.text     "col_13",     limit: 65535
+    t.text     "col_14",     limit: 65535
+    t.text     "col_15",     limit: 65535
+    t.text     "col_16",     limit: 65535
+    t.text     "col_17",     limit: 65535
+    t.text     "col_18",     limit: 65535
+    t.text     "col_19",     limit: 65535
+    t.text     "col_20",     limit: 65535
+    t.text     "col_21",     limit: 65535
+    t.text     "col_22",     limit: 65535
+    t.text     "col_23",     limit: 65535
+    t.text     "col_24",     limit: 65535
+    t.text     "col_25",     limit: 65535
+    t.text     "col_26",     limit: 65535
+    t.text     "col_27",     limit: 65535
+    t.text     "col_28",     limit: 65535
+    t.text     "col_29",     limit: 65535
+    t.text     "col_30",     limit: 65535
+    t.text     "col_31",     limit: 65535
+    t.text     "col_32",     limit: 65535
+    t.text     "col_33",     limit: 65535
+    t.text     "col_34",     limit: 65535
+    t.text     "col_35",     limit: 65535
+    t.text     "col_36",     limit: 65535
+    t.text     "col_37",     limit: 65535
+    t.text     "col_38",     limit: 65535
+    t.text     "col_39",     limit: 65535
+    t.text     "col_40",     limit: 65535
+    t.text     "col_41",     limit: 65535
+    t.text     "col_42",     limit: 65535
+    t.text     "col_43",     limit: 65535
+    t.text     "col_44",     limit: 65535
+    t.text     "col_45",     limit: 65535
+    t.text     "col_46",     limit: 65535
+    t.text     "col_47",     limit: 65535
+    t.text     "col_48",     limit: 65535
+    t.text     "col_49",     limit: 65535
+    t.text     "col_50",     limit: 65535
+    t.text     "col_51",     limit: 65535
+    t.text     "col_52",     limit: 65535
+    t.text     "col_53",     limit: 65535
+    t.text     "col_54",     limit: 65535
+    t.text     "col_55",     limit: 65535
+    t.text     "col_56",     limit: 65535
+    t.text     "col_57",     limit: 65535
+    t.text     "col_58",     limit: 65535
+    t.text     "col_59",     limit: 65535
+    t.text     "col_60",     limit: 65535
+    t.text     "col_61",     limit: 65535
+    t.text     "col_62",     limit: 65535
+    t.text     "col_63",     limit: 65535
+    t.text     "col_64",     limit: 65535
+    t.text     "col_65",     limit: 65535
+    t.text     "col_66",     limit: 65535
+    t.text     "col_67",     limit: 65535
+    t.text     "col_68",     limit: 65535
+    t.text     "col_69",     limit: 65535
+    t.text     "col_70",     limit: 65535
+    t.text     "col_71",     limit: 65535
+    t.text     "col_72",     limit: 65535
+    t.text     "col_73",     limit: 65535
+    t.text     "col_74",     limit: 65535
+    t.text     "col_75",     limit: 65535
+    t.text     "col_76",     limit: 65535
+    t.text     "col_77",     limit: 65535
+    t.text     "col_78",     limit: 65535
+    t.text     "col_79",     limit: 65535
+    t.text     "col_80",     limit: 65535
+    t.text     "col_81",     limit: 65535
+    t.text     "col_82",     limit: 65535
+    t.text     "col_83",     limit: 65535
+    t.text     "col_84",     limit: 65535
+    t.text     "col_85",     limit: 65535
+    t.text     "col_86",     limit: 65535
+    t.text     "col_87",     limit: 65535
+    t.text     "col_88",     limit: 65535
+    t.text     "col_89",     limit: 65535
+    t.text     "col_90",     limit: 65535
+    t.text     "col_91",     limit: 65535
+    t.text     "col_92",     limit: 65535
+    t.text     "col_93",     limit: 65535
+    t.text     "col_94",     limit: 65535
+    t.text     "col_95",     limit: 65535
+    t.text     "col_96",     limit: 65535
+    t.text     "col_97",     limit: 65535
+    t.text     "col_98",     limit: 65535
+    t.text     "col_99",     limit: 65535
+    t.text     "col_100",    limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.text     "col_101",    limit: 65535
+    t.text     "col_102",    limit: 65535
+    t.text     "col_103",    limit: 65535
+    t.text     "col_104",    limit: 65535
+    t.text     "col_105",    limit: 65535
+    t.text     "col_106",    limit: 65535
+    t.text     "col_107",    limit: 65535
+    t.text     "col_108",    limit: 65535
+    t.text     "col_109",    limit: 65535
+    t.text     "col_110",    limit: 65535
+    t.text     "col_111",    limit: 65535
+    t.text     "col_112",    limit: 65535
+    t.text     "col_113",    limit: 65535
+    t.text     "col_114",    limit: 65535
+    t.text     "col_115",    limit: 65535
+    t.text     "col_116",    limit: 65535
+    t.text     "col_117",    limit: 65535
+    t.text     "col_118",    limit: 65535
+    t.text     "col_119",    limit: 65535
+    t.text     "col_120",    limit: 65535
+    t.boolean  "visible",                  default: true
   end
 
-  create_table "vendor8s", force: :cascade do |t|
-    t.text     "col_0"
-    t.text     "col_1"
-    t.text     "col_2"
-    t.text     "col_3"
-    t.text     "col_4"
-    t.text     "col_5"
-    t.text     "col_6"
-    t.text     "col_7"
-    t.text     "col_8"
-    t.text     "col_9"
-    t.text     "col_10"
-    t.text     "col_11"
-    t.text     "col_12"
-    t.text     "col_13"
-    t.text     "col_14"
-    t.text     "col_15"
-    t.text     "col_16"
-    t.text     "col_17"
-    t.text     "col_18"
-    t.text     "col_19"
-    t.text     "col_20"
-    t.text     "col_21"
-    t.text     "col_22"
-    t.text     "col_23"
-    t.text     "col_24"
-    t.text     "col_25"
-    t.text     "col_26"
-    t.text     "col_27"
-    t.text     "col_28"
-    t.text     "col_29"
-    t.text     "col_30"
-    t.text     "col_31"
-    t.text     "col_32"
-    t.text     "col_33"
-    t.text     "col_34"
-    t.text     "col_35"
-    t.text     "col_36"
-    t.text     "col_37"
-    t.text     "col_38"
-    t.text     "col_39"
-    t.text     "col_40"
-    t.text     "col_41"
-    t.text     "col_42"
-    t.text     "col_43"
-    t.text     "col_44"
-    t.text     "col_45"
-    t.text     "col_46"
-    t.text     "col_47"
-    t.text     "col_48"
-    t.text     "col_49"
-    t.text     "col_50"
-    t.text     "col_51"
-    t.text     "col_52"
-    t.text     "col_53"
-    t.text     "col_54"
-    t.text     "col_55"
-    t.text     "col_56"
-    t.text     "col_57"
-    t.text     "col_58"
-    t.text     "col_59"
-    t.text     "col_60"
-    t.text     "col_61"
-    t.text     "col_62"
-    t.text     "col_63"
-    t.text     "col_64"
-    t.text     "col_65"
-    t.text     "col_66"
-    t.text     "col_67"
-    t.text     "col_68"
-    t.text     "col_69"
-    t.text     "col_70"
-    t.text     "col_71"
-    t.text     "col_72"
-    t.text     "col_73"
-    t.text     "col_74"
-    t.text     "col_75"
-    t.text     "col_76"
-    t.text     "col_77"
-    t.text     "col_78"
-    t.text     "col_79"
-    t.text     "col_80"
-    t.text     "col_81"
-    t.text     "col_82"
-    t.text     "col_83"
-    t.text     "col_84"
-    t.text     "col_85"
-    t.text     "col_86"
-    t.text     "col_87"
-    t.text     "col_88"
-    t.text     "col_89"
-    t.text     "col_90"
-    t.text     "col_91"
-    t.text     "col_92"
-    t.text     "col_93"
-    t.text     "col_94"
-    t.text     "col_95"
-    t.text     "col_96"
-    t.text     "col_97"
-    t.text     "col_98"
-    t.text     "col_99"
-    t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "col_101"
-    t.text     "col_102"
-    t.text     "col_103"
-    t.text     "col_104"
-    t.text     "col_105"
-    t.text     "col_106"
-    t.text     "col_107"
-    t.text     "col_108"
-    t.text     "col_109"
-    t.text     "col_110"
-    t.text     "col_111"
-    t.text     "col_112"
-    t.text     "col_113"
-    t.text     "col_114"
-    t.text     "col_115"
-    t.text     "col_116"
-    t.text     "col_117"
-    t.text     "col_118"
-    t.text     "col_119"
-    t.text     "col_120"
-    t.         "visible",    default: "t"
+  create_table "vendor8s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "col_0",      limit: 65535
+    t.text     "col_1",      limit: 65535
+    t.text     "col_2",      limit: 65535
+    t.text     "col_3",      limit: 65535
+    t.text     "col_4",      limit: 65535
+    t.text     "col_5",      limit: 65535
+    t.text     "col_6",      limit: 65535
+    t.text     "col_7",      limit: 65535
+    t.text     "col_8",      limit: 65535
+    t.text     "col_9",      limit: 65535
+    t.text     "col_10",     limit: 65535
+    t.text     "col_11",     limit: 65535
+    t.text     "col_12",     limit: 65535
+    t.text     "col_13",     limit: 65535
+    t.text     "col_14",     limit: 65535
+    t.text     "col_15",     limit: 65535
+    t.text     "col_16",     limit: 65535
+    t.text     "col_17",     limit: 65535
+    t.text     "col_18",     limit: 65535
+    t.text     "col_19",     limit: 65535
+    t.text     "col_20",     limit: 65535
+    t.text     "col_21",     limit: 65535
+    t.text     "col_22",     limit: 65535
+    t.text     "col_23",     limit: 65535
+    t.text     "col_24",     limit: 65535
+    t.text     "col_25",     limit: 65535
+    t.text     "col_26",     limit: 65535
+    t.text     "col_27",     limit: 65535
+    t.text     "col_28",     limit: 65535
+    t.text     "col_29",     limit: 65535
+    t.text     "col_30",     limit: 65535
+    t.text     "col_31",     limit: 65535
+    t.text     "col_32",     limit: 65535
+    t.text     "col_33",     limit: 65535
+    t.text     "col_34",     limit: 65535
+    t.text     "col_35",     limit: 65535
+    t.text     "col_36",     limit: 65535
+    t.text     "col_37",     limit: 65535
+    t.text     "col_38",     limit: 65535
+    t.text     "col_39",     limit: 65535
+    t.text     "col_40",     limit: 65535
+    t.text     "col_41",     limit: 65535
+    t.text     "col_42",     limit: 65535
+    t.text     "col_43",     limit: 65535
+    t.text     "col_44",     limit: 65535
+    t.text     "col_45",     limit: 65535
+    t.text     "col_46",     limit: 65535
+    t.text     "col_47",     limit: 65535
+    t.text     "col_48",     limit: 65535
+    t.text     "col_49",     limit: 65535
+    t.text     "col_50",     limit: 65535
+    t.text     "col_51",     limit: 65535
+    t.text     "col_52",     limit: 65535
+    t.text     "col_53",     limit: 65535
+    t.text     "col_54",     limit: 65535
+    t.text     "col_55",     limit: 65535
+    t.text     "col_56",     limit: 65535
+    t.text     "col_57",     limit: 65535
+    t.text     "col_58",     limit: 65535
+    t.text     "col_59",     limit: 65535
+    t.text     "col_60",     limit: 65535
+    t.text     "col_61",     limit: 65535
+    t.text     "col_62",     limit: 65535
+    t.text     "col_63",     limit: 65535
+    t.text     "col_64",     limit: 65535
+    t.text     "col_65",     limit: 65535
+    t.text     "col_66",     limit: 65535
+    t.text     "col_67",     limit: 65535
+    t.text     "col_68",     limit: 65535
+    t.text     "col_69",     limit: 65535
+    t.text     "col_70",     limit: 65535
+    t.text     "col_71",     limit: 65535
+    t.text     "col_72",     limit: 65535
+    t.text     "col_73",     limit: 65535
+    t.text     "col_74",     limit: 65535
+    t.text     "col_75",     limit: 65535
+    t.text     "col_76",     limit: 65535
+    t.text     "col_77",     limit: 65535
+    t.text     "col_78",     limit: 65535
+    t.text     "col_79",     limit: 65535
+    t.text     "col_80",     limit: 65535
+    t.text     "col_81",     limit: 65535
+    t.text     "col_82",     limit: 65535
+    t.text     "col_83",     limit: 65535
+    t.text     "col_84",     limit: 65535
+    t.text     "col_85",     limit: 65535
+    t.text     "col_86",     limit: 65535
+    t.text     "col_87",     limit: 65535
+    t.text     "col_88",     limit: 65535
+    t.text     "col_89",     limit: 65535
+    t.text     "col_90",     limit: 65535
+    t.text     "col_91",     limit: 65535
+    t.text     "col_92",     limit: 65535
+    t.text     "col_93",     limit: 65535
+    t.text     "col_94",     limit: 65535
+    t.text     "col_95",     limit: 65535
+    t.text     "col_96",     limit: 65535
+    t.text     "col_97",     limit: 65535
+    t.text     "col_98",     limit: 65535
+    t.text     "col_99",     limit: 65535
+    t.text     "col_100",    limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.text     "col_101",    limit: 65535
+    t.text     "col_102",    limit: 65535
+    t.text     "col_103",    limit: 65535
+    t.text     "col_104",    limit: 65535
+    t.text     "col_105",    limit: 65535
+    t.text     "col_106",    limit: 65535
+    t.text     "col_107",    limit: 65535
+    t.text     "col_108",    limit: 65535
+    t.text     "col_109",    limit: 65535
+    t.text     "col_110",    limit: 65535
+    t.text     "col_111",    limit: 65535
+    t.text     "col_112",    limit: 65535
+    t.text     "col_113",    limit: 65535
+    t.text     "col_114",    limit: 65535
+    t.text     "col_115",    limit: 65535
+    t.text     "col_116",    limit: 65535
+    t.text     "col_117",    limit: 65535
+    t.text     "col_118",    limit: 65535
+    t.text     "col_119",    limit: 65535
+    t.text     "col_120",    limit: 65535
+    t.boolean  "visible",                  default: true
   end
 
-  create_table "vendor9s", force: :cascade do |t|
-    t.text     "col_0"
-    t.text     "col_1"
-    t.text     "col_2"
-    t.text     "col_3"
-    t.text     "col_4"
-    t.text     "col_5"
-    t.text     "col_6"
-    t.text     "col_7"
-    t.text     "col_8"
-    t.text     "col_9"
-    t.text     "col_10"
-    t.text     "col_11"
-    t.text     "col_12"
-    t.text     "col_13"
-    t.text     "col_14"
-    t.text     "col_15"
-    t.text     "col_16"
-    t.text     "col_17"
-    t.text     "col_18"
-    t.text     "col_19"
-    t.text     "col_20"
-    t.text     "col_21"
-    t.text     "col_22"
-    t.text     "col_23"
-    t.text     "col_24"
-    t.text     "col_25"
-    t.text     "col_26"
-    t.text     "col_27"
-    t.text     "col_28"
-    t.text     "col_29"
-    t.text     "col_30"
-    t.text     "col_31"
-    t.text     "col_32"
-    t.text     "col_33"
-    t.text     "col_34"
-    t.text     "col_35"
-    t.text     "col_36"
-    t.text     "col_37"
-    t.text     "col_38"
-    t.text     "col_39"
-    t.text     "col_40"
-    t.text     "col_41"
-    t.text     "col_42"
-    t.text     "col_43"
-    t.text     "col_44"
-    t.text     "col_45"
-    t.text     "col_46"
-    t.text     "col_47"
-    t.text     "col_48"
-    t.text     "col_49"
-    t.text     "col_50"
-    t.text     "col_51"
-    t.text     "col_52"
-    t.text     "col_53"
-    t.text     "col_54"
-    t.text     "col_55"
-    t.text     "col_56"
-    t.text     "col_57"
-    t.text     "col_58"
-    t.text     "col_59"
-    t.text     "col_60"
-    t.text     "col_61"
-    t.text     "col_62"
-    t.text     "col_63"
-    t.text     "col_64"
-    t.text     "col_65"
-    t.text     "col_66"
-    t.text     "col_67"
-    t.text     "col_68"
-    t.text     "col_69"
-    t.text     "col_70"
-    t.text     "col_71"
-    t.text     "col_72"
-    t.text     "col_73"
-    t.text     "col_74"
-    t.text     "col_75"
-    t.text     "col_76"
-    t.text     "col_77"
-    t.text     "col_78"
-    t.text     "col_79"
-    t.text     "col_80"
-    t.text     "col_81"
-    t.text     "col_82"
-    t.text     "col_83"
-    t.text     "col_84"
-    t.text     "col_85"
-    t.text     "col_86"
-    t.text     "col_87"
-    t.text     "col_88"
-    t.text     "col_89"
-    t.text     "col_90"
-    t.text     "col_91"
-    t.text     "col_92"
-    t.text     "col_93"
-    t.text     "col_94"
-    t.text     "col_95"
-    t.text     "col_96"
-    t.text     "col_97"
-    t.text     "col_98"
-    t.text     "col_99"
-    t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "col_101"
-    t.text     "col_102"
-    t.text     "col_103"
-    t.text     "col_104"
-    t.text     "col_105"
-    t.text     "col_106"
-    t.text     "col_107"
-    t.text     "col_108"
-    t.text     "col_109"
-    t.text     "col_110"
-    t.text     "col_111"
-    t.text     "col_112"
-    t.text     "col_113"
-    t.text     "col_114"
-    t.text     "col_115"
-    t.text     "col_116"
-    t.text     "col_117"
-    t.text     "col_118"
-    t.text     "col_119"
-    t.text     "col_120"
-    t.         "visible",    default: "t"
+  create_table "vendor9s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "col_0",      limit: 65535
+    t.text     "col_1",      limit: 65535
+    t.text     "col_2",      limit: 65535
+    t.text     "col_3",      limit: 65535
+    t.text     "col_4",      limit: 65535
+    t.text     "col_5",      limit: 65535
+    t.text     "col_6",      limit: 65535
+    t.text     "col_7",      limit: 65535
+    t.text     "col_8",      limit: 65535
+    t.text     "col_9",      limit: 65535
+    t.text     "col_10",     limit: 65535
+    t.text     "col_11",     limit: 65535
+    t.text     "col_12",     limit: 65535
+    t.text     "col_13",     limit: 65535
+    t.text     "col_14",     limit: 65535
+    t.text     "col_15",     limit: 65535
+    t.text     "col_16",     limit: 65535
+    t.text     "col_17",     limit: 65535
+    t.text     "col_18",     limit: 65535
+    t.text     "col_19",     limit: 65535
+    t.text     "col_20",     limit: 65535
+    t.text     "col_21",     limit: 65535
+    t.text     "col_22",     limit: 65535
+    t.text     "col_23",     limit: 65535
+    t.text     "col_24",     limit: 65535
+    t.text     "col_25",     limit: 65535
+    t.text     "col_26",     limit: 65535
+    t.text     "col_27",     limit: 65535
+    t.text     "col_28",     limit: 65535
+    t.text     "col_29",     limit: 65535
+    t.text     "col_30",     limit: 65535
+    t.text     "col_31",     limit: 65535
+    t.text     "col_32",     limit: 65535
+    t.text     "col_33",     limit: 65535
+    t.text     "col_34",     limit: 65535
+    t.text     "col_35",     limit: 65535
+    t.text     "col_36",     limit: 65535
+    t.text     "col_37",     limit: 65535
+    t.text     "col_38",     limit: 65535
+    t.text     "col_39",     limit: 65535
+    t.text     "col_40",     limit: 65535
+    t.text     "col_41",     limit: 65535
+    t.text     "col_42",     limit: 65535
+    t.text     "col_43",     limit: 65535
+    t.text     "col_44",     limit: 65535
+    t.text     "col_45",     limit: 65535
+    t.text     "col_46",     limit: 65535
+    t.text     "col_47",     limit: 65535
+    t.text     "col_48",     limit: 65535
+    t.text     "col_49",     limit: 65535
+    t.text     "col_50",     limit: 65535
+    t.text     "col_51",     limit: 65535
+    t.text     "col_52",     limit: 65535
+    t.text     "col_53",     limit: 65535
+    t.text     "col_54",     limit: 65535
+    t.text     "col_55",     limit: 65535
+    t.text     "col_56",     limit: 65535
+    t.text     "col_57",     limit: 65535
+    t.text     "col_58",     limit: 65535
+    t.text     "col_59",     limit: 65535
+    t.text     "col_60",     limit: 65535
+    t.text     "col_61",     limit: 65535
+    t.text     "col_62",     limit: 65535
+    t.text     "col_63",     limit: 65535
+    t.text     "col_64",     limit: 65535
+    t.text     "col_65",     limit: 65535
+    t.text     "col_66",     limit: 65535
+    t.text     "col_67",     limit: 65535
+    t.text     "col_68",     limit: 65535
+    t.text     "col_69",     limit: 65535
+    t.text     "col_70",     limit: 65535
+    t.text     "col_71",     limit: 65535
+    t.text     "col_72",     limit: 65535
+    t.text     "col_73",     limit: 65535
+    t.text     "col_74",     limit: 65535
+    t.text     "col_75",     limit: 65535
+    t.text     "col_76",     limit: 65535
+    t.text     "col_77",     limit: 65535
+    t.text     "col_78",     limit: 65535
+    t.text     "col_79",     limit: 65535
+    t.text     "col_80",     limit: 65535
+    t.text     "col_81",     limit: 65535
+    t.text     "col_82",     limit: 65535
+    t.text     "col_83",     limit: 65535
+    t.text     "col_84",     limit: 65535
+    t.text     "col_85",     limit: 65535
+    t.text     "col_86",     limit: 65535
+    t.text     "col_87",     limit: 65535
+    t.text     "col_88",     limit: 65535
+    t.text     "col_89",     limit: 65535
+    t.text     "col_90",     limit: 65535
+    t.text     "col_91",     limit: 65535
+    t.text     "col_92",     limit: 65535
+    t.text     "col_93",     limit: 65535
+    t.text     "col_94",     limit: 65535
+    t.text     "col_95",     limit: 65535
+    t.text     "col_96",     limit: 65535
+    t.text     "col_97",     limit: 65535
+    t.text     "col_98",     limit: 65535
+    t.text     "col_99",     limit: 65535
+    t.text     "col_100",    limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.text     "col_101",    limit: 65535
+    t.text     "col_102",    limit: 65535
+    t.text     "col_103",    limit: 65535
+    t.text     "col_104",    limit: 65535
+    t.text     "col_105",    limit: 65535
+    t.text     "col_106",    limit: 65535
+    t.text     "col_107",    limit: 65535
+    t.text     "col_108",    limit: 65535
+    t.text     "col_109",    limit: 65535
+    t.text     "col_110",    limit: 65535
+    t.text     "col_111",    limit: 65535
+    t.text     "col_112",    limit: 65535
+    t.text     "col_113",    limit: 65535
+    t.text     "col_114",    limit: 65535
+    t.text     "col_115",    limit: 65535
+    t.text     "col_116",    limit: 65535
+    t.text     "col_117",    limit: 65535
+    t.text     "col_118",    limit: 65535
+    t.text     "col_119",    limit: 65535
+    t.text     "col_120",    limit: 65535
+    t.boolean  "visible",                  default: true
   end
 
+>>>>>>> e2177834dc11b01a0c6839b308479d99db9baaa7
 end
