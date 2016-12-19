@@ -1,6 +1,9 @@
+var time_<%=@name.name%>;
 var jqxhr = $.ajax( {url: "<%= url_for(controller: "reader", action:"read",reader_id: @id,format: "json", only_path: false ) %>",
 	dataType: "json",
-    beforeSend: function(){
+	beforeSend: function(){
+			 time_<%=@name.name%> = countdown(new Date(),function(ts){$('#<%=@name.name%>_time').html(ts.toHTML());},countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,2,1);
+	
     }
 })
   .done(function() {	  
@@ -15,12 +18,15 @@ var jqxhr = $.ajax( {url: "<%= url_for(controller: "reader", action:"read",reade
   }).appendTo( "body" ); **/
 	  
 //$('#modal').modal('show'); 
-	  alert("Done \"<%= @name.name%>\" file");
+	  //alert("Done \"<%= @name.name%>\" file");
+	  window.clearInterval(time_<%=@name.name%>);
   })
   .fail(function() {
     alert( "error" );
+	  window.clearInterval(time_<%=@name.name%>);
   })
 .always(function() {
+
 	/*$('#status').show();*/	
     /*alert( "complete" );*/
 }); 

@@ -6,7 +6,9 @@
    <thead>
       <tr>
          <th>Name</th>
-         <th> </th>
+         <th>Actions</th>
+         <th>Status</th>
+         <th>Time</th>
       </tr>
    </thead>
    
@@ -19,7 +21,8 @@
 		<%= link_to "Read", reader_req_path(reader_id:myfile, format: "js"), remote: true, class: "btn btn-success" %>
 		<%= link_to "Show", reader_path(myfile), class: "btn btn-warning" %>
 	    </td>
-	    
+	    <td></td>
+	    <td class="countdown" id="<%= myfile.name%>_time"></td>
          </tr>
          
       <% end %>
