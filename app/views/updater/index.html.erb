@@ -1,2 +1,49 @@
 <h1>Updater#index</h1>
 <p>Find me in app/views/updater/index.html.erb</p>
+<hr>
+<table class = "table table-bordered table-striped">
+   <thead>
+      <tr>
+         <th>Name</th>
+         <th>Actions</th>
+         <th>Status</th>
+         <th>Time</th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @myfiles.each do |myfile| %>
+         
+         <tr>
+            <td><%= myfile.name %></td>
+	    <td>
+			<% switch = myfile.main %>
+			<% if switch == "f" %>
+			<%= link_to "Update", reader_req_path(reader_id:myfile, format: "js" ), remote: true, class: "btn btn-success" %> 
+			<% end %>    
+		<%= link_to (switch == 'f')?'Set Main':'Main', updater_main_path( updater_id: myfile ), class: "btn btn-#{(switch == 'f')?'warning':'danger'}" %>
+	    
+			<% if switch == "f" %>
+			<%= link_to "Set cols", reader_set_cols_path( updater_id: myfile ), class: "btn btn-success" %> 
+			<% end %> 
+
+			<% if switch == "f" %>
+			<%= link_to "Set rows", reader_set_rows_path( reader_id: myfile ), class: "btn btn-success" %> 
+			<% end %> 
+
+	    
+	    </td>
+	    <td class="countdown">
+    	    </td>
+	    <td class="countdown"></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
+
+<script>
+$('.active').removeClass("active");
+$('#updater').addClass("active");
+</script>
