@@ -8,7 +8,7 @@ class ReaderController < ApplicationController
 
   def show
 	  file = MyFile.find(params[:id])
-	  @data= "Vendor#{file.vendor_id.to_s}".constantize.all
+	  @data= "Vendor#{file.vendor_id.to_s}".constantize.take(150)
 	  @cols = "Vendor#{file.vendor_id.to_s}".constantize.column_names
   end
 

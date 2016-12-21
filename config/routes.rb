@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 	get 'reader/my', to: 'reader#my'
 
 	resources :updater do
-		get 'sequense'
+		get 'sequence'
 		get 'main'
 		get 'set_cols'
 		get 'set_rows'

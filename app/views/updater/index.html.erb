@@ -19,16 +19,16 @@
 	    <td>
 			<% switch = myfile.main %>
 			<% if switch == "f" %>
-			<%= link_to "Update", reader_req_path(reader_id:myfile, format: "js" ), remote: true, class: "btn btn-success" %> 
+			<%= link_to "Update", updater_sequence_path(updater_id:myfile, format: "js" ), remote: true, class: "btn btn-success" %> 
 			<% end %>    
-		<%= link_to (switch == 'f')?'Set Main':'Main', updater_main_path( updater_id: myfile ), class: "btn btn-#{(switch == 'f')?'warning':'danger'}" %>
+			<%= link_to (switch == 'f')?'Set Main':'Main', (switch == 'f')? "#{updater_main_path( updater_id: myfile )}" : "#{updater_path(myfile)}", class: "btn btn-#{(switch == 'f')?'warning':'danger'}" %>
 	    
 			<% if switch == "f" %>
-			<%= link_to "Set cols", reader_set_cols_path( updater_id: myfile ), class: "btn btn-success" %> 
+			<%= link_to "Set cols", updater_set_cols_path( updater_id: myfile ), class: "btn btn-primary" %> 
 			<% end %> 
 
 			<% if switch == "f" %>
-			<%= link_to "Set rows", reader_set_rows_path( reader_id: myfile ), class: "btn btn-success" %> 
+			<%= link_to "Set rows", updater_set_rows_path( updater_id: myfile ), class: "btn btn-info" %> 
 			<% end %> 
 
 	    
