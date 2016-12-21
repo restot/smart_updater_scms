@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221125628) do
+ActiveRecord::Schema.define(version: 20161221130725) do
 
   create_table "my_files", force: :cascade do |t|
     t.string   "name"
@@ -156,8 +156,7 @@ ActiveRecord::Schema.define(version: 20161221125628) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
-    t.string   "skip_cols"
-    t.string   "text"
+    t.text     "skip_cols"
     t.text     "skip_rows"
   end
 
@@ -286,8 +285,7 @@ ActiveRecord::Schema.define(version: 20161221125628) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
-    t.string   "skip_cols"
-    t.string   "text"
+    t.text     "skip_cols"
     t.text     "skip_rows"
   end
 
@@ -416,8 +414,7 @@ ActiveRecord::Schema.define(version: 20161221125628) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
-    t.string   "skip_cols"
-    t.string   "text"
+    t.text     "skip_cols"
     t.text     "skip_rows"
   end
 
@@ -546,8 +543,7 @@ ActiveRecord::Schema.define(version: 20161221125628) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
-    t.string   "skip_cols"
-    t.string   "text"
+    t.text     "skip_cols"
     t.text     "skip_rows"
   end
 
@@ -676,8 +672,7 @@ ActiveRecord::Schema.define(version: 20161221125628) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
-    t.string   "skip_cols"
-    t.string   "text"
+    t.text     "skip_cols"
     t.text     "skip_rows"
   end
 
@@ -806,8 +801,7 @@ ActiveRecord::Schema.define(version: 20161221125628) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
-    t.string   "skip_cols"
-    t.string   "text"
+    t.text     "skip_cols"
     t.text     "skip_rows"
   end
 
@@ -936,8 +930,7 @@ ActiveRecord::Schema.define(version: 20161221125628) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
-    t.string   "skip_cols"
-    t.string   "text"
+    t.text     "skip_cols"
     t.text     "skip_rows"
   end
 
@@ -1066,8 +1059,7 @@ ActiveRecord::Schema.define(version: 20161221125628) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
-    t.string   "skip_cols"
-    t.string   "text"
+    t.text     "skip_cols"
     t.text     "skip_rows"
   end
 
@@ -1196,8 +1188,7 @@ ActiveRecord::Schema.define(version: 20161221125628) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
-    t.string   "skip_cols"
-    t.string   "text"
+    t.text     "skip_cols"
     t.text     "skip_rows"
   end
 
@@ -1326,8 +1317,7 @@ ActiveRecord::Schema.define(version: 20161221125628) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
-    t.string   "skip_cols"
-    t.string   "text"
+    t.text     "skip_cols"
     t.text     "skip_rows"
   end
 
