@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221112325) do
+ActiveRecord::Schema.define(version: 20161221125628) do
 
   create_table "my_files", force: :cascade do |t|
     t.string   "name"
@@ -156,6 +156,9 @@ ActiveRecord::Schema.define(version: 20161221112325) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
+    t.string   "skip_cols"
+    t.string   "text"
+    t.text     "skip_rows"
   end
 
   create_table "vendor1s", force: :cascade do |t|
@@ -283,6 +286,9 @@ ActiveRecord::Schema.define(version: 20161221112325) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
+    t.string   "skip_cols"
+    t.string   "text"
+    t.text     "skip_rows"
   end
 
   create_table "vendor2s", force: :cascade do |t|
@@ -410,6 +416,9 @@ ActiveRecord::Schema.define(version: 20161221112325) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
+    t.string   "skip_cols"
+    t.string   "text"
+    t.text     "skip_rows"
   end
 
   create_table "vendor3s", force: :cascade do |t|
@@ -537,6 +546,9 @@ ActiveRecord::Schema.define(version: 20161221112325) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
+    t.string   "skip_cols"
+    t.string   "text"
+    t.text     "skip_rows"
   end
 
   create_table "vendor4s", force: :cascade do |t|
@@ -664,6 +676,9 @@ ActiveRecord::Schema.define(version: 20161221112325) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
+    t.string   "skip_cols"
+    t.string   "text"
+    t.text     "skip_rows"
   end
 
   create_table "vendor5s", force: :cascade do |t|
@@ -791,6 +806,9 @@ ActiveRecord::Schema.define(version: 20161221112325) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
+    t.string   "skip_cols"
+    t.string   "text"
+    t.text     "skip_rows"
   end
 
   create_table "vendor6s", force: :cascade do |t|
@@ -918,6 +936,9 @@ ActiveRecord::Schema.define(version: 20161221112325) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
+    t.string   "skip_cols"
+    t.string   "text"
+    t.text     "skip_rows"
   end
 
   create_table "vendor7s", force: :cascade do |t|
@@ -1045,6 +1066,9 @@ ActiveRecord::Schema.define(version: 20161221112325) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
+    t.string   "skip_cols"
+    t.string   "text"
+    t.text     "skip_rows"
   end
 
   create_table "vendor8s", force: :cascade do |t|
@@ -1172,6 +1196,9 @@ ActiveRecord::Schema.define(version: 20161221112325) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
+    t.string   "skip_cols"
+    t.string   "text"
+    t.text     "skip_rows"
   end
 
   create_table "vendor9s", force: :cascade do |t|
@@ -1299,6 +1326,9 @@ ActiveRecord::Schema.define(version: 20161221112325) do
     t.text     "col_119"
     t.text     "col_120"
     t.         "visible",    default: "t"
+    t.string   "skip_cols"
+    t.string   "text"
+    t.text     "skip_rows"
   end
 
 end
