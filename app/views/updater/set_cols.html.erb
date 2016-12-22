@@ -1,0 +1,22 @@
+<h1>Reader#read</h1>
+
+<p>Find me in app/views/reader/read.html.erb</p>
+<%= link_to 'Back', updater_index_path, class: "btn btn-primary" %>
+
+<hr>
+<table style=" border: 1px solid #ddd;">
+	<tr>
+	<% @cols.each do |r| %>
+		<th><%= r %></th>
+        <% end %>
+	</tr>
+<% @data.each do |e| %>
+			<% if e.visible == "t" %>
+				<tr><% @cols.each do |r| %><td><%= e.send(r).to_s[0..25] %></td><% end %></tr>
+			<% else %>
+				<tr class="skip_row"><% @cols.each do |r| %><td><%= e.send(r).to_s[0..25] %></td><%end%></tr>
+			<% end %>
+<% end %>
+
+</table>
+
