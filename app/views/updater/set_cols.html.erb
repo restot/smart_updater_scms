@@ -1,15 +1,30 @@
-<h1>Reader#read</h1>
+<h1>Updater#set_cols</h1>
 
-<p>Find me in app/views/reader/read.html.erb</p>
+
 <%= link_to 'Back', updater_index_path, class: "btn btn-primary" %>
+<button id="but">rows</button>
+<hr>
+
+<%= @file.skip_rows.inspect  %>
 
 <hr>
-<table style=" border: 1px solid #ddd;">
-	<tr>
-	<% @cols.each do |r| %>
-		<th><%= r %></th>
-        <% end %>
-	</tr>
+<table id="table" class="display" cellspacing="0" width="100%"  >
+
+  <thead>
+    <tr>
+      <% @cols.each do |r| %>
+      <th><%= r %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <% @cols.each do |r| %>
+      <th><%= r %></th>
+      <% end %>
+    </tr>
+  </tfoot>
 <% @data.each do |e| %>
 			<% if e.visible == "t" %>
 				<tr><% @cols.each do |r| %><td><%= e.send(r).to_s[0..25] %></td><% end %></tr>
@@ -19,4 +34,17 @@
 <% end %>
 
 </table>
+<script>
+$(document).ready(function() {
+    var table = $('#table').DataTable();
+ 
+    $('#table tbody').on( 'click', 'tr', function () {
+        $(this).toggleClass('selected');
+    } );
+ 
+    $('#but').click( function () {
+        alert( table.rows('.selected').data().length +' row(s) selected' );
+    } );
+} );
+</script>
 

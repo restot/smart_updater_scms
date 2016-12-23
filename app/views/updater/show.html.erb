@@ -22,7 +22,7 @@
 	<%= f.submit "Apply",layout: :horizontal %>
 <% end %>
 <hr>
-<table style=" border: 1px solid #ddd; position: absolute; left: 1px;">
+<table  style=" border: 1px solid #ddd; position: absolute; left: 1px;">
 	<tr>
 	<% @cols.each do |r| %>
 		<th><%= r %></th>
@@ -38,6 +38,7 @@
 
 </table>
 <script>
+  
 $(function() {
 	$(".<%= template["item_code"] %>").css("background-color","aliceblue");
 	$(".<%= template["price"] %>").css("background-color","antiquewhite");
