@@ -12,13 +12,16 @@ Rails.application.routes.draw do
 		get 'main'
 		get 'set_cols'
 		get 'set_rows'
-		
+		post 'visible'
+                put 'set_cols_update'
+                put 'set_rows_update'
+
 	end
 resources :reader do
 	get 'my'
 	get 'read'
 	get 'req'
-end
+        end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

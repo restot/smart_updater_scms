@@ -1,8 +1,9 @@
+
 <h1>Updater#set_rows</h1>
 
 
 <%= link_to 'Back', updater_index_path, class: "btn btn-primary" %>
-<button id="but">rows</button>
+<button id="but">Skip rows</button>
 <hr>
 
 <%= @file.skip_cols.inspect  %>
@@ -36,14 +37,42 @@
 </table>
 <script>
 $(document).ready(function() {
-    var table = $('#table').DataTable();
+    var table = $('#table').DataTable(
+{
+        "createdRow": function ( row, data, index ) {
+            if (data[124] == "f") {
+                $(row).addClass( 'skip_row' );
+            }
+        }
+    }
+    );
  
     $('#table tbody').on( 'click', 'tr', function () {
         $(this).toggleClass('selected');
     } );
  
     $('#but').click( function () {
-        alert( table.rows('.selected').data().length +' row(s) selected' );
+var arr = table.rows('.selected').data();
+$('.selected').each(function() {
+
+if ( $( this ).hasClass( "skip_row" ) ) {
+$(this).removeClass('skip_row');
+} else {
+$(this).addClass('skip_row');
+}
+
+});
+$.each(arr, function(index, value) {
+$.post( "<%=url_for( controller: "updater", action: "visible", only_path: false  ) %>", { id: value[0] } );
+
+
+//console.log(value[0]);
+
+	    }); 
+	
+
     } );
 } );
+
 </script>
+
