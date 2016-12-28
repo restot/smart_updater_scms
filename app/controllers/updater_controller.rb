@@ -18,19 +18,19 @@ class UpdaterController < ApplicationController
 
   def set_cols
     @file = MyFile.find(params[:updater_id])
-    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(150)
+    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(50)
     @cols = "Vendor#{@file.vendor_id.to_s}".constantize.column_names
   end
 
   def set_rows
     @file = MyFile.find(params[:updater_id])
-    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(150)
+    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(50)
     @cols = "Vendor#{@file.vendor_id.to_s}".constantize.column_names
   end
   
   def show
     @file = MyFile.find_by(main: true)
-    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(150)
+    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(50)
     @cols = "Vendor#{@file.vendor_id.to_s}".constantize.column_names
   end
 

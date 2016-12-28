@@ -2,7 +2,7 @@
 
 
 <%= link_to 'Back', updater_index_path, class: "btn btn-primary" %>
-<button id="but">rows</button>
+
 <hr>
 <% if !flash[:notice].blank? %>
    <div class = "alert alert-info">
@@ -45,25 +45,50 @@
     </tr>
   </tfoot>
 <% @data.each do |e| %>
-			<% if e.visible == "t" %>
+		
 				<tr><% @cols.each do |r| %><td><%= e.send(r).to_s[0..25] %></td><% end %></tr>
-			<% else %>
-				<tr class="skip_row"><% @cols.each do |r| %><td><%= e.send(r).to_s[0..25] %></td><%end%></tr>
-			<% end %>
+		
+		
+		
 <% end %>
 
 </table>
 <script>
 $(document).ready(function() {
-    var table = $('#table').DataTable();
+  var table = $('#table').DataTable(
+    {
+    "createdRow": function ( row, data, index ) {
+    if (data[124] == "f") {
+    $(row).addClass( 'skip_row' );
+}
+var i=0;
+var ii=0;
+$.each(row, function (a, value){
+
+if (i != 0) {
+$(row.cells[i]).addClass("col_"+(ii).toString());
+ii++;
+}
+
+i++;
+});
+highlight();
+   }
+   });
  
-    $('#table tbody').on( 'click', 'tr', function () {
-        $(this).toggleClass('selected');
-    } );
  
-    $('#but').click( function () {
-        alert( table.rows('.selected').data().length +' row(s) selected' );
-    } );
 } );
+<%  if @file.main_template != nil %>
+function highlight () {
+	$(".<%= template["item_code"] %>").css("background-color","aliceblue");
+	$(".<%= template["price"] %>").css("background-color","antiquewhite");
+	if ("<%= template["currency"] %>".indexOf("col_") !== -1 ) {
+	$(".<%= template["currency"] %>").css("background-color","khaki");
+}
+	$(".<%= template["available"] %>").css("background-color","lightgreen");		
+}
+
+<% end  %>
+
 </script>
 
