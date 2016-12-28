@@ -1,10 +1,6 @@
 <%= link_to 'Back', updater_index_path, class: "btn btn-primary" %>
 <hr>
-<% if !flash[:notice].blank? %>
-   <div class = "alert alert-info">
-      <%= flash[:notice] %>
-   </div>
-<% end %>
+<%= render 'flash'  %>
 
 <%  if @file.main_template != nil %>
 	<% template = JSON.parse(@file.main_template) %>

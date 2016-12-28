@@ -29,31 +29,43 @@ class UpdaterController < ApplicationController
   end
   
   def show
-    @file = MyFile.find_by(main: true)
+    @file = MyFile.find(params[:id])
     @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(50)
     @cols = "Vendor#{@file.vendor_id.to_s}".constantize.column_names
   end
 
   def update
     i = MyFile.find(params[:id])
-    if i.main == "t" then
-	  respond_to do |f|
+    if params[:flag] == nil
+      if i.main == "t" then
+        respond_to do |f|
 	  if i.update(main_template: (params.permit(:item_code, :price, :currency, :available, :params_start, :params_end)).to_json) then
-	f.html {redirect_to updater_url(i), notice: "Updating succesful!" }
+	    f.html {redirect_to updater_url(i), notice: "Updating main template  succesful!" }
 	  else
-		  f.html { redirect_to updater_url(i), notice: "Filed..." }
+	    f.html { redirect_to updater_url(i), notice: "Filed...[main template]" }
 	  end
-	  end
-    else
-	  respond_to do |f|
+	end
+      else
+        respond_to do |f|
 	  if i.update(main_template: (params.permit(:item_code, :price, :currency, :available)).to_json) then
-	f.html {redirect_to updater_set_cols_url(i), notice: "Updating succesful!" }
+	    f.html {redirect_to updater_set_cols_url(i), notice: "Updating template succesful!" }
 	  else
-		  f.html { redirect_to updater_set_cols_url(i), notice: "Filed..." }
+	    f.html { redirect_to updater_set_cols_url(i), notice: "Filed...[template]" }
 	  end
-	  end
+	end
+      end
     end
-    
+
+    if params[:flag] == "skip_rows"
+      i = MyFile.find(params[:id])
+      respond_to do |f|
+	if i.update(skip_rows: (params.permit(:item_code, :price, :currency, :available)).to_json) then
+	  f.html {redirect_to updater_set_rows_url(i), notice: "Updating skip rows succesful!" }
+	else
+	  f.html { redirect_to updater_set_rows_url(i), notice: "Filed...[skip rows]" }
+	end
+      end      
+    end
   end
 
   def visible

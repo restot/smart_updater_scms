@@ -6,32 +6,12 @@
 <button id="but">Skip rows</button>
 <hr>
 
-<% if !flash[:notice].blank? %>
-   <div class = "alert alert-info">
-      <%= flash[:notice] %>
-   </div>
-<% end %>
+<%= render 'flash'  %>
 
-
-<%  if @file.main_template != nil %>
-	<% template = JSON.parse(@file.main_template) %>
-<% else %>
-	<% template = Hash[ "item_code" => "col_0" , "price" => "col_1" , "currency" => "col_2" ,"available" => "col_3" ]%>
-<% end %>
-
-<%= bootstrap_form_tag url: updater_path(params[:updater_id]), method: 'put', layout: :inline do |f| %>
-	<%= f.text_field :item_code, value: template["item_code"], class: template["item_code"] %>
-	<%= f.text_field :price, value: template["price"], class: template["price"] %>
-	<%= f.text_field :currency, value: template["currency"], class: template["currency"] %>
-	<%= f.text_field :available, value: template["available"], class: template["available"] %>
-
-
-
-<% end %>
+<%= render 'header'  %>
 
 <hr>
 <table id="table" class="display" cellspacing="0" width="100%"  >
-
   <thead>
     <tr>
       <% @cols.each do |r| %>
@@ -39,7 +19,7 @@
       <% end %>
     </tr>
   </thead>
-
+  
   <tfoot>
     <tr>
       <% @cols.each do |r| %>
@@ -47,76 +27,18 @@
       <% end %>
     </tr>
   </tfoot>
-<% @data.each do |e| %>
-		
-				<tr><% @cols.each do |r| %><td><%= e.send(r).to_s[0..25] %></td><% end %></tr>
-		
-		
-		
-<% end %>
 
+  <tbody>
+    <% @data.each do |e| %>
+    <tr>
+      <% @cols.each do |r| %>
+      <td>
+	<%= e.send(r).to_s[0..25] %>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
-<script>
-$(document).ready(function() {
-  var table = $('#table').DataTable(
-    {
-    "createdRow": function ( row, data, index ) {
-    if (data[124] == "f") {
-    $(row).addClass( 'skip_row' );
-}
-var i=0;
-var ii=0;
-$.each(row, function (a, value){
 
-if (i != 0) {
-$(row.cells[i]).addClass("col_"+(ii).toString());
-ii++;
-
-}
-
-i++;
-});
-highlight();
-   }
-   });
- 
-    $('#table tbody').on( 'click', 'tr', function () {
-        $(this).toggleClass('selected');
-    } );
- 
-    $('#but').click( function () {
-var arr = table.rows('.selected').data();
-$('.selected').each(function() {
-
-if ( $( this ).hasClass( "skip_row" ) ) {
-$(this).removeClass('skip_row');
-} else {
-$(this).addClass('skip_row');
-}
-
-});
-$.each(arr, function(index, value) {
-$.post( "<%=url_for( controller: "updater", action: "visible", only_path: false  ) %>", { id: value[0] } );
-
-
-//console.log(value[0]);
-
-	    }); 
-	
-
-    } );
-} );
-<%  if @file.main_template != nil %>
-function highlight () {
-	$(".<%= template["item_code"] %>").css("background-color","aliceblue");
-	$(".<%= template["price"] %>").css("background-color","antiquewhite");
-	if ("<%= template["currency"] %>".indexOf("col_") !== -1 ) {
-	$(".<%= template["currency"] %>").css("background-color","khaki");
-}
-	$(".<%= template["available"] %>").css("background-color","lightgreen");		
-}
-
-<% end  %>
-
-</script>
-
+<script><%= render 'script'  %></script>
