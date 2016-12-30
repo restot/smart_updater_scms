@@ -1,0 +1,38 @@
+<%  load File.expand_path('../../../controllers/ruls.rb',__FILE__)  %>
+<% @ruls = Ruls.item_code(@file.skip_rows)  %>
+
+
+<%= link_to 'Back', updater_index_path, class: "btn btn-primary" %>
+<hr>
+<%= render 'flash'  %>
+<%= render 'header'  %>
+<hr>
+<table  style=" border: 1px solid #ddd; position: absolute; left: 1px;">
+	<tr>
+	<% @cols.each do |r| %>
+		<th><%= r %></th>
+        <% end %>
+	</tr>
+<% @data.each do |e| %>
+			<% if e.visible == "t" and e.send(@template["item_code"]).send(@ruls[0][:operator], nil)   %>
+				<tr><% @cols.each do |r| %><td class="<%=r%>"><%= e.send(r).to_s[0..25] %></td><% end %></tr>
+			<% else %>
+				<tr class="skip_row"><% @cols.each do |r| %><td class="<%=r%>"><%= e.send(r).to_s[0..25] %></td><%end%></tr>
+			<% end %>
+<% end %>
+
+</table>
+<script>
+  
+$(function() {
+	$(".<%= @template["item_code"] %>").css("background-color","aliceblue");
+	$(".<%= @template["price"] %>").css("background-color","antiquewhite");
+	$(".<%= @template["currency"] %>").css("background-color","khaki");
+	$(".<%= @template["available"] %>").css("background-color","lightgreen");
+	
+});
+</script>
+
+
+
+

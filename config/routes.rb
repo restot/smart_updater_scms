@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 		post 'visible'
                 put 'set_cols_update'
                 put 'set_rows_update'
+                get 'preview'
 
 	end
 resources :reader do

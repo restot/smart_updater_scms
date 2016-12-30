@@ -1,6 +1,6 @@
 class UpdaterController < ApplicationController
   def index
-	  @myfiles = MyFile.all
+    @myfiles = MyFile.all 
   end
 
   def sequence
@@ -26,6 +26,11 @@ class UpdaterController < ApplicationController
     @file = MyFile.find(params[:updater_id])
     @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(50)
     @cols = "Vendor#{@file.vendor_id.to_s}".constantize.column_names
+    load File.expand_path('../ruls.rb',__FILE__)
+    # require_relative 'ruls' 
+    #puts params[:updater_id]
+    
+   # puts "##{__LINE__} "  +  Ruls.item_code(@file.skip_rows)
   end
   
   def show
@@ -74,4 +79,11 @@ class UpdaterController < ApplicationController
     bool = (val.visible == "t")? true : false;
     val.update(visible: !bool )
   end
+
+  def preview
+    @file = MyFile.find(params[:updater_id])
+    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(50)
+    @cols = "Vendor#{@file.vendor_id.to_s}".constantize.column_names
+  end
+  
 end

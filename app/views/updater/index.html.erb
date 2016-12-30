@@ -31,6 +31,10 @@
 			<%= link_to "Set rows", updater_set_rows_path( updater_id: myfile ), class: "btn btn-info" %> 
 			<% end %> 
 
+			<% if switch == "f" %>
+			<%= link_to "Preview", updater_preview_path( updater_id: myfile ), class: "btn btn-danger" %> 
+			<% end %> 
+
 	    
 	    </td>
 	    <td class="countdown">
