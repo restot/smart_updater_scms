@@ -1,4 +1,4 @@
-# echo "hi $1 ..."  
+# echo "hi $1 ..."
 
 timenow=`date +%s`
 human_time_now=`date -d @$timenow`
