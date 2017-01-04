@@ -1,4 +1,5 @@
 class UpdaterController < ApplicationController
+
   def index
     @myfiles = MyFile.all 
   end
