@@ -19,13 +19,21 @@ class UpdaterController < ApplicationController
 
   def set_cols
     @file = MyFile.find(params[:updater_id])
-    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(50)
+      if params[:size] == "all"
+      @data= "Vendor#{@file.vendor_id.to_s}".constantize.all
+    else
+      @data= "Vendor#{@file.vendor_id.to_s}".constantize.take((params[:size] != nil )? params[:size].to_i : 50)
+    end
     @cols = "Vendor#{@file.vendor_id.to_s}".constantize.column_names
   end
 
   def set_rows
     @file = MyFile.find(params[:updater_id])
-    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(50)
+      if params[:size] == "all"
+      @data= "Vendor#{@file.vendor_id.to_s}".constantize.all
+    else
+      @data= "Vendor#{@file.vendor_id.to_s}".constantize.take((params[:size] != nil )? params[:size].to_i : 50)
+    end
     @cols = "Vendor#{@file.vendor_id.to_s}".constantize.column_names
     load File.expand_path('../ruls.rb',__FILE__)
     # require_relative 'ruls' 
@@ -36,7 +44,11 @@ class UpdaterController < ApplicationController
   
   def show
     @file = MyFile.find(params[:id])
-    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(50)
+    if params[:size] == "all"
+      @data= "Vendor#{@file.vendor_id.to_s}".constantize.all
+    else
+      @data= "Vendor#{@file.vendor_id.to_s}".constantize.take((params[:size] != nil )? params[:size].to_i : 50)
+    end
     @cols = "Vendor#{@file.vendor_id.to_s}".constantize.column_names
   end
 
@@ -83,7 +95,11 @@ class UpdaterController < ApplicationController
 
   def preview
     @file = MyFile.find(params[:updater_id])
-    @data= "Vendor#{@file.vendor_id.to_s}".constantize.take(50)
+    if params[:size] == "all"
+      @data= "Vendor#{@file.vendor_id.to_s}".constantize.all
+    else
+      @data= "Vendor#{@file.vendor_id.to_s}".constantize.take((params[:size] != nil )? params[:size].to_i : 50)
+    end
     @cols = "Vendor#{@file.vendor_id.to_s}".constantize.column_names
   end
   
