@@ -26,7 +26,7 @@
 <%= bootstrap_form_tag url: updater_path(params[:updater_id]), method: 'put', layout: :inline do |f| %>
 	<%= f.text_field :item_code, value: rulles["item_code"], class: @template["item_code"] %>
 	<%= f.text_field :price, value: rulles["price"], class: @template["price"] %>
-	<%= f.text_field :currency, value: rulles["currency"], class: @template["currency"] %>
+	
 	<%= f.text_field :available, value: rulles["available"], class: @template["available"] %>
 	<%= f.hidden_field :flag, value: "skip_rows" %>
 	<%= f.submit "Done",layout: :horizontal %>

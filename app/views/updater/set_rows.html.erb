@@ -11,6 +11,52 @@
 <%= render 'header'  %>
 
 <hr>
+<table cellpadding="3" cellspacing="0" border="0" style="width: 67%; margin: 0 auto 2em auto;">
+        <thead>
+            <tr>
+                <th>Target</th>
+                <th>Search text</th>
+                <th>Treat as regex</th>
+                <th>Use smart search</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="filter_global">
+                <td>Global search</td>
+                <td align="center"><input type="text" class="global_filter" id="global_filter"></td>
+                <td align="center"><input type="checkbox" class="global_filter" id="global_regex"></td>
+                <td align="center"><input type="checkbox" class="global_filter" id="global_smart" checked="checked"></td>
+            </tr>
+	    <% item_code = @template["item_code"].split("_")[1].to_i  %>
+            <tr id="filter_col<%=item_code + 2 %> " data-column="<%=item_code + 1 %>">
+                <td>Column - Item Code</td>
+                <td align="center"><input type="text" class="column_filter  <%= @template["item_code"] %>" id="col<%=item_code + 1 %>_filter"></td>
+                <td align="center"><input type="checkbox" class="column_filter " id="col<%=item_code + 1 %>_regex"></td>
+                <td align="center"><input type="checkbox" class="column_filter" id="col<%=item_code + 1 %>_smart" checked="checked"></td>
+            </tr>
+	  <% price = @template["price"].split("_")[1].to_i  %>
+            <tr id="filter_col<%=price + 2 %> " data-column="<%=price + 1%>">
+                <td>Column - Price</td>
+                <td align="center"><input type="text" class="column_filter <%= @template["price"] %>" id="col<%=price + 1%>_filter"></td>
+                <td align="center"><input type="checkbox" class="column_filter " id="col<%=price + 1%>_regex"></td>
+                <td align="center"><input type="checkbox" class="column_filter" id="col<%=price + 1%>_smart" checked="checked"></td>
+            </tr>
+	    <% currency = @template["currency"].split("_")[1].to_i  %>
+            <tr id="filter_col<%=currency + 2 %> " data-column="<%=currency + 1%>">
+                <td>Column - Currency</td>
+                <td align="center"><input type="text" class="column_filter <%= @template["currency"] %>" id="col<%=currency + 1%>_filter"></td>
+                <td align="center"><input type="checkbox" class="column_filter " id="col<%=currency + 1%>_regex"></td>
+                <td align="center"><input type="checkbox" class="column_filter" id="col<%=currency + 1%>_smart" checked="checked"></td>
+            </tr>
+	    <% available = @template["available"].split("_")[1].to_i  %>
+            <tr id="filter_col<%=available + 2 %> " data-column="<%=available + 1 %>">
+                <td>Column - Available</td>
+                <td align="center"><input type="text" class="column_filter  <%= @template["available"] %>" id="col<%=available + 1 %>_filter"></td>
+                <td align="center"><input type="checkbox" class="column_filter" id="col<%=available + 1 %>_regex"></td>
+                <td align="center"><input type="checkbox" class="column_filter" id="col<%=available + 1 %>_smart" checked="checked"></td>
+            </tr>
+        </tbody>
+    </table>
 <table id="table" class="display" cellspacing="0" width="100%"  >
   <thead>
     <tr>
@@ -41,4 +87,64 @@
   </tbody>
 </table>
 
-<script><%= render 'script'  %></script>
+<script>
+function filterGlobal () {
+    $('#table').DataTable().search(
+        $('#global_filter').val(),
+        $('#global_regex').prop('checked'),
+        $('#global_smart').prop('checked')
+    ).draw();
+}
+ 
+function filterColumn ( i ) {
+    $('#table').DataTable().column( i ).search(
+        $('#col'+i+'_filter').val(),
+        $('#col'+i+'_regex').prop('checked'),
+        $('#col'+i+'_smart').prop('checked')
+    ).draw();
+}
+  
+$(document).ready(function() {
+    var trable = $('#table').DataTable({
+        
+	"createdRow": function ( row, data, index ) {     
+	    if (data[124] == "f")     
+		$(row).addClass( 'skip_row' );
+	    
+	    var i=0;
+	    var ii=0;
+	    $.each(row, function (a, value){
+		
+		if (i != 0) {
+		    $(row.cells[i]).addClass("col_"+(ii).toString());
+		    ii++;
+		}
+		
+		i++;
+	    });
+	    highlight();
+}});
+
+  $('input.global_filter').on( 'keyup click', function () {
+        filterGlobal();
+    } );
+ 
+    $('input.column_filter').on( 'keyup click', function () {
+        filterColumn( $(this).parents('tr').attr('data-column') );
+    } );
+
+});
+    <%  if @file.main_template != nil %>
+    function highlight () {
+	$(".<%= @template["item_code"] %>").css("background-color","aliceblue");
+	$(".<%= @template["price"] %>").css("background-color","antiquewhite");
+	if ("<%= @template["currency"] %>".indexOf("col_") !== -1 ) {
+	    $(".<%= @template["currency"] %>").css("background-color","khaki");
+	}
+	$(".<%= @template["available"] %>").css("background-color","lightgreen");		
+    }
+
+    <% end  %>
+    
+
+</script>
