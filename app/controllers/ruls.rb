@@ -34,9 +34,10 @@ class Ruls
     
     def self.dunamic_rule (operator, condition, val)
        print "##{__LINE__.to_s} " if DEBUG 
-       puts "\n Operator: #{operator} \n Condition: #{condition}  \n Condition class: #{condition.class}  \n Value class: #{val.class} \n Value: #{val.inspect}" if DEBUG
+       puts "\n Operator: #{operator.inspect} \n Condition: #{condition.inspect}  \n Condition class: #{condition.class}  \n Value class: #{val.class} \n Value: #{val.inspect}" if DEBUG
        # NOTE: dia?size=all error fix need && error available <,>,<=,>= n wft///
-       t = ((condition.to_s == "nil")? nil : condition).method(operator.to_s)
+
+       t = ((condition == "nil")? nil : condition).method(operator.to_s)
        if condition.to_i == 0 && val.to_i == 0 && condition != "0"
          e = t.call((val == "nil")? nil : val)
          t = ((condition.to_s == "nil")? nil : condition).method(operator.to_s)
@@ -50,7 +51,9 @@ class Ruls
   
     end
 
-    def self.not_false (arry,val)
+    def self.bool_and (arry,val)
+       print "##{__LINE__.to_s} " if DEBUG 
+       puts "#bool_and"  if DEBUG
       flag = true
       arry.each do |a|
         if !Ruls.dunamic_rule(a[:operator],a[:value],val) then
@@ -60,6 +63,21 @@ class Ruls
       end
       return flag
     end
+
+  def self.bool_or (arry,val)
+	print "##{__LINE__.to_s} " if DEBUG 
+        puts "#bool_or"  if DEBUG
+
+      flag = false
+      arry.each do |a|
+        if !Ruls.dunamic_rule(a[:operator],a[:value],val) then
+          flag = true
+          break
+        end
+      end
+      return true
+    end
  
+
     
 end

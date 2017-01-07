@@ -24,7 +24,7 @@
 <% item_code_current_value = e.send(@template["item_code"]) %>
 <% price_current_value = e.send(@template["price"]) %>
 <% available_current_value = e.send(@template["available"]) %>
-<% if e.visible == "t" and Ruls.not_false(@ruls_item_code,item_code_current_value) and Ruls.not_false(@ruls_price,price_current_value) and Ruls.not_false(@ruls_available,available_current_value)   %>
+<% if e.visible == "t" and Ruls.bool_and(@ruls_item_code,item_code_current_value) and Ruls.bool_and(@ruls_price,price_current_value) and Ruls.bool_or(@ruls_available,available_current_value)   %>
 	<tr><% @cols.each do |r| %><td class="<%=r%>"><%= e.send(r).to_s[0..25] %></td><% end %></tr>
 	
 			<% else %>
