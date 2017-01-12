@@ -1,3 +1,22 @@
+ 
+     function highlight () {
+       if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
+       	   $(".<%= @template["item_code"] %>").css("background-color","aliceblue");
+	}
+	if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
+ 	  $(".<%= @template["price"] %>").css("background-color","antiquewhite");
+	}
+	if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
+	         $(".<%= @template["currency"] %>").css("background-color","khaki");
+	}
+	if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
+		$(".<%= @template["available"] %>").css("background-color","lightgreen");
+	}	
+    }
+
+   
+   
+//asd
 $(document).ready(function() {
     var trable = $('#table').DataTable({
         
@@ -19,15 +38,4 @@ $(document).ready(function() {
 	    highlight();
 	}});
 });
-    <%  if @file.main_template != nil %>
-    function highlight () {
-	$(".<%= @template["item_code"] %>").css("background-color","aliceblue");
-	$(".<%= @template["price"] %>").css("background-color","antiquewhite");
-	if ("<%= @template["currency"] %>".indexOf("col_") !== -1 ) {
-	    $(".<%= @template["currency"] %>").css("background-color","khaki");
-	}
-	$(".<%= @template["available"] %>").css("background-color","lightgreen");		
-    }
-
-    <% end  %>
     

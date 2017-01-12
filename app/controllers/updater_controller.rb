@@ -58,17 +58,17 @@ class UpdaterController < ApplicationController
       if i.main == "t" then
         respond_to do |f|
 	  if i.update(main_template: (params.permit(:item_code, :price, :currency, :available, :params_start, :params_end)).to_json) then
-	    f.html {redirect_to updater_url(i), notice: "Updating main template  succesful!" }
+	    f.html {redirect_to redirect_to :back, notice: "Updating main template  succesful!" }
 	  else
-	    f.html { redirect_to updater_url(i), notice: "Filed...[main template]" }
+	    f.html { redirect_to redirect_to :back, notice: "Filed...[main template]" }
 	  end
 	end
       else
         respond_to do |f|
 	  if i.update(main_template: (params.permit(:item_code, :price, :currency, :available)).to_json) then
-	    f.html {redirect_to updater_set_cols_url(i), notice: "Updating template succesful!" }
+	    f.html {redirect_to :back, notice: "Updating template succesful!" }
 	  else
-	    f.html { redirect_to updater_set_cols_url(i), notice: "Filed...[template]" }
+	    f.html { redirect_to :back, notice: "Filed...[template]" }
 	  end
 	end
       end
@@ -78,9 +78,9 @@ class UpdaterController < ApplicationController
       i = MyFile.find(params[:id])
       respond_to do |f|
 	if i.update(skip_rows: (params.permit(:item_code, :price, :currency, :available)).to_json) then
-	  f.html {redirect_to updater_set_rows_url(i), notice: "Updating skip rows succesful!" }
+	  f.html {redirect_to :back, notice: "Updating skip rows succesful!" }
 	else
-	  f.html { redirect_to updater_set_rows_url(i), notice: "Filed...[skip rows]" }
+	  f.html { redirect_to :back, notice: "Filed...[skip rows]" }
 	end
       end      
     end

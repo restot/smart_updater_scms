@@ -52,6 +52,7 @@ class Ruls
     end
 
     def self.bool_and (arry,val)
+      unless arry == 100
        print "##{__LINE__.to_s} " if DEBUG 
        puts "#bool_and"  if DEBUG
       flag = true
@@ -62,9 +63,16 @@ class Ruls
         end
       end
       return flag
+      else
+        print "##{__LINE__.to_s} " if DEBUG 
+       puts "#bool_and #exit_code: 100"  if DEBUG
+
+       return true
+      end
     end
 
-  def self.bool_or (arry,val)
+      def self.bool_or (arry,val)
+         unless arry == 100
 	print "##{__LINE__.to_s} " if DEBUG 
         puts "#bool_or"  if DEBUG
 
@@ -76,6 +84,12 @@ class Ruls
         end
       end
       return true
+       else
+        print "##{__LINE__.to_s} " if DEBUG 
+       puts "#bool_and #exit_code: 100"  if DEBUG
+
+       return true
+      end
     end
  
 

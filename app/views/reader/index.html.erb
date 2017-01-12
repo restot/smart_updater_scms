@@ -22,6 +22,8 @@
 		<%= link_to "Show", reader_path(myfile), class: "btn btn-warning" %>
 	    </td>
 	    <% status = @statuses.find_by(model_id: myfile.vendor_id) %>
+	    <% if status != nil  %>
+
 	    <td class="countdown"><%= status.status %>
 	    <% if status.status != "finish" %>
 		    <script>var time_<%=myfile.name%> = countdown(<%= status.time_start.strftime('%s%3N') if status.time_start != nil %>,function(ts){$('#<%=myfile.name%>_time').html(ts.toHTML());},countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,2,1);</script>
@@ -32,6 +34,10 @@
 	  <script></script>
 	<% end %>
     	    </td>
+	    <% else  %>
+	    
+	      <% end  %>
+
 	    <td class="countdown" id="<%= myfile.name%>_time"></td>
          </tr>
          

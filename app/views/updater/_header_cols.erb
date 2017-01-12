@@ -1,7 +1,7 @@
 <%  if @file.main_template != nil %>
 	<% @template = JSON.parse(@file.main_template) %>
 <% else %>
-	<% @template = Hash[ "item_code" => "col_0" , "price" => "col_1" , "currency" => "col_2" ,"available" => "col_3" ]%>
+		<% @template = Hash[ "item_code" => "col_0" , "price" => "col_1" , "currency" => "col_2" ,"available" => "col_3" ]%>
 <% end %>
 
 <%= bootstrap_form_tag url: updater_path(params[:updater_id]), method: 'put', layout: :inline do |f| %>

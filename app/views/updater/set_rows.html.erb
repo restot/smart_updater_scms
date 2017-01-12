@@ -88,7 +88,10 @@
 </table>
 
 <script>
-function filterGlobal () {
+$('.active').removeClass("active");
+$('#updater').addClass("active");
+
+  function filterGlobal () {
     $('#table').DataTable().search(
         $('#global_filter').val(),
         $('#global_regex').prop('checked'),
