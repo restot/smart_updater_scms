@@ -1,4 +1,4 @@
-DEBUG = true unless defined? DEBUG   # INFO: to debug mode on, set on true
+DEBUG = false unless defined? DEBUG   # INFO: to debug mode on, set on true
 
 puts "##{__LINE__} Ruls included..." if DEBUG
 class Ruls
@@ -56,7 +56,7 @@ class Ruls
     end
 
     def self.bool_and (arry,val)
-      if arry != 100 || arry != nil
+      if arry != 100 and arry != nil and arry[0][:operator] != "nil"  then
        print "##{__LINE__.to_s} " if DEBUG 
        puts "#bool_and \n"  if DEBUG
        #puts arry.inspect  if DEBUG

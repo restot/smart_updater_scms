@@ -1,14 +1,12 @@
-<h1>Reader#index</h1>
-<%= link_to "test", reader_my_path,remote: true, class: "btn btn-primary" %>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+<h1>Чтение прайсов</h1>
 <hr>
 <table class = "table table-bordered table-striped">
    <thead>
       <tr>
-         <th>Name</th>
-         <th>Actions</th>
-         <th>Status</th>
-         <th>Time</th>
+         <th style=" width: 2em;">Имя</th>
+         <th style=" width: 40em;">Действие</th>
+         <th>Статус</th>
+         <th>Время</th>
       </tr>
    </thead>
    
@@ -18,8 +16,8 @@
          <tr>
             <td><%= myfile.name %></td>
 	    <td>
-		<%= link_to "Read", reader_req_path(reader_id:myfile, format: "js" ), remote: true, class: "btn btn-success" %>
-		<%= link_to "Show", reader_path(myfile), class: "btn btn-warning" %>
+		<%= link_to "Читать", reader_req_path(reader_id:myfile, format: "js" ), remote: true, class: "btn btn-success" %>
+		<%= link_to "Показать", reader_path(myfile), class: "btn btn-warning" %>
 	    </td>
 	    <% status = @statuses.find_by(model_id: myfile.vendor_id) %>
 	    <% if status != nil  %>

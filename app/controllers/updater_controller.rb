@@ -44,6 +44,8 @@ class UpdaterController < ApplicationController
             if e.visible == "t" and Ruls.bool_and(@ruls_item_code,item_code_current_value) and Ruls.bool_and(@ruls_price,price_current_value) then
               a = @main.find_by(@main_template['item_code'] => e.send(@template["item_code"]))
               if a != nil
+                @available = nil
+               # puts "Available: " + available_current_value.to_s + " " + Ruls.bool_or(@ruls_available,available_current_value).to_s
                 if Ruls.bool_or(@ruls_available,available_current_value)
                   @available = "+"
                 end  
@@ -53,8 +55,8 @@ class UpdaterController < ApplicationController
                 if Ruls.bool_or(@ruls_unavailable,available_current_value)
                   @available = "-"
                 end
-                
-           if @avalable !=nil then
+                #puts @available
+           if @available !=nil then
                 h = Hash[id: a.send(@main_template['item_code']).to_s, price_was: a.send(@main_template['price']).to_s, price_new: e.send(@template["price"]).to_s,available_was: a.send(@main_template['available']).to_s, available_new: @available]
 #Hash[id: a.send(@main_template['item_code']).to_s, price_was: a.send(@main_template['price']).to_s, price_new: e.send(@template["price"]).to_s]
                 @isset << h
@@ -68,10 +70,10 @@ a.update(@main_template['price'] => (@skip_rows["kurs"] == "nil" )? e.send(@temp
                 end
               else
                 
-             puts "@available = nil!"     
+             puts "@available = nil! ---------------------------"     
            end
               else
-                Ruls.bool_or(@ruls_available,available_current_value)
+              @un_isset << e.send(@template["item_code"])
            
            end
               end

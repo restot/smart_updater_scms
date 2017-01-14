@@ -155,17 +155,21 @@ $.post( "<%=url_for( controller: "updater", action: "visible", only_path: false 
     } );
 
 });
-    <%  if @file.main_template != nil %>
     function highlight () {
-	$(".<%= @template["item_code"] %>").css("background-color","aliceblue");
-	$(".<%= @template["price"] %>").css("background-color","antiquewhite");
-	if ("<%= @template["currency"] %>".indexOf("col_") !== -1 ) {
-	    $(".<%= @template["currency"] %>").css("background-color","khaki");
+       if ("<%= @template["item_code"] %>".indexOf("col_") != -1 ) {
+       	   $(".<%= @template["item_code"] %>").css("background-color","aliceblue");
 	}
-	$(".<%= @template["available"] %>").css("background-color","lightgreen");		
+	if ("<%= @template["price"] %>".indexOf("col_") != -1 ) {
+ 	  $(".<%= @template["price"] %>").css("background-color","antiquewhite");
+	}
+	if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
+	         $(".<%= @template["currency"] %>").css("background-color","khaki");
+	}
+	if ("<%= @template["available"] %>".indexOf("col_") != -1 ) {
+		$(".<%= @template["available"] %>").css("background-color","lightgreen");
+	}	
     }
 
-    <% end  %>
     
 
 </script>
