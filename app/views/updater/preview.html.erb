@@ -5,6 +5,8 @@
 <% @ruls_price = Ruls.rules_parse(@file.skip_rows,"price")  %>
 
 <% @ruls_available = Ruls.rules_parse(@file.skip_rows,"available")  %>
+<% @ruls_unavailable = Ruls.rules_parse(@file.skip_rows,"unavailable")  %>
+<% @ruls_on_order = Ruls.rules_parse(@file.skip_rows,"on_order")  %>
 
 <%# puts "Item_code: " + @ruls_item_code.size.to_s  %> 
 <%   %>
@@ -30,7 +32,7 @@
 
 <% available_current_value = e.send(@template["available"]) %>
 
-<% if e.visible == "t" and Ruls.bool_and(@ruls_item_code,item_code_current_value) and Ruls.bool_and(@ruls_price,price_current_value) and Ruls.bool_or(@ruls_available,available_current_value)   %>
+<% if e.visible == "t" and Ruls.bool_and(@ruls_item_code,item_code_current_value) and Ruls.bool_and(@ruls_price,price_current_value) and (Ruls.bool_or(@ruls_available,available_current_value) or Ruls.bool_or(@ruls_on_order,available_current_value) or Ruls.bool_or(@ruls_unavailable,available_current_value) )    %>
 	<tr><% @cols.each do |r| %><td class="<%=r%>"><%= e.send(r).to_s[0..25] %></td><% end %></tr>
 	
 			<% else %>

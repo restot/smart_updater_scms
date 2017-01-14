@@ -39,7 +39,7 @@ class ReaderController < ApplicationController
 	#@cols = Vendor1.column_names
 	 	  respond_to do |f|
 		  f.html
-		  f.json {render json: "123",status: :ok}
+		  f.json 
 	  	end
 
   end

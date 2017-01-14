@@ -1,4 +1,4 @@
-DEBUG = true unless defined? DEBUG  # INFO: to debug mode on, set on true
+DEBUG = true unless defined? DEBUG   # INFO: to debug mode on, set on true
 
 puts "##{__LINE__} Ruls included..." if DEBUG
 class Ruls
@@ -37,10 +37,14 @@ class Ruls
        puts "\n Operator: #{operator.inspect} \n Condition: #{condition.inspect}  \n Condition class: #{condition.class}  \n Value class: #{val.class} \n Value: #{val.inspect}" if DEBUG
        # NOTE: dia?size=all error fix need && error available <,>,<=,>= n wft///
 
-       t = ((condition == "nil")? nil : condition).method(operator.to_s)
-       if condition.to_i == 0 && val.to_i == 0 && condition != "0"
-         e = t.call((val == "nil")? nil : val)
+       
+
+       if condition.to_i == 0 && val.to_i == 0 && condition != "0" && val != nil
+         t = ((condition.to_s == "nil")? "" : condition).method(operator.to_s)
+         e = t.call((val == "nil")? nil : val.strip)
+         elsif val == nil && condition != "0"
          t = ((condition.to_s == "nil")? nil : condition).method(operator.to_s)
+         e = t.call(val)
        else
          t = ((condition.to_s == "nil")? nil : condition.to_f).method(operator.to_s)
          e = t.call((val == "nil")? 0 : val.to_f)
@@ -52,9 +56,10 @@ class Ruls
     end
 
     def self.bool_and (arry,val)
-      unless arry == 100
+      if arry != 100 || arry != nil
        print "##{__LINE__.to_s} " if DEBUG 
-       puts "#bool_and"  if DEBUG
+       puts "#bool_and \n"  if DEBUG
+       #puts arry.inspect  if DEBUG
       flag = true
       arry.each do |a|
         if !Ruls.dunamic_rule(a[:operator],a[:value],val) then
@@ -67,28 +72,33 @@ class Ruls
         print "##{__LINE__.to_s} " if DEBUG 
        puts "#bool_and #exit_code: 100"  if DEBUG
 
-       return true
+       return false
       end
     end
 
-      def self.bool_or (arry,val)
-         unless arry == 100
+    def self.bool_or (arry,val)
+      print "##{__LINE__.to_s} " if DEBUG 
+        puts arry.inspect  if DEBUG
+
+        if arry != 100 and arry != nil and arry[0][:operator] != "nil"  then
 	print "##{__LINE__.to_s} " if DEBUG 
         puts "#bool_or"  if DEBUG
 
       flag = false
       arry.each do |a|
-        if !Ruls.dunamic_rule(a[:operator],a[:value],val) then
+        
+        if Ruls.dunamic_rule(a[:operator],a[:value],val) then
           flag = true
           break
         end
+        
       end
-      return true
+      return flag
        else
         print "##{__LINE__.to_s} " if DEBUG 
        puts "#bool_and #exit_code: 100"  if DEBUG
 
-       return true
+       return false
       end
     end
  

@@ -1,15 +1,15 @@
  
      function highlight () {
-       if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
+       if ("<%= @template["item_code"] %>".indexOf("col_") != -1 ) {
        	   $(".<%= @template["item_code"] %>").css("background-color","aliceblue");
 	}
-	if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
+	if ("<%= @template["price"] %>".indexOf("col_") != -1 ) {
  	  $(".<%= @template["price"] %>").css("background-color","antiquewhite");
 	}
 	if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
 	         $(".<%= @template["currency"] %>").css("background-color","khaki");
 	}
-	if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
+	if ("<%= @template["available"] %>".indexOf("col_") != -1 ) {
 		$(".<%= @template["available"] %>").css("background-color","lightgreen");
 	}	
     }

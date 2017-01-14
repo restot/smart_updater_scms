@@ -108,7 +108,7 @@ function filterColumn ( i ) {
 }
   
 $(document).ready(function() {
-    var trable = $('#table').DataTable({
+    var table = $('#table').DataTable({
         
 	"createdRow": function ( row, data, index ) {     
 	    if (data[124] == "f")     
@@ -127,7 +127,25 @@ $(document).ready(function() {
 	    });
 	    highlight();
 }});
-
+    $('#table tbody').on( 'click', 'tr', function () {
+        $(this).toggleClass('selected');
+    } );
+ 
+    $('#but').click( function () {
+var arr = table.rows('.selected').data();
+$('.selected').each(function() {
+if ( $( this ).hasClass( "skip_row" ) ) {
+$(this).removeClass('skip_row');
+} else {
+$(this).addClass('skip_row');
+}
+});
+$.each(arr, function(index, value) {
+$.post( "<%=url_for( controller: "updater", action: "visible", only_path: false  ) %>", { id: value[0] } );
+//console.log(value[0]);
+	    }); 
+	
+    } );
   $('input.global_filter').on( 'keyup click', function () {
         filterGlobal();
     } );

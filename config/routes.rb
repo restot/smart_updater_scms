@@ -16,7 +16,7 @@ Rails.application.routes.draw do
                 put 'set_cols_update'
                 put 'set_rows_update'
                 get 'preview'
-
+                get 'load'
 	end
 resources :reader do
 	get 'my'

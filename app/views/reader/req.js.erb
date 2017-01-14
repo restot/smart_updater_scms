@@ -7,8 +7,9 @@ var jqxhr = $.ajax( {url: "<%= url_for(controller: "reader", action: 'read',read
     }
 })
   .done(function() {	  
-	 /** var items = [];
-  $.each( data, function( key, val ) {
+      console.log("done")
+      /** var items = [];
+  $.each( data, function( key, val ) {z
     items.push( "<li id='" + key + "'>" + val + "</li>" );
   });
  
@@ -22,7 +23,7 @@ var jqxhr = $.ajax( {url: "<%= url_for(controller: "reader", action: 'read',read
 	  window.clearInterval(time_<%=@name.name%>);
   })
   .fail(function() {
-    alert( "error" );
+    console.log( "error" );
 	  window.clearInterval(time_<%=@name.name%>);
   })
 .always(function() {
