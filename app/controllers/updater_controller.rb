@@ -41,7 +41,7 @@ class UpdaterController < ApplicationController
 
            # puts @template
             
-            if e.visible == "t" and Ruls.bool_and(@ruls_item_code,item_code_current_value) and Ruls.bool_and(@ruls_price,price_current_value) then
+            if e.visible == true and Ruls.bool_and(@ruls_item_code,item_code_current_value) and Ruls.bool_and(@ruls_price,price_current_value) then
               a = @main.find_by(@main_template['item_code'] => e.send(@template["item_code"]))
               if a != nil
                 @available = nil
@@ -141,7 +141,7 @@ respond_to do |f|
   def update
     i = MyFile.find(params[:id])
     if params[:flag] == nil
-      if i.main == "t" then
+      if i.main == true then
         respond_to do |f|
 	  if i.update(main_template: (params.permit(:item_code, :price, :currency, :available, :params_start, :params_end)).to_json) then
 	    f.html {redirect_to :back, notice: "Updating main template  succesful!" }
@@ -175,7 +175,7 @@ respond_to do |f|
   def visible
     file = MyFile.find(params[:updater_id])
     val = "Vendor#{file.vendor_id.to_s}".constantize.find(params[:id])
-    bool = (val.visible == "t")? true : false;
+    bool = (val.visible == true)? true : false;
     val.update(visible: !bool )
   end
 

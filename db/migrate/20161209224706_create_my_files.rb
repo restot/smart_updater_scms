@@ -3,7 +3,11 @@ class CreateMyFiles < ActiveRecord::Migration[5.0]
     create_table :my_files do |t|
       t.string :name
       t.string :attachment
-
+      t.string :main, :bool, default: false
+      t.text :main_template
+      t.text :skip_rows
+      t.text :skip_cols
+      t.string :vendor_id
       t.timestamps
     end
   end

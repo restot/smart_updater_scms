@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223100721) do
+ActiveRecord::Schema.define(version: 20161218133609) do
 
   create_table "my_files", force: :cascade do |t|
     t.string   "name"
     t.string   "attachment"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "vendor_id"
-    t.         "main",          default: "f"
+    t.string   "main",          default: "f"
+    t.string   "bool",          default: "f"
     t.text     "main_template"
     t.text     "skip_rows"
     t.text     "skip_cols"
+    t.string   "vendor_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -135,8 +136,6 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -157,9 +156,9 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
-    t.         "visible",    default: "t"
-    t.text     "skip_cols"
-    t.text     "skip_rows"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "vendor1s", force: :cascade do |t|
@@ -264,8 +263,6 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -286,9 +283,9 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
-    t.         "visible",    default: "t"
-    t.text     "skip_cols"
-    t.text     "skip_rows"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "vendor2s", force: :cascade do |t|
@@ -393,8 +390,6 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -415,9 +410,9 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
-    t.         "visible",    default: "t"
-    t.text     "skip_cols"
-    t.text     "skip_rows"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "vendor3s", force: :cascade do |t|
@@ -522,8 +517,6 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -544,9 +537,9 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
-    t.         "visible",    default: "t"
-    t.text     "skip_cols"
-    t.text     "skip_rows"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "vendor4s", force: :cascade do |t|
@@ -651,8 +644,6 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -673,9 +664,9 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
-    t.         "visible",    default: "t"
-    t.text     "skip_cols"
-    t.text     "skip_rows"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "vendor5s", force: :cascade do |t|
@@ -780,8 +771,6 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -802,9 +791,9 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
-    t.         "visible",    default: "t"
-    t.text     "skip_cols"
-    t.text     "skip_rows"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "vendor6s", force: :cascade do |t|
@@ -909,8 +898,6 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -931,9 +918,9 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
-    t.         "visible",    default: "t"
-    t.text     "skip_cols"
-    t.text     "skip_rows"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "vendor7s", force: :cascade do |t|
@@ -1038,8 +1025,6 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -1060,9 +1045,9 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
-    t.         "visible",    default: "t"
-    t.text     "skip_cols"
-    t.text     "skip_rows"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "vendor8s", force: :cascade do |t|
@@ -1167,8 +1152,6 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -1189,9 +1172,9 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
-    t.         "visible",    default: "t"
-    t.text     "skip_cols"
-    t.text     "skip_rows"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "vendor9s", force: :cascade do |t|
@@ -1296,8 +1279,6 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_98"
     t.text     "col_99"
     t.text     "col_100"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.text     "col_101"
     t.text     "col_102"
     t.text     "col_103"
@@ -1318,9 +1299,9 @@ ActiveRecord::Schema.define(version: 20161223100721) do
     t.text     "col_118"
     t.text     "col_119"
     t.text     "col_120"
-    t.         "visible",    default: "t"
-    t.text     "skip_cols"
-    t.text     "skip_rows"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end

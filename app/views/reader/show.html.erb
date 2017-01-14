@@ -11,7 +11,7 @@
         <% end %>
 	</tr>
 <% @data.each do |e| %>
-			<% if e.visible == "t" %>
+			<% if e.visible == true %>
 				<tr><% @cols.each do |r| %><td><%= e.send(r).to_s[0..25] %></td><% end %></tr>
 			<% else %>
 				<tr class="skip_row"><% @cols.each do |r| %><td><%= e.send(r).to_s[0..25] %></td><%end%></tr>

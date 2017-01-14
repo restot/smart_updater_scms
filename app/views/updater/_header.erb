@@ -2,14 +2,14 @@
 <%  if @file.main_template != nil %>
 	<% @template = JSON.parse(@file.main_template) %>
 <% else %>
-	<% @template = Hash[ "item_code" => "col_0" , "price" => "col_1" , "currency" => "col_2" ,"available" => "col_3" ]%>
+	<% @template = Hash[ "item_code" => "col_0" , "price" => "col_1" , "currency" => "$SOURCE" ,"available" => "col_3" ]%>
 <% end %>
 
 <%= bootstrap_form_tag url: updater_path(params[:updater_id]), method: 'put', layout: :inline do |f| %>
-	<%= f.text_field :item_code, value: @template["item_code"], class: @template["item_code"] %>
-	<%= f.text_field :price, value: @template["price"], class: @template["price"] %>
-	<%= f.text_field :currency, value: @template["currency"], class: @template["currency"] %>
-	<%= f.text_field :available, value: @template["available"], class: @template["available"] %>
+	<%= f.text_field :item_code,label: "Код товара",  value: @template["item_code"], class: @template["item_code"] %>
+	<%= f.text_field :price,label: "Цена",  value: @template["price"], class: @template["price"] %>
+	<%= f.text_field :currency,label: "Валюта",  value: @template["currency"], class: @template["currency"] %>
+	<%= f.text_field :available,label: "Наличие",  value: @template["available"], class: @template["available"] %>
 
 
 
@@ -24,13 +24,13 @@
 <% end %>
 
 <%= bootstrap_form_tag url: updater_path(params[:updater_id]), method: 'put', layout: :inline do |f| %>
-	<%= f.text_field :item_code, value: rulles["item_code"], class: @template["item_code"] %>
-	<%= f.text_field :price, value: rulles["price"], class: @template["price"] %>
+	<%= f.text_field :item_code,label: "Код товара",  value: rulles["item_code"], class: @template["item_code"] %>
+	<%= f.text_field :price,label: "Цена",  value: rulles["price"], class: @template["price"] %>
 	
-	<%= f.text_field :available, value: rulles["available"], class: @template["available"] %>
-	<%= f.text_field :unavailable, value: rulles["unavailable"], class: @template["available"] %>
-	<%= f.text_field :on_order, value: rulles["on_order"], class: @template["available"] %>
-<%= f.text_field :kurs, value: rulles["kurs"] %>
+	<%= f.text_field :available,label: "В наличии",  value: rulles["available"], class: @template["available"] %>
+	<%= f.text_field :unavailable,label: "Отсутствует",  value: rulles["unavailable"], class: @template["available"] %>
+	<%= f.text_field :on_order,label: "Под заказ",  value: rulles["on_order"], class: @template["available"] %>
+<%= f.text_field :kurs,label: "Курс",  value: rulles["kurs"] %>
 	<%= f.hidden_field :flag, value: "skip_rows" %>
 	<%= f.submit "Done",layout: :horizontal %>
 
