@@ -8,14 +8,14 @@ class ReaderController < ApplicationController
 
   def show
 	  file = MyFile.find(params[:id])
-	  @data= "Vendor#{file.vendor_id.to_s}".constantize.all
+	  @data= "Vendor#{file.vendor_id.to_s}".constantize.take(150)
 	  @cols = "Vendor#{file.vendor_id.to_s}".constantize.column_names
   end
 
   def read
 	  @file = MyFile.find(params[:reader_id])
 	  @status = Status.find_by(model_id: @file.vendor_id.to_s)
-	  @status.update(status: "loading...", time_start: Time.now, time_end: nil)
+	  @status.update(status: "loading...", time_start: Time.now)
 	  @xlsx = Roo::Spreadsheet.open(root_url + @file.attachment_url, extention: "xlsx")	# optional metods
 	model="Vendor#{@file.vendor_id.to_s}".constantize
 	#Vendor1.destroy_all
@@ -34,12 +34,12 @@ class ReaderController < ApplicationController
 	        @ie.save
 
 	 end
-	  @status.update(status: "finish", time_end: Time.now, time_start: nil)
+	  @status.update(status: "finish", time_end: Time.now)
 	#@e = Vendor1.all
 	#@cols = Vendor1.column_names
 	 	  respond_to do |f|
 		  f.html
-		  f.json {render json: "123",status: :ok}
+		  f.json 
 	  	end
 
   end
@@ -66,8 +66,5 @@ class ReaderController < ApplicationController
             return nil
         end
     end
-
-
-
 
 end

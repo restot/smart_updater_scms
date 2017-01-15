@@ -17,7 +17,8 @@
       <tr>
          <th>Name</th>
          <th>Vendor Id</th> 
-         <th>Action</th> 
+         <th>Action</th>
+	  <th></th> 
       </tr>
    </thead>
 
@@ -25,7 +26,10 @@
    <tr>
 		   <td><%= f.text_field :name%></td>
 		   <td><%= f.text_field :vendor_id%></td>
-		   <td><%= f.submit %></td>
+		        <td> <%= f.label :attachment %>
+      <%= f.file_field :attachment %></td>
+     <td> <%= f.submit "Save", class: "btn btn-primary" %></td>
+
 	   </tr>
    </tbody>
    </table>

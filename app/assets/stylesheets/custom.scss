@@ -1,0 +1,26 @@
+.skip_row {
+    color: red;
+    font-variant: small-caps;
+}
+.countdown {
+	width: 200px;
+    text-align: center;
+    }
+.nav-tabs > li > a {
+	    border: 1px solid #a94442;
+    }
+
+#table_wrapper {
+	position: absolute;
+	left: 1px;
+}
+
+#table_filter {
+	position: absolute;
+   	 left: 13em;
+}
+
+#table_paginate {
+	position: absolute;
+   	 left: 54em;
+}

@@ -1,0 +1,54 @@
+<%= link_to 'Back', updater_index_path, class: "btn btn-primary" %>
+<hr>
+<%= render 'flash'  %>
+
+<%  if @file.main_template != nil %>
+	<% template = JSON.parse(@file.main_template) %>
+<% else %>
+	<% template = Hash["item_code"=>"col_0","price"=>"col_1","currency"=>"col_2","available"=>"col_3","params_start"=>"col_4","params_end"=>"col_5"]%>
+<% end %>
+
+<%= bootstrap_form_tag url: updater_path, method: 'put', layout: :inline do |f| %>
+	<%= f.text_field :item_code, value: template["item_code"], class: template["item_code"] %>
+	<%= f.text_field :price, value: template["price"], class: template["price"] %>
+	<%= f.text_field :currency, value: template["currency"], class: template["currency"] %>
+	<%= f.text_field :available, value: template["available"], class: template["available"] %>
+	<%= f.text_field :params_start, value: template["params_start"], class: template["params_start"] %>
+	<%= f.text_field :params_end, value: template["params_end"], class: template["params_end"] %>
+	<%= f.submit "Apply",layout: :horizontal %>
+<% end %>
+<hr>
+<table  style=" border: 1px solid #ddd; position: absolute; left: 1px;">
+	<tr>
+	<% @cols.each do |r| %>
+		<th><%= r %></th>
+        <% end %>
+	</tr>
+<% @data.each do |e| %>
+			<% if e.visible == true %>
+				<tr><% @cols.each do |r| %><td class="<%=r%>"><%= e.send(r).to_s[0..25] %></td><% end %></tr>
+			<% else %>
+				<tr class="skip_row"><% @cols.each do |r| %><td class="<%=r%>"><%= e.send(r).to_s[0..25] %></td><%end%></tr>
+			<% end %>
+<% end %>
+
+</table>
+<script>
+$('.active').removeClass("active");
+$('#updater').addClass("active");
+  
+$(function() {
+	$(".<%= template["item_code"] %>").css("background-color","aliceblue");
+	$(".<%= template["price"] %>").css("background-color","antiquewhite");
+	$(".<%= template["currency"] %>").css("background-color","khaki");
+	$(".<%= template["available"] %>").css("background-color","lightgreen");
+	for (var i = <%= template["params_start"].split('_').last.to_i %>; i <= <%= template["params_end"].split('_').last.to_i %>; i++ ){
+	$(".col_" + i).css("background-color","silver");
+	}
+	
+});
+</script>
+
+
+
+

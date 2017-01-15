@@ -1,0 +1,1 @@
+ActiveRecord::Migrator.migrate "db/migrate"

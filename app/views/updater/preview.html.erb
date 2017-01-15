@@ -1,0 +1,60 @@
+<%  load File.expand_path('../../../controllers/ruls.rb',__FILE__)  %>
+<% @ruls_item_code = Ruls.rules_parse(@file.skip_rows,"item_code")  %>
+
+
+<% @ruls_price = Ruls.rules_parse(@file.skip_rows,"price")  %>
+
+<% @ruls_available = Ruls.rules_parse(@file.skip_rows,"available")  %>
+<% @ruls_unavailable = Ruls.rules_parse(@file.skip_rows,"unavailable")  %>
+<% @ruls_on_order = Ruls.rules_parse(@file.skip_rows,"on_order")  %>
+
+<%# puts "Item_code: " + @ruls_item_code.size.to_s  %> 
+<%   %>
+
+<%= link_to 'Back', updater_index_path, class: "btn btn-primary" %>
+<hr>
+<%= render 'flash'  %>
+<%= render 'header'  %>
+<hr>
+<table  style=" border: 1px solid #ddd; position: absolute; left: 1px;">
+	<tr>
+	<% @cols.each do |r| %>
+		<th><%= r %></th>
+        <% end %>
+	</tr>
+	
+<% @data.each do |e| %>
+
+<% puts e.id.to_s + "----------------------------------"  %>
+<% item_code_current_value = e.send(@template["item_code"]) %>
+
+<% price_current_value = e.send(@template["price"]) %>
+
+<% available_current_value = e.send(@template["available"]) %>
+<% puts e.visible.inspect + " " + e.visible.class.to_s  %>
+
+<% if e.visible == true and Ruls.bool_and(@ruls_item_code,item_code_current_value) and Ruls.bool_and(@ruls_price,price_current_value) and (Ruls.bool_or(@ruls_available,available_current_value) or Ruls.bool_or(@ruls_on_order,available_current_value) or Ruls.bool_or(@ruls_unavailable,available_current_value) )    %>
+	<tr><% @cols.each do |r| %><td class="<%=r%>"><%= e.send(r).to_s[0..25] %></td><% end %></tr>
+	
+			<% else %>
+				<tr class="skip_row"><% @cols.each do |r| %><td class="<%=r%>"><%= e.send(r).to_s[0..25] %></td><%end%></tr>
+			<% end %>
+<% end %>
+
+</table>
+<script>
+  
+$(function() {
+	$(".<%= @template["item_code"] %>").css("background-color","aliceblue");
+	$(".<%= @template["price"] %>").css("background-color","antiquewhite");
+	if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
+	    $(".<%= @template["currency"] %>").css("background-color","khaki");
+	}
+	$(".<%= @template["available"] %>").css("background-color","lightgreen");
+	
+});
+</script>
+
+
+
+

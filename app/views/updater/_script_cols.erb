@@ -1,0 +1,41 @@
+ 
+     function highlight () {
+       if ("<%= @template["item_code"] %>".indexOf("col_") != -1 ) {
+       	   $(".<%= @template["item_code"] %>").css("background-color","aliceblue");
+	}
+	if ("<%= @template["price"] %>".indexOf("col_") != -1 ) {
+ 	  $(".<%= @template["price"] %>").css("background-color","antiquewhite");
+	}
+	if ("<%= @template["currency"] %>".indexOf("col_") != -1 ) {
+	         $(".<%= @template["currency"] %>").css("background-color","khaki");
+	}
+	if ("<%= @template["available"] %>".indexOf("col_") != -1 ) {
+		$(".<%= @template["available"] %>").css("background-color","lightgreen");
+	}	
+    }
+
+   
+   
+//asd
+$(document).ready(function() {
+    var trable = $('#table').DataTable({
+        
+	"createdRow": function ( row, data, index ) {     
+	    if (data[122] == "false")     
+		$(row).addClass( 'skip_row' );
+	    
+	    var i=0;
+	    var ii=0;
+	    $.each(row, function (a, value){
+		
+		if (i != 0) {
+		    $(row.cells[i]).addClass("col_"+(ii).toString());
+		    ii++;
+		}
+		
+		i++;
+	    });
+	    highlight();
+	}});
+});
+    

@@ -102,7 +102,27 @@ class CreateVendor1s < ActiveRecord::Migration[5.0]
       t.text :col_98
       t.text :col_99
       t.text :col_100
-
+    t.text :col_101
+    t.text :col_102
+    t.text :col_103
+    t.text :col_104
+    t.text :col_105
+    t.text :col_106
+    t.text :col_107
+    t.text :col_108
+    t.text :col_109
+    t.text :col_110
+    t.text :col_111
+    t.text :col_112
+    t.text :col_113
+    t.text :col_114
+    t.text :col_115
+    t.text :col_116
+    t.text :col_117
+    t.text :col_118
+    t.text :col_119
+    t.text :col_120
+    t.boolean :visible, default: true
       t.timestamps
     end
   end

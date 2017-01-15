@@ -1,0 +1,43 @@
+<h1>Updater#set_cols</h1>
+
+
+<%= link_to 'Back', updater_index_path, class: "btn btn-primary" %>
+
+<hr>
+<%= render 'flash'  %>
+
+<%= render 'header_cols'  %>
+<hr>
+<table id="table" class="display" cellspacing="0" width="100%"  >
+
+  <thead>
+    <tr>
+      <% @cols.each do |r| %>
+      <th><%= r %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <% @cols.each do |r| %>
+      <th><%= r %></th>
+      <% end %>
+    </tr>
+  </tfoot>
+<% @data.each do |e| %>
+		
+				<tr><% @cols.each do |r| %><td><%= e.send(r).to_s[0..25] %></td><% end %></tr>
+		
+		
+		
+<% end %>
+
+</table>
+<script>
+$('.active').removeClass("active");
+$('#updater').addClass("active");
+
+  <%= render 'script_cols'  %>
+</script>
+
