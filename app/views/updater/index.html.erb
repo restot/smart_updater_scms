@@ -20,7 +20,7 @@
 			<% if switch == "f" %>
 			<%= link_to "Обновить", updater_sequence_path(updater_id:myfile, format: "js" ), remote: true, class: "btn btn-success" %> 
 			<% end %>    
-			<%= link_to (switch == 'f')?'Set Main':'Main', (switch == 'f')? "#{updater_main_path( updater_id: myfile )}" : "#{updater_path(myfile)}", class: "btn btn-#{(switch == 'f')?'warning':'danger'}" %>
+			<%= link_to (switch == 'f')?'Сделать главным':'Главный', (switch == 'f')? "#{updater_main_path( updater_id: myfile )}" : "#{updater_path(myfile)}", class: "btn btn-#{(switch == 'f')?'warning':'danger'}" %>
 	    
 			<% if switch == "f" %>
 			<%= link_to "Столбцы", updater_set_cols_path( updater_id: myfile ), class: "btn btn-primary" %> 

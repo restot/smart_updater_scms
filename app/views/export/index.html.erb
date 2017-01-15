@@ -1,0 +1,11 @@
+<h1>Скачивание экспорта</h1>
+
+
+<div><%= link_to "Скачать экспорт", export_index_path(format: "xml"), class: "btn btn-primary", download:"" %>
+  </div>
+
+
+<script>
+$('.active').removeClass("active");
+$('#export').addClass("active");
+</script>

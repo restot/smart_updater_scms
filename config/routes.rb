@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'export/index'
+
  # get 'reader/read', to: 'reader#read'
 
 	resources :my_files, controller: 'loader'
