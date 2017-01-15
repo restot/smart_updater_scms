@@ -15,14 +15,13 @@ ActiveRecord::Schema.define(version: 20161218133609) do
   create_table "my_files", force: :cascade do |t|
     t.string   "name"
     t.string   "attachment"
-    t.string   "main",          default: "f"
-    t.string   "bool",          default: "f"
+    t.boolean  "main",          default: false
     t.text     "main_template"
     t.text     "skip_rows"
     t.text     "skip_cols"
     t.string   "vendor_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "statuses", force: :cascade do |t|

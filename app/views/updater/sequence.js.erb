@@ -2,18 +2,21 @@ var time_<%=@name.name%>;
 var jqxhr = $.ajax( {url: "<%= url_for(controller: "updater", action: 'load', updater_id: @id, format: "json", only_path: false ) %>",
 	dataType: "json",
 	beforeSend: function(){
-	 time_<%=@name.name%> = countdown(new Date(),function(ts){$('#<%=@name.name%>_time').html(ts.toHTML());},countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,1,1);
+	$('#<%= @name.name%>_time_name').html("updating...");
+	 time_<%=@name.name%> = countdown(new Date(),function(ts){$('#<%=@name.name%>_time').html(ts.toHTML());},countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,3,2);
 		
     }
 })
   .done(function() {	  
 console.log( "done" );
+$('#<%= @name.name%>_time_name').html("done");
 window.clearInterval(time_<%=@name.name%>);
   })
   .fail(function() {
   
     console.log( "error" );
 	  window.clearInterval(time_<%=@name.name%>);
+	   $('#<%= @name.name%>_time_name').html("error");
   })
 .always(function() {
 

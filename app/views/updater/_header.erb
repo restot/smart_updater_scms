@@ -6,7 +6,7 @@
 <% end %>
 
 <%= bootstrap_form_tag url: updater_path(params[:updater_id]), method: 'put', layout: :inline do |f| %>
-	<%= f.text_field :item_code,label: "Код товара",  value: @template["item_code"], class: @template["item_code"] %>
+	<%= f.text_field :item_code,label: "Артикул",  value: @template["item_code"], class: @template["item_code"] %>
 	<%= f.text_field :price,label: "Цена",  value: @template["price"], class: @template["price"] %>
 	<%= f.text_field :currency,label: "Валюта",  value: @template["currency"], class: @template["currency"] %>
 	<%= f.text_field :available,label: "Наличие",  value: @template["available"], class: @template["available"] %>
@@ -24,7 +24,7 @@
 <% end %>
 
 <%= bootstrap_form_tag url: updater_path(params[:updater_id]), method: 'put', layout: :inline do |f| %>
-	<%= f.text_field :item_code,label: "Код товара",  value: rulles["item_code"], class: @template["item_code"] %>
+	<%= f.text_field :item_code,label: "Артикул",  value: rulles["item_code"], class: @template["item_code"] %>
 	<%= f.text_field :price,label: "Цена",  value: rulles["price"], class: @template["price"] %>
 	
 	<%= f.text_field :available,label: "В наличии",  value: rulles["available"], class: @template["available"] %>

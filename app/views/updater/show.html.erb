@@ -9,12 +9,12 @@
 <% end %>
 
 <%= bootstrap_form_tag url: updater_path, method: 'put', layout: :inline do |f| %>
-	<%= f.text_field :item_code, value: template["item_code"], class: template["item_code"] %>
-	<%= f.text_field :price, value: template["price"], class: template["price"] %>
-	<%= f.text_field :currency, value: template["currency"], class: template["currency"] %>
-	<%= f.text_field :available, value: template["available"], class: template["available"] %>
-	<%= f.text_field :params_start, value: template["params_start"], class: template["params_start"] %>
-	<%= f.text_field :params_end, value: template["params_end"], class: template["params_end"] %>
+	<%= f.text_field :item_code,label: "Артикул", value: template["item_code"], class: template["item_code"] %>
+	<%= f.text_field :price,label: "Цена", value: template["price"], class: template["price"] %>
+	<%= f.text_field :currency,label: "Валюта", value: template["currency"], class: template["currency"] %>
+	<%= f.text_field :available,label: "Наличие", value: template["available"], class: template["available"] %>
+	<%= f.text_field :params_start,label: "Начало характеристик", value: template["params_start"], class: template["params_start"] %>
+	<%= f.text_field :params_end,label: "Конец характеристик", value: template["params_end"], class: template["params_end"] %>
 	<%= f.submit "Apply",layout: :horizontal %>
 <% end %>
 <hr>

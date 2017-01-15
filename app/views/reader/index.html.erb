@@ -22,12 +22,13 @@
 	    <% status = @statuses.find_by(model_id: myfile.vendor_id) %>
 	    <% if status != nil  %>
 
-	    <td class="countdown"><%= status.status %>
+	    <td class="countdown" id="<%= myfile.name%>_time_name"><%= status.status %>
 	    
 	<% if status.status.to_s == "finish" || status.status.to_s == "finish update" %>
-	<script>  $(function(){ $('#<%=myfile.name%>_time').html(countdown(<%= status.time_start.strftime('%s%3N') %>,<%= status.time_end.strftime('%s%3N')%>,countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,2,1).toString());});</script>
-	<% elsif status.status != "finish" %>
-		    <script>var time_<%=myfile.name%> = countdown(<%= status.time_start.strftime('%s%3N') if status.time_start != nil %>,function(ts){$('#<%=myfile.name%>_time').html(ts.toHTML());},countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,2,1);</script>
+	<script>  $(function(){ $('#<%=myfile.name%>_time').html(countdown(<%= status.time_start.strftime('%s%3N') %>,<%= status.time_end.strftime('%s%3N')%>,countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,3,2).toString());});</script>
+
+	<% elsif status.status == "loading..." %>
+		    <script>var time_<%=myfile.name%> = countdown(<%= status.time_start.strftime('%s%3N') if status.time_start != nil %>,function(ts){$('#<%=myfile.name%>_time').html(ts.toHTML());},countdown.HOURS|countdown.MINUTES|countdown.SECONDS|countdown.MILLISECONDS,3,2);</script>
 	   
   <% else %>
 	  <script></script>

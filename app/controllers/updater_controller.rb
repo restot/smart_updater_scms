@@ -89,7 +89,8 @@ File.open(Rails.root.join('public',"#{@file.name}_isset.json").to_s, 'w') { |fil
 respond_to do |f|
 		  f.html
 		  f.json
-	  	end
+end
+puts "update end..."
   end
   
   
