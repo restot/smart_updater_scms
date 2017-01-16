@@ -21,7 +21,7 @@ xml.yml_catalog "date"=>"#{Time.now.strftime "%Y-%m-%d %H:%M:%S"}" do
           available = ""
         end
         xml.offer "id"=>"#{e.send(@template["category_id"])}" do
-         
+         xml.categoryId e.send(@template["item_id"])
           xml.price e.send(@template["price"])
           xml.currencyId e.send(@template["currency"])
           xml.available available

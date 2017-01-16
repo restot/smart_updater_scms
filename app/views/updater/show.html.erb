@@ -5,7 +5,7 @@
 <%  if @file.main_template != nil %>
 	<% template = JSON.parse(@file.main_template) %>
 <% else %>
-	<% template = Hash["item_code"=>"col_0","price"=>"col_1","currency"=>"col_2","available"=>"col_3","params_start"=>"col_4","params_end"=>"col_5", "category_id" => "col_14"]%>
+	<% template = Hash["item_code"=>"col_0","price"=>"col_1","currency"=>"col_2","available"=>"col_3","params_start"=>"col_4","params_end"=>"col_5", "category_id" => "col_14"],"item_id" => "col_14"]%>
 <% end %>
 
 <%= bootstrap_form_tag url: updater_path, method: 'put', layout: :inline do |f| %>
@@ -13,7 +13,8 @@
 	<%= f.text_field :price,label: "Цена", value: template["price"], class: template["price"] %>
 	<%= f.text_field :currency,label: "Валюта", value: template["currency"], class: template["currency"] %>
 	<%= f.text_field :available,label: "Наличие", value: template["available"], class: template["available"] %>
-	<%= f.text_field :category_id,label: "Номер группы", value: template["category_id"], class: template["available"] %>
+	<%= f.text_field :category_id,label: "Номер категории", value: template["category_id"], class: template["available"] %>
+		<%= f.text_field :item_id,label: "Идентификатор товара", value: template["item_id"], class: template["available"] %>
 	<%= f.text_field :params_start,label: "Начало характеристик", value: template["params_start"], class: template["params_start"] %>
 	<%= f.text_field :params_end,label: "Конец характеристик", value: template["params_end"], class: template["params_end"] %>
 	<%= f.submit "Apply",layout: :horizontal %>
