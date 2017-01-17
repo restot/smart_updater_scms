@@ -1,3 +1,4 @@
+# coding: utf-8
 xml.instruct!
 xml.yml_catalog "date"=>"#{Time.now.strftime "%Y-%m-%d %H:%M:%S"}" do
  
@@ -7,10 +8,10 @@ xml.yml_catalog "date"=>"#{Time.now.strftime "%Y-%m-%d %H:%M:%S"}" do
 		   a.each {|e| xml.currency "id"=>e,"rate"=>"1"}
 
     end
+# categories ...
     xml.categories do
-    		   xml.category
+      xml.category 
     end
-
     xml.offers do
       @data.each  do |e|
         if e.send(@template["available"]) == "+"
@@ -21,6 +22,7 @@ xml.yml_catalog "date"=>"#{Time.now.strftime "%Y-%m-%d %H:%M:%S"}" do
           available = ""
         end
         xml.offer "id"=>"#{e.send(@template["item_id"])}" do
+          xml.name e.send(@template["item_name"])
          xml.categoryId e.send(@template["category_id"])
           xml.price e.send(@template["price"])
           xml.currencyId e.send(@template["currency"])
@@ -32,3 +34,4 @@ xml.yml_catalog "date"=>"#{Time.now.strftime "%Y-%m-%d %H:%M:%S"}" do
   end	       
 
 end
+

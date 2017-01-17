@@ -45,6 +45,6 @@ class LoaderController < ApplicationController
    
    private
       def myfile_params
-      params.require(:my_file).permit(:name, :attachment, :vendor_id)
+      params.require(:my_file).permit(:name, :attachment, :vendor_id,:main)
    end
 end

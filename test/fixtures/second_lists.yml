@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  col_0: MyText
+  col_1: MyText
+  col_2: MyText
+  col_3: MyText
+  col_4: MyText
+
+two:
+  col_0: MyText
+  col_1: MyText
+  col_2: MyText
+  col_3: MyText
+  col_4: MyText

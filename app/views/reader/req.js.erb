@@ -1,5 +1,5 @@
 var time_<%=@name.name%>;
-var jqxhr = $.ajax( {url: "<%= url_for(controller: "reader", action: 'read',reader_id: @id,format: "json", only_path: false ) %>",
+var jqxhr = $.ajax( {url: "<%= url_for(controller: "reader", action: 'read',reader_id: (@flag == 'second_list')? 'second_list': @id,format: "json", only_path: false ) %>",
 	dataType: "json",
 		     beforeSend: function(){
 			 $('#<%= @name.name%>_time_name').html("loading...");

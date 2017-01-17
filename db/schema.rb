@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161218133609) do
+ActiveRecord::Schema.define(version: 20170117024715) do
 
   create_table "my_files", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20161218133609) do
     t.string   "vendor_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+  end
+
+  create_table "second_lists", force: :cascade do |t|
+    t.text     "col_0"
+    t.text     "col_1"
+    t.text     "col_2"
+    t.text     "col_3"
+    t.text     "col_4"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "statuses", force: :cascade do |t|

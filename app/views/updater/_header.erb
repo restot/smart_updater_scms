@@ -20,7 +20,7 @@
 	<%  if @file.skip_rows != nil %>
 	<% rulles = JSON.parse(@file.skip_rows) %>
 <% else %>
-	<% rulles = Hash[ "item_code" => "nil" , "price" => "nil" , "currency" => "nil" ,"available" => "nil","unavailable" => "nil","on_order" => "nil","kurs" => "nil" ]%>
+	<% rulles = Hash[ "item_code" => "!=:nil" , "price" => "<:0" , "currency" => "$SOURCE" ,"available" => "nil","unavailable" => "nil","on_order" => "nil","kurs" => "nil" ]%>
 <% end %>
 
 <%= bootstrap_form_tag url: updater_path(params[:updater_id]), method: 'put', layout: :inline do |f| %>

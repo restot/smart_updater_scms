@@ -7,24 +7,44 @@ class ReaderController < ApplicationController
   end
 
   def show
+    if params[:id] == "second_list" 
+	  @data= SecondList.take(150)
+	  @cols = SecondList.column_names
+    else
 	  file = MyFile.find(params[:id])
 	  @data= "Vendor#{file.vendor_id.to_s}".constantize.take(150)
 	  @cols = "Vendor#{file.vendor_id.to_s}".constantize.column_names
+    end
   end
 
   def read
-	  @file = MyFile.find(params[:reader_id])
+   
+    if params[:reader_id] == "second_list"
+      @file = MyFile.find_by(main: true)
+       model="SecondList".constantize
+      query = execute_statement("DELETE FROM second_lists")
+	 query1 = execute_statement("delete from sqlite_sequence where name='second_lists'")
+     
+    else
+      @file = MyFile.find(params[:reader_id])
+      model="Vendor#{@file.vendor_id.to_s}".constantize
+      query = execute_statement("DELETE FROM vendor#{@file.vendor_id.to_s}s")
+	  query1 = execute_statement("delete from sqlite_sequence where name='#{model.to_s.downcase}s'")
+    end
+    
 	  @status = Status.find_by(model_id: @file.vendor_id.to_s)
 	  @status.update(status: "loading...", time_start: Time.now)
 	  @xlsx = Roo::Spreadsheet.open(root_url + @file.attachment_url, extention: "xlsx")	# optional metods
-	model="Vendor#{@file.vendor_id.to_s}".constantize
+          
+          
 	#Vendor1.destroy_all
-	  query = execute_statement("DELETE FROM vendor#{@file.vendor_id.to_s}s")
-	  query1 = execute_statement("delete from sqlite_sequence where name='#{model.to_s.downcase}s'")
-	 @xlsx.sheet(0).each do |row|
+	 
+         sheet = (params[:reader_id] == 'second_list')? @xlsx.sheet(1) : @xlsx.sheet(0)
+          sheet.each do |row|
                    @hash = Hash.new 
 	 	   i=0
-		 row.each do |cell|
+
+	           row.each do |cell|
 		   
 		   @hash["col_#{i.to_s}"] = cell
 		   i += 1
@@ -45,9 +65,13 @@ class ReaderController < ApplicationController
   end
  
   def req
-	  @id = params[:reader_id]
+    if params[:flag] == "second_list"
+      @flag = "second_list"
+    end
+          @id = params[:reader_id]
 	  @name = MyFile.find(params[:reader_id])
 	  respond_to :html, :js
+    
   end
 
   def my

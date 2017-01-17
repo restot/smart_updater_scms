@@ -1,0 +1,2 @@
+class SecondList < ApplicationRecord
+end

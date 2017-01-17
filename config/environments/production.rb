@@ -80,7 +80,7 @@ config.public_file_server.enabled = true
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
-
+config.active_record.logger = nil
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

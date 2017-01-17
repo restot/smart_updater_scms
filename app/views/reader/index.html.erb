@@ -16,8 +16,16 @@
          <tr>
             <td><%= myfile.name %></td>
 	    <td>
-		<%= link_to "Читать", reader_req_path(reader_id:myfile, format: "js" ), remote: true, class: "btn btn-success" %>
-		<%= link_to "Показать", reader_path(myfile), class: "btn btn-warning" %>
+	      <%= link_to "Читать", reader_req_path(reader_id:myfile, format: "js" ), remote: true, class: "btn btn-success" %>
+	      <% if myfile.main == true  %>
+<%= link_to "Читать 2 лист", reader_req_path(reader_id:myfile, format: "js",flag: "second_list" ), remote: true, class: "btn btn-success" %>
+	      <% end  %>
+
+	      <%= link_to "Показать", reader_path(myfile), class: "btn btn-warning" %>
+	       <% if myfile.main == true  %>
+ <%= link_to "Показать 2 лист", reader_path("second_list"), class: "btn btn-warning" %>
+	      <% end  %>
+
 	    </td>
 	    <% status = @statuses.find_by(model_id: myfile.vendor_id) %>
 	    <% if status != nil  %>
