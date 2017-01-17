@@ -5,7 +5,7 @@
 <%  if @file.main_template != nil %>
 	<% template = JSON.parse(@file.main_template) %>
 <% else %>
-	<% template = Hash["item_code"=>"col_0","price"=>"col_5","currency"=>"col_6","available"=>"col_12","params_start"=>"col_29","params_end"=>"col_115", "category_id" => "col_21","item_id" => "col_22","item_name" => "col_14", "group_name"=>"col_1","group_id"=>"col_0","group_uuid"=>"col_2","parent_id"=>"col_3","parent_uuid"=>"col_4"]%>
+	<% template = Hash["item_code"=>"col_0","price"=>"col_5","currency"=>"col_6","available"=>"col_12","params_start"=>"col_29","params_end"=>"col_115", "category_id" => "col_21","item_id" => "col_22","item_name" => "col_1", "group_name"=>"col_1","group_id"=>"col_0","group_uuid"=>"col_2","parent_id"=>"col_3","parent_uuid"=>"col_4"]%>
 <% end %>
 
 <%= bootstrap_form_tag url: updater_path, method: 'put', layout: :inline do |f| %>
