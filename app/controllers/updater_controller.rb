@@ -30,20 +30,31 @@ class UpdaterController < ApplicationController
           @ruls_unavailable = Ruls.rules_parse(@file.skip_rows,"unavailable")
           @ruls_on_order = Ruls.rules_parse(@file.skip_rows,"on_order")
           @data= "Vendor#{@file.vendor_id.to_s}".constantize.all
+
           puts "start update..."
           @un_isset = Array.new
-         @isset = Array.new
-          @data.each do |e|
-            
-            item_code_current_value = e.send(@template["item_code"])
-            price_current_value = e.send(@template["price"])
-            available_current_value = e.send(@template["available"])
+          @isset = Array.new
+
+          @data_hash = @data.as_json
+          @main_hash = @main.as_json
+
+          @data_hash.each do |e|
+
+         
+       
+            item_code_current_value = e[@template["item_code"]]
+            price_current_value = e[@template["price"]]
+            available_current_value = e[@template["available"]]
 
            # puts @template
             
-            if e.visible == true and Ruls.bool_and(@ruls_item_code,item_code_current_value) and Ruls.bool_and(@ruls_price,price_current_value) then
-              a = @main.find_by(@main_template['item_code'] => e.send(@template["item_code"]))
-              if a != nil
+            if e["visible"] == true and Ruls.bool_and(@ruls_item_code,item_code_current_value) and Ruls.bool_and(@ruls_price,price_current_value) then
+              @a = nil.to_a
+
+              @a = @main_hash.select {|hash| hash[@main_template["item_code"]]== item_code_current_value }
+              
+              if @a != nil.to_a
+                @a = @a[0]
                 @available = nil
                # puts "Available: " + available_current_value.to_s + " " + Ruls.bool_or(@ruls_available,available_current_value).to_s
                 if Ruls.bool_or(@ruls_available,available_current_value)
@@ -57,23 +68,25 @@ class UpdaterController < ApplicationController
                 end
                 #puts @available
            if @available !=nil then
-                h = Hash[id: a.send(@main_template['item_code']).to_s, price_was: a.send(@main_template['price']).to_s, price_new: e.send(@template["price"]).to_s,available_was: a.send(@main_template['available']).to_s, available_new: @available]
+                h = Hash[id: @a[@main_template['item_code']].to_s, price_was: @a[@main_template['price']].to_s, price_new: price_current_value ,available_was: @a[@main_template['available']].to_s, available_new: @available]
 #Hash[id: a.send(@main_template['item_code']).to_s, price_was: a.send(@main_template['price']).to_s, price_new: e.send(@template["price"]).to_s]
                 @isset << h
 
                 
                 if (@template["currency"] == "$SOURCE") then
-a.update(@main_template['price'] => (@skip_rows["kurs"] == "nil" )? e.send(@template["price"]) : (e.send(@template["price"]).to_i.fdiv(@skip_rows["kurs"].to_f)).round(6).to_s, @main_template['available'] => @available)
+                  puts "upd start..."
+                  @main.where(@main_template["item_code"] => item_code_current_value).update(@main_template['price'] => (@skip_rows["kurs"] == "nil" )? price_current_value : ((price_current_value).to_i.fdiv(@skip_rows["kurs"].to_f)).round(6).to_s, @main_template['available'] => @available)
+                  puts "upd end..."
                 else
                   puts "A: " + @available + " I:  " + item_code_current_value
-                   a.update(@main_template['price'] =>(@skip_rows["kurs"] == "nil" )? e.send(@template["price"]) : (e.send(@template["price"]).to_i.fdiv(@skip_rows["kurs"].to_f)).round(6).to_s, @main_template['currency'] => @template["currency"], @main_template['available'] => @available)
+                  @main.where(@main_template["item_code"] => item_code_current_value).update(@main_template['price'] =>(@skip_rows["kurs"] == "nil" )? price_current_value : ((price_current_value).to_i.fdiv(@skip_rows["kurs"].to_f)).round(6).to_s, @main_template['currency'] => @template["currency"], @main_template['available'] => @available)
                 end
               else
                 
              puts "@available = nil! ---------------------------"     
            end
               else
-              @un_isset << e.send(@template["item_code"])
+              @un_isset << e[@template["item_code"]]
            
            end
               end
