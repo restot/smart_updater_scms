@@ -10,7 +10,10 @@ xml.yml_catalog "date"=>"#{Time.now.strftime "%Y-%m-%d %H:%M:%S"}" do
     end
 # categories ...
     xml.categories do
-      xml.category 
+      @cater .each do |e|
+        xml.category "id"=>e.send(@template["group_id"]),"parent_id"=>e.send(@template["parent_id"]) e.send(@template["group_name"])
+      end
+       
     end
     xml.offers do
       @data.each  do |e|
