@@ -144,7 +144,7 @@ puts "update end..."
     if params[:flag] == nil
       if i.main == true then
         respond_to do |f|
-	  if i.update(main_template: (params.permit(:item_code, :price, :currency, :available, :params_start, :params_end,:category_id,:item_id,:item_name)).to_json) then
+	  if i.update(main_template: (params.permit(:item_code, :price, :currency, :available, :params_start, :params_end,:category_id,:item_id,:item_name,:group_id,:group_name,:group_uuid,:parent_id,:parent_uuid)).to_json) then
 	    f.html {redirect_to :back, notice: "Updating main template  succesful!" }
 	  else
 	    f.html {redirect_to :back, notice: "Filed...[main template]" }

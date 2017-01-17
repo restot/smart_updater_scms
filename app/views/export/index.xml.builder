@@ -10,8 +10,8 @@ xml.yml_catalog "date"=>"#{Time.now.strftime "%Y-%m-%d %H:%M:%S"}" do
     end
 # categories ...
     xml.categories do
-      @cater .each do |e|
-        xml.category "id"=>e.send(@template["group_id"]),"parent_id"=>e.send(@template["parent_id"]) e.send(@template["group_name"])
+      @cater.each do |d|
+        xml.category(id: d.send(@template["group_id"]), paretnId: d.send(@template["parent_id"])){ xml << d.send(@template["group_name"])}
       end
        
     end
@@ -35,6 +35,5 @@ xml.yml_catalog "date"=>"#{Time.now.strftime "%Y-%m-%d %H:%M:%S"}" do
       end
     end
   end	       
-
 end
 
