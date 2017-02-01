@@ -16,7 +16,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+	
 # Ignore Byebug command history file.
 .byebug_history
 !/public/uploads/.keep
@@ -34,3 +34,4 @@ doc/
 *.xlsx
 /.bundle
 schema.rb
+*set.json
