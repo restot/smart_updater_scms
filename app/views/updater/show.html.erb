@@ -14,8 +14,9 @@
 	<%= f.text_field :price,label: "Цена", value: template["price"], class: template["price"] %>
 	<%= f.text_field :currency,label: "Валюта", value: template["currency"], class: template["currency"] %>
 	<%= f.text_field :available,label: "Наличие", value: template["available"], class: template["available"] %>
+<%= f.text_field :item_id,label: "Идентификатор товара", value: template["item_id"], class: template["item_id"] %>
 	<%= f.text_field :category_id,label: "Идентификатор подраздела", value: template["category_id"], class: template["category_id"] %>
-		<%= f.text_field :item_id,label: "Идентификатор товара", value: template["item_id"], class: template["item_id"] %>
+		
 	<%= f.text_field :params_start,label: "Начало характеристик", value: template["params_start"], class: template["params_start"] %>
 	<%= f.text_field :params_end,label: "Конец характеристик", value: template["params_end"], class: template["params_end"] %>
 	<%= f.hidden_field :group_name, value: template["group_name"] %>
